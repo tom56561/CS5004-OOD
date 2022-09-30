@@ -1,0 +1,16 @@
+package lab02;
+
+import static org.junit.Assert.assertEquals;
+
+
+/**
+ * A JUnit test class for the PayCheck class.
+ */
+public class PayCheckTest {
+
+  @Test
+  public void test() {
+    fail("Not yet implemented");
+  }
+
+}

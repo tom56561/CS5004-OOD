@@ -1,0 +1,22 @@
+package lab02;
+
+public class PayCheck {
+
+  private final double totalPay;
+  private final String name;
+  
+  public PayCheck(String name, double payRate, double hoursWorked) {
+    this.name = name;
+    this.totalPay = payRate * Math.min(hoursWorked, 40);
+    this.totalPay = payRate * Math.max(hoursWorked, 40);
+  }
+  
+  /**
+   * 
+   */
+  @Override
+  public String toString() {
+    return String.format("$%.2f", this.totalPay);
+  }
+  
+}
