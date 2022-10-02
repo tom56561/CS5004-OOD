@@ -2,9 +2,4 @@ INDEX VERSION 1.131+/Users/eddie/Desktop/CS 5004/workplace/.metadata/.plugins/or
 137727942.index
 1865797976.index
 290287783.index
-2109837762.index
-90393427.index
 2843955857.index
-2868949470.index
-1571501549.index
-1919187909.index
