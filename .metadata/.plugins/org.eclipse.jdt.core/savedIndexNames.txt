@@ -1,5 +1,0 @@
-INDEX VERSION 1.131+/Users/eddie/Desktop/CS 5004/workplace/.metadata/.plugins/org.eclipse.jdt.core
-137727942.index
-1865797976.index
-290287783.index
-2843955857.index
