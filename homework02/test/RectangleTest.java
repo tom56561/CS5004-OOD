@@ -100,6 +100,7 @@ public class RectangleTest {
       try {
         assertEquals(expected, first.intersect(other).toString());
       } catch (NoSuchElementException e) {
+        System.out.print("No intersection");
       }
     }
   }

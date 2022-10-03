@@ -47,7 +47,7 @@ public class Rectangle {
    *         the other rectangle
    */
   public Rectangle intersect(Rectangle other) throws NoSuchElementException {
-    if (this.overlap(other) == false) {
+    if (!this.overlap(other)) {
       throw new NoSuchElementException();
     }
     int xL = Math.max(this.x, other.x);
