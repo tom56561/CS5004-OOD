@@ -50,7 +50,7 @@ public class RectangleTest {
     boolean expected;
     Random random = new Random(12345);
 
-    for (int test = 0; test < 5000; test++) {
+    for (int test = 0; test < 500; test++) {
       int x = random.nextInt();
       int y = random.nextInt();
       int w = Math.abs(random.nextInt());
@@ -81,7 +81,7 @@ public class RectangleTest {
     String expected;
     Random random = new Random(12345);
 
-    for (int test = 0; test < 5000; test++) {
+    for (int test = 0; test < 500; test++) {
       int x = random.nextInt();
       int y = random.nextInt();
       int w = Math.abs(random.nextInt());
@@ -120,15 +120,15 @@ public class RectangleTest {
     String expected;
     Random random = new Random(12345);
 
-    for (int test = 0; test < 1000; test++) {
-      int x = random.nextInt(1000);
-      int y = random.nextInt(1000);
-      int w = random.nextInt(1000) + 1;
-      int h = random.nextInt(1000) + 1;
-      int ax = random.nextInt(1000);
-      int ay = random.nextInt(1000);
-      int aw = random.nextInt(1000) + 1;
-      int ah = random.nextInt(1000) + 1;
+    for (int test = 0; test < 100; test++) {
+      int x = random.nextInt(100);
+      int y = random.nextInt(100);
+      int w = random.nextInt(100) + 1;
+      int h = random.nextInt(100) + 1;
+      int ax = random.nextInt(100);
+      int ay = random.nextInt(100);
+      int aw = random.nextInt(100) + 1;
+      int ah = random.nextInt(100) + 1;
 
       first = new Rectangle(x, y, w, h);
       other = new Rectangle(ax, ay, aw, ah);
@@ -151,7 +151,7 @@ public class RectangleTest {
     String expected;
     Random random = new Random(12345);
 
-    for (int test = 0; test < 5000; test++) {
+    for (int test = 0; test < 500; test++) {
       int x = random.nextInt();
       int y = random.nextInt();
       int w = Math.abs(random.nextInt());
