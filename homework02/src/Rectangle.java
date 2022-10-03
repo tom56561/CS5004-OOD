@@ -3,7 +3,6 @@
  * This class represents a Rectangle. A Rectangle has a x and a y.
  */
 public class Rectangle {
-
   private int x;
   private int y;
   private int w;
@@ -12,10 +11,10 @@ public class Rectangle {
   /**
    * Makes a new Rectangle object with the x and y.
    * 
-   * @param x   the x of the Rectangle
-   * @param y   the y of the Rectangle
-   * @param w   the width of the Rectangle
-   * @param h   the height of the Rectangle
+   * @param x the x of the Rectangle
+   * @param y the y of the Rectangle
+   * @param w the width of the Rectangle
+   * @param h the height of the Rectangle
    */
   public Rectangle(int x, int y, int w, int h) throws IllegalArgumentException {
     if (w < 0 || h < 0) {
@@ -25,6 +24,13 @@ public class Rectangle {
     this.y = y;
     this.w = w;
     this.h = h;
+  }
+
+  /**
+   * The Vector3D toString is represented by the components of the Vector3D.
+   */
+  public String toString() {
+    return String.format("x:%d, y:%d, w:%d, h:%d", this.x, this.y, this.w, this.h);
   }
 
 }

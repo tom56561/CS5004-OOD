@@ -1,7 +1,5 @@
 package lab01;
 
-import lab01.Person;
-
 import org.junit.Before;
 import org.junit.Test;
 
