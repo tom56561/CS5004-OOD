@@ -82,7 +82,7 @@ public class Rectangle {
    * @return components of the Rectangle as a string
    */
   public String toString() {
-    return String.format("x:%d, y:%d, w:%d, h:%d", this.x, this.y, this.w, this.h);
+    return "x:" + this.x + ", y:" + this.y + ", w:" + this.w + ", h:" + this.h;
   }
 
 }
