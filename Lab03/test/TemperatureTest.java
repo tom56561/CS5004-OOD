@@ -6,6 +6,7 @@ import org.junit.Test;
 //import cs5004.temperature.Temperature;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import java.util.Random;
 
@@ -23,9 +24,32 @@ public class TemperatureTest {
     fTemp = new FahrenheitTemperature(100, true);
   }
 
+  // test more
   @Test(expected = IllegalArgumentException.class)
   public void testForInvalidFTemp() {
     new FahrenheitTemperature(-1000);
+  }
+
+  @Test
+  public void testManyInvalidFTemp() {
+    Random random = new Random(98776);
+    double inTemp;
+    for (int test = 0; test < 5000; test++) {
+      inTemp = random.nextDouble() * 100;
+
+      try {
+        new CelsiusTemperature(Temperature.ABS_ZERO_C - inTemp);
+        fail("Did not throw exception on temperature below abolute 0");
+      } catch (IllegalArgumentException e) {
+        // do nothing
+      }
+      try {
+        new FahrenheitTemperature(Temperature.ABS_ZERO_C - inTemp, true);
+        fail("Did not throw exception on temperature below abolute 0");
+      } catch (IllegalArgumentException e) {
+        // do nothing
+      }
+    }
   }
 
   @Test

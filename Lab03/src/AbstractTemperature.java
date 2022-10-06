@@ -2,7 +2,10 @@
 public abstract class AbstractTemperature implements Temperature {
   protected double temperatureCelsius;
 
-  public AbstractTemperature(double temperatureCelsius) {
+  public AbstractTemperature(double temperatureCelsius) throws IllegalArgumentException {
+    if (temperatureCelsius < Temperature.ABS_ZERO_C) {
+      throw new IllegalArgumentException("temperature must be above 0");
+    }
     this.temperatureCelsius = temperatureCelsius;
   }
 

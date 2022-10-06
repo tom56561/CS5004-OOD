@@ -13,8 +13,9 @@ public class CelsiusTemperature extends AbstractTemperature {
    * Celsius.
    * 
    * @param temperatureCelsius the temperature in units Celsius
+   * @throws IllegalArgumentException when temperature is below absolute 0
    */
-  public CelsiusTemperature(double temperatureCelsius) {
+  public CelsiusTemperature(double temperatureCelsius) throws IllegalArgumentException {
     super(temperatureCelsius);
   }
 
