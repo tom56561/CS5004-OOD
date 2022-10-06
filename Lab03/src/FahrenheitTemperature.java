@@ -26,4 +26,14 @@ public class FahrenheitTemperature extends AbstractTemperature {
   public String toString() {
     return String.format("%.1f° Fahrenheit", this.inFahrenheit());
   }
+
+  
+  /**
+   * Adds two temperature together by summing their temperature valuer in like units,
+   * and returns a new FahrenheitTemperature object with that temperature value.
+   */
+  @Override
+  public Temperature add(Temperature t) {
+    return new FahrenheitTemperature(this.inCelsius() + t.inCelsius(), true);
+  }
 }

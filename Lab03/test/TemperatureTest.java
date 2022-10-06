@@ -65,29 +65,183 @@ public class TemperatureTest {
   }
 
   @Test
-  public void testAdd() {
-    // test your add() method here according to its specification
+  public void testAddCelsius() {
+    Random random = new Random(98776);
+    double expected;
+    double actual;
+
+    Temperature t1;
+    Temperature t2;
+    Temperature t3;
+
+    double temp1;
+    double temp2;
+
+    for (int test = 0; test < 5000; test++) {
+      temp1 = random.nextDouble() * 270 - 135;
+      temp2 = random.nextDouble() * 270 - 135;
+
+      t1 = new CelsiusTemperature(temp1);
+      t2 = new CelsiusTemperature(temp2);
+
+      t3 = t1.add(t2);
+      expected = temp1 + temp2;
+      actual = t3.inCelsius();
+      assertEquals(expected, actual, 0.001);
+
+      t3 = t2.add(t1);
+      expected = temp1 + temp2;
+      actual = t3.inCelsius();
+      assertEquals(expected, actual, 0.001);
+    }
   }
+
+  /**
+   * Test adding one CelsiusTemperature
+   */
+  @Test
+  public void testAddFahrenheit() {
+    Random random = new Random(98776);
+    double expected;
+    double actual;
+
+    Temperature t1;
+    Temperature t2;
+    Temperature t3;
+
+    double temp1;
+    double temp2;
+
+    for (int test = 0; test < 5000; test++) {
+      temp1 = random.nextDouble() * 270 - 135;
+      temp2 = random.nextDouble() * 270 - 135;
+
+      t1 = new FahrenheitTemperature(temp1, true);
+      t2 = new FahrenheitTemperature(temp2, true);
+
+      t3 = t1.add(t2);
+      expected = temp1 + temp2;
+      actual = t3.inCelsius();
+      assertEquals(expected, actual, 0.001);
+
+      t3 = t2.add(t1);
+      expected = temp1 + temp2;
+      actual = t3.inCelsius();
+      assertEquals(expected, actual, 0.001);
+    }
+  }
+  
+  /**
+   * Test adding one CelsiusTemperature
+   */
+  @Test
+  public void testAddMix() {
+    Random random = new Random(98776);
+    double expected;
+    double actual;
+
+    Temperature t1;
+    Temperature t2;
+    Temperature t3;
+
+    double temp1;
+    double temp2;
+
+    for (int test = 0; test < 5000; test++) {
+      temp1 = random.nextDouble() * 270 - 135;
+      temp2 = random.nextDouble() * 270 - 135;
+
+      t1 = new CelsiusTemperature(temp1);
+      t2 = new FahrenheitTemperature(temp2, true);
+
+      t3 = t1.add(t2);
+      expected = temp1 + temp2;
+      actual = t3.inCelsius();
+      assertEquals(expected, actual, 0.001);
+
+      t3 = t2.add(t1);
+      expected = temp1 + temp2;
+      actual = t3.inCelsius();
+      assertEquals(expected, actual, 0.001);
+    }
+    
+    for (int test = 0; test < 5000; test++) {
+      temp1 = random.nextDouble() * 270 - 135;
+      temp2 = 0;
+
+      t1 = new CelsiusTemperature(temp1);
+      t2 = new FahrenheitTemperature(temp2, true);
+
+      t3 = t1.add(t2);
+      expected = temp1;
+      actual = t3.inCelsius();
+      assertEquals(expected, actual, 0.001);
+
+      t3 = t2.add(t1);
+      expected = temp1;
+      actual = t3.inCelsius();
+      assertEquals(expected, actual, 0.001);
+    }
+    
+    for (int test = 0; test < 5000; test++) {
+      temp1 = random.nextDouble() * 270 - 135;
+      temp2 = -temp1;
+
+      t1 = new CelsiusTemperature(temp1);
+      t2 = new FahrenheitTemperature(temp2, true);
+
+      t3 = t1.add(t2);
+      expected = 0;
+      actual = t3.inCelsius();
+      assertEquals(expected, actual, 0.001);
+
+      t3 = t2.add(t1);
+      expected = 0;
+      actual = t3.inCelsius();
+      assertEquals(expected, actual, 0.001);
+    }
+    
+    for (int test = 0; test < 5000; test++) {
+      temp1 = random.nextDouble() * 270 - 135;
+      temp2 = random.nextDouble() * -270 - (Temperature.ABS_ZERO_C - temp1);
+      t1 = new CelsiusTemperature(temp1);
+      t2 = new FahrenheitTemperature(temp2, true);
+      
+      try {        
+        t3 = t1.add(t2);
+      } catch (IllegalArgumentException e) {
+        fail("Should have added to below absolute 0");
+      }
+      
+      try {        
+        t3 = t2.add(t1);
+      } catch (IllegalArgumentException e) {
+        fail("Should have added to below absolute 0");
+      }
+
+    }
+  }
+  
 
   @Test
   public void testToString() {
     assertEquals("100.0° Celsius", cTemp.toString());
     assertEquals("212.0° Fahrenheit", fTemp.toString());
-    
+
     Random random = new Random(98776);
     double inTemp;
     String expected;
     String actual;
-    
+
     Temperature t;
     for (int test = 0; test < 5000; test++) {
       inTemp = random.nextDouble() * 200;
-      
+
       t = new CelsiusTemperature(inTemp);
       actual = t.toString();
       expected = String.format("%.1f° Celsius", inTemp);
       assertEquals(expected, actual);
-      
+
       t = new FahrenheitTemperature(inTemp);
       actual = t.toString();
       expected = String.format("%.1f° Fahrenheit", inTemp);

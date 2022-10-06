@@ -37,4 +37,16 @@ public class CelsiusTemperature extends AbstractTemperature {
   public String toString() {
     return String.format("%.1f° Celsius", this.temperatureCelsius);
   }
+
+  /**
+   * Adds two temperature together by summing their temperature valuer in like units,
+   * and returns a new CelsiusTemperature object with that temperature value.
+   */
+  @Override
+  public Temperature add(Temperature t) throws IllegalArgumentException {
+    if (this.temperatureCelsius + t.inCelsius() < Temperature.ABS_ZERO_C) {
+      throw new IllegalArgumentException("Can not add two temperature that result");
+    }
+    return new CelsiusTemperature(this.temperatureCelsius + t.inCelsius());
+  }
 }

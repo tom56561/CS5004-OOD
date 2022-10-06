@@ -22,8 +22,13 @@ public abstract class AbstractTemperature implements Temperature {
 
   @Override
   public int compareTo(Temperature o) {
-    // TODO Auto-generated method stub
-    return 0;
+    if (this.temperatureCelsius > o.inCelsius()) {
+      return 1;
+    }else if (this.temperatureCelsius < o.inCelsius()) {
+      return -1;
+    } else {
+      return 0;
+    }
   }
 
   @Override
@@ -41,9 +46,5 @@ public abstract class AbstractTemperature implements Temperature {
     return this.temperatureCelsius - Temperature.ABS_ZERO_C;
   }
 
-  @Override
-  public Temperature add(Temperature t) {
-    return null;
-  }
 
 }
