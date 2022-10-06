@@ -39,13 +39,13 @@ public class TemperatureTest {
 
       try {
         new CelsiusTemperature(Temperature.ABS_ZERO_C - inTemp);
-        fail("Did not throw exception on temperature below abolute 0");
+        fail("Did not throw exception on temperature below absolute 0");
       } catch (IllegalArgumentException e) {
         // do nothing
       }
       try {
         new FahrenheitTemperature(Temperature.ABS_ZERO_C - inTemp, true);
-        fail("Did not throw exception on temperature below abolute 0");
+        fail("Did not throw exception on temperature below absolute 0");
       } catch (IllegalArgumentException e) {
         // do nothing
       }

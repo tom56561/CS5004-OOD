@@ -4,7 +4,7 @@ public abstract class AbstractTemperature implements Temperature {
 
   public AbstractTemperature(double temperatureCelsius) throws IllegalArgumentException {
     if (temperatureCelsius < Temperature.ABS_ZERO_C) {
-      throw new IllegalArgumentException("temperature must be above 0");
+      throw new IllegalArgumentException("temperature must be above absolute 0");
     }
     this.temperatureCelsius = temperatureCelsius;
   }
@@ -33,14 +33,12 @@ public abstract class AbstractTemperature implements Temperature {
 
   @Override
   public double inFahrenheit() {
-    // TODO Auto-generated method stub
-    return 0;
+    return this.temperatureCelsius * (9.0 / 5.0) + 32.0;
   }
 
   @Override
   public double inKelvin() {
-    // TODO Auto-generated method stub
-    return 0;
+    return this.temperatureCelsius - Temperature.ABS_ZERO_C;
   }
 
   @Override
