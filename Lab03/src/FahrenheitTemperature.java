@@ -24,6 +24,6 @@ public class FahrenheitTemperature extends AbstractTemperature {
   
   @Override
   public String toString() {
-    return String.format("%.1f Fahrenheit", this.inFahrenheit());
+    return String.format("%.1f° Fahrenheit", this.inFahrenheit());
   }
 }

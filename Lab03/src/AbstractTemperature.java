@@ -43,7 +43,6 @@ public abstract class AbstractTemperature implements Temperature {
 
   @Override
   public Temperature add(Temperature t) {
-    // TODO Auto-generated method stub
     return null;
   }
 

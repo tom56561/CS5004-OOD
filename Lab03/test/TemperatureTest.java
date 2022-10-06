@@ -71,8 +71,8 @@ public class TemperatureTest {
 
   @Test
   public void testToString() {
-    assertEquals("100.0Â° Celsius", cTemp.toString());
-    assertEquals("212.0Â° Fahrenheit", fTemp.toString());
+    assertEquals("100.0° Celsius", cTemp.toString());
+    assertEquals("212.0° Fahrenheit", fTemp.toString());
     
     Random random = new Random(98776);
     double inTemp;
@@ -85,12 +85,12 @@ public class TemperatureTest {
       
       t = new CelsiusTemperature(inTemp);
       actual = t.toString();
-      expected = String.format("%.1f Celsius", inTemp);
+      expected = String.format("%.1f° Celsius", inTemp);
       assertEquals(expected, actual);
       
       t = new FahrenheitTemperature(inTemp);
       actual = t.toString();
-      expected = String.format("%.1f Fahrenheit", inTemp);
+      expected = String.format("%.1f° Fahrenheit", inTemp);
       assertEquals(expected, actual);
     }
   }

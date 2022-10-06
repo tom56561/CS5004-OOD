@@ -30,8 +30,11 @@ public class CelsiusTemperature extends AbstractTemperature {
     super(AbstractTemperature.convertFahrenheitToCelsius(temperatureFahrenheit));
   }
   
+  /**
+   * put
+   */
   @Override
   public String toString() {
-    return String.format("%.1f Celsius", this.temperatureCelsius);
+    return String.format("%.1f° Celsius", this.temperatureCelsius);
   }
 }
