@@ -21,4 +21,9 @@ public class FahrenheitTemperature extends AbstractTemperature {
   public FahrenheitTemperature(double temperatureCelsius, boolean isCelsius) {
     super(temperatureCelsius);
   }
+  
+  @Override
+  public String toString() {
+    return String.format("%.1f Fahrenheit", this.inFahrenheit());
+  }
 }
