@@ -21,16 +21,19 @@ public class FahrenheitTemperature extends AbstractTemperature {
   public FahrenheitTemperature(double temperatureCelsius, boolean isCelsius) {
     super(temperatureCelsius);
   }
-  
+
+  /**
+   * return a String as follows: "NN.N° Fahrenheit".
+   */
   @Override
   public String toString() {
     return String.format("%.1f° Fahrenheit", this.inFahrenheit());
   }
 
-  
   /**
-   * Adds two temperature together by summing their temperature valuer in like units,
-   * and returns a new FahrenheitTemperature object with that temperature value.
+   * Adds two temperature together by summing their temperature valuer in like
+   * units, and returns a new FahrenheitTemperature object with that temperature
+   * value.
    */
   @Override
   public Temperature add(Temperature t) {

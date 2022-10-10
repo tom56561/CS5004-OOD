@@ -31,7 +31,7 @@ public class CelsiusTemperature extends AbstractTemperature {
   }
   
   /**
-   * put
+   * return a String as follows: "NN.N° Celsius".
    */
   @Override
   public String toString() {
