@@ -26,5 +26,18 @@ public interface Sentence {
    */
   String longestWord();
 
+  /**
+   * Returns a duplicate of a given sentence
+   * @return a duplicate of a given sentence
+   */
   Sentence clone();
+  
+  
+  /**
+   * Merges this Sentence and another Sentence into a single sentence.
+   * 
+   * @param other Sentence
+   * @return
+   */
+  Sentence merger(Sentence other);
 }
