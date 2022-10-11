@@ -1,6 +1,15 @@
 
 public class PunctuationNode implements Sentence {
 
+  private String punctuation;
+  private Sentence rest;
+
+  public PunctuationNode(String punctuation, Sentence rest) {
+    this.punctuation = punctuation;
+    this.rest = rest;
+
+  }
+
   @Override
   public int getNumberOfWords() {
     // TODO Auto-generated method stub

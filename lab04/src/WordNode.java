@@ -1,5 +1,11 @@
 
 public class WordNode implements Sentence {
+  private String word;
+  private Sentence rest;
+  public WordNode(String word, Sentence rest) {
+    this.word = word;
+    this.rest = rest;
+  }
 
   @Override
   public int getNumberOfWords() {
