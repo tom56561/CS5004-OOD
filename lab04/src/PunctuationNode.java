@@ -12,8 +12,7 @@ public class PunctuationNode implements Sentence {
 
   @Override
   public int getNumberOfWords() {
-    // TODO Auto-generated method stub
-    return 0;
+    return 0 + this.rest.getNumberOfWords();
   }
 
   @Override

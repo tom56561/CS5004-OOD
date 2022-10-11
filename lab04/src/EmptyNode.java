@@ -3,7 +3,6 @@ public class EmptyNode implements Sentence {
 
   @Override
   public int getNumberOfWords() {
-    // TODO Auto-generated method stub
     return 0;
   }
 
