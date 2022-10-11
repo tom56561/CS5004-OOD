@@ -1,4 +1,8 @@
-
+/**
+ * FahrenheitTemperature represents a temperature with units Fahrenheit.
+ * 
+ * @author eddie
+ */
 public class FahrenheitTemperature extends AbstractTemperature {
 
   /**
@@ -23,7 +27,7 @@ public class FahrenheitTemperature extends AbstractTemperature {
   }
 
   /**
-   * return a String as follows: "NN.N° Fahrenheit".
+   * Return a String as follows: "NN.N° Fahrenheit".
    */
   @Override
   public String toString() {

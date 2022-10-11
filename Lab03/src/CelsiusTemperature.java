@@ -3,7 +3,6 @@
  * CelsiusTemperature represents a temperature with units Celsius.
  * 
  * @author eddie
- *
  */
 
 public class CelsiusTemperature extends AbstractTemperature {
@@ -29,9 +28,9 @@ public class CelsiusTemperature extends AbstractTemperature {
   public CelsiusTemperature(double temperatureFahrenheit, boolean isFahrenheit) {
     super(AbstractTemperature.convertFahrenheitToCelsius(temperatureFahrenheit));
   }
-  
+
   /**
-   * return a String as follows: "NN.N° Celsius".
+   * Return a String as follows: "NN.N° Celsius".
    */
   @Override
   public String toString() {
@@ -39,8 +38,9 @@ public class CelsiusTemperature extends AbstractTemperature {
   }
 
   /**
-   * Adds two temperature together by summing their temperature valuer in like units,
-   * and returns a new CelsiusTemperature object with that temperature value.
+   * Adds two temperature together by summing their temperature valuer in like
+   * units, and returns a new CelsiusTemperature object with that temperature
+   * value.
    */
   @Override
   public Temperature add(Temperature t) throws IllegalArgumentException {

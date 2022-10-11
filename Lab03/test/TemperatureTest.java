@@ -24,12 +24,18 @@ public class TemperatureTest {
     fTemp = new FahrenheitTemperature(100, true);
   }
 
-  // test more
+  /**
+   * Tests if temperature is below absolute 0, will throw
+   * IllegalArgumentException.
+   */
   @Test(expected = IllegalArgumentException.class)
   public void testForInvalidFTemp() {
     new FahrenheitTemperature(-1000);
   }
 
+  /**
+   * Tests many IllegalArgumentException situation.
+   */
   @Test
   public void testManyInvalidFTemp() {
     Random random = new Random(98776);
@@ -52,6 +58,10 @@ public class TemperatureTest {
     }
   }
 
+  /**
+   * Tests inCelsius, inFahrenheit, and inKelvin method work correctly when
+   * Celsius is 100.
+   */
   @Test
   public void testObservers() {
     assertEquals(100, cTemp.inCelsius(), 0.001);
@@ -59,9 +69,15 @@ public class TemperatureTest {
     assertEquals(373.15, cTemp.inKelvin(), 0.001);
   }
 
+  /**
+   * Tests inCelsius, inFahrenheit, and inKelvin method work correctly when
+   * Fahrenheit is 100.
+   */
   @Test
   public void testInF() {
+    assertEquals(100, fTemp.inCelsius(), 0.001);
     assertEquals(212, fTemp.inFahrenheit(), 0.001);
+    assertEquals(373.15, fTemp.inKelvin(), 0.001);
   }
 
   @Test
@@ -130,7 +146,7 @@ public class TemperatureTest {
       assertEquals(expected, actual, 0.001);
     }
   }
-  
+
   /**
    * Test adding one CelsiusTemperature
    */
@@ -164,7 +180,7 @@ public class TemperatureTest {
       actual = t3.inCelsius();
       assertEquals(expected, actual, 0.001);
     }
-    
+
     for (int test = 0; test < 5000; test++) {
       temp1 = random.nextDouble() * 270 - 135;
       temp2 = 0;
@@ -182,7 +198,7 @@ public class TemperatureTest {
       actual = t3.inCelsius();
       assertEquals(expected, actual, 0.001);
     }
-    
+
     for (int test = 0; test < 5000; test++) {
       temp1 = random.nextDouble() * 270 - 135;
       temp2 = -temp1;
@@ -200,20 +216,20 @@ public class TemperatureTest {
       actual = t3.inCelsius();
       assertEquals(expected, actual, 0.001);
     }
-    
+
     for (int test = 0; test < 5000; test++) {
       temp1 = random.nextDouble() * 270 - 135;
       temp2 = random.nextDouble() * -270 - (Temperature.ABS_ZERO_C - temp1);
       t1 = new CelsiusTemperature(temp1);
       t2 = new FahrenheitTemperature(temp2, true);
-      
-      try {        
+
+      try {
         t3 = t1.add(t2);
       } catch (IllegalArgumentException e) {
         fail("Should have added to below absolute 0");
       }
-      
-      try {        
+
+      try {
         t3 = t2.add(t1);
       } catch (IllegalArgumentException e) {
         fail("Should have added to below absolute 0");
@@ -221,7 +237,6 @@ public class TemperatureTest {
 
     }
   }
-  
 
   @Test
   public void testToString() {
