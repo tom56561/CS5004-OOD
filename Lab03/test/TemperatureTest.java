@@ -80,6 +80,9 @@ public class TemperatureTest {
     assertEquals(373.15, fTemp.inKelvin(), 0.001);
   }
 
+  /**
+   * Test adding two CelsiusTemperature.
+   */
   @Test
   public void testAddCelsius() {
     Random random = new Random(98776);
@@ -113,7 +116,7 @@ public class TemperatureTest {
   }
 
   /**
-   * Test adding one CelsiusTemperature
+   * Test adding two FahrenheitTemperature.
    */
   @Test
   public void testAddFahrenheit() {
@@ -148,7 +151,7 @@ public class TemperatureTest {
   }
 
   /**
-   * Test adding one CelsiusTemperature
+   * Test adding one CelsiusTemperature and one FahrenheitTemperature.
    */
   @Test
   public void testAddMix() {
@@ -238,6 +241,9 @@ public class TemperatureTest {
     }
   }
 
+  /**
+   * Tests if ToString properly returns a String of temperature.
+   */
   @Test
   public void testToString() {
     assertEquals("100.0° Celsius", cTemp.toString());
@@ -264,6 +270,9 @@ public class TemperatureTest {
     }
   }
 
+  /**
+   * Tests convertFahrenheitToCelsius in AbstractTemperature.
+   */
   @Test
   public void testConvertFahrenheitToCelsius() {
     Random random = new Random(254234);
