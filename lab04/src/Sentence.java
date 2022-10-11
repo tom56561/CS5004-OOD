@@ -21,6 +21,8 @@ public interface Sentence {
    * Only the word is returned, no
    * punctuation is included. 
    * If this sentence contains no words, an empty string is returned.
+   * If there are mutilple words of the same length, of that set of words,
+   * one close to the beginning will return.
    * 
    * @return the longest word in a sentence
    */

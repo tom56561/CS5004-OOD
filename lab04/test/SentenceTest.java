@@ -24,7 +24,41 @@ public class SentenceTest {
     
     s = new WordNode("Hello", s);
     assertEquals(3, s.getNumberOfWords());
+  }
+  
+  @Test
+  public void testLongestWord() {
+    Sentence s;
+    s = new EmptyNode();
+    assertEquals("", s.longestWord());
+    s = new PunctuationNode("!", s);
+    assertEquals("", s.longestWord());
+    s = new WordNode("Moring", s);
+    assertEquals("Moring", s.longestWord());
+    s = new WordNode("Good", s);
+    assertEquals("Moring", s.longestWord());
+    s = new PunctuationNode(",", s);
+    assertEquals("Moring", s.longestWord());
+    s = new WordNode("Hello", s);
+    assertEquals("Moring", s.longestWord());
 
+    s = new EmptyNode();
+    s = new WordNode("Day", s);
+    assertEquals("Day", s.longestWord());
+    s = new WordNode("Good", s);
+    assertEquals("Good", s.longestWord());
+    s = new WordNode("a", s);
+    assertEquals("Good", s.longestWord());
+    s = new WordNode("is", s);
+    assertEquals("Good", s.longestWord());
+    s = new WordNode("Tomorrow", s);
+    assertEquals("Tomorrow", s.longestWord());
+
+    s = new EmptyNode();
+    s = new WordNode("Day", s);
+    assertEquals("Day", s.longestWord());
+    s = new WordNode("Bad", s);
+    assertEquals("Bad", s.longestWord());
 
 
   }

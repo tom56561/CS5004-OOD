@@ -15,8 +15,11 @@ public class WordNode implements Sentence {
 
   @Override
   public String longestWord() {
-    // TODO Auto-generated method stub
-    return null;
+    String biggest = this.rest.longestWord();
+    if (biggest.length() > this.word.length()) {
+      return biggest;
+    }
+    return this.word;
   }
 
   @Override

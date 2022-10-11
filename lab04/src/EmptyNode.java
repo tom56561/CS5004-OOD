@@ -8,8 +8,7 @@ public class EmptyNode implements Sentence {
 
   @Override
   public String longestWord() {
-    // TODO Auto-generated method stub
-    return null;
+    return "";
   }
 
   @Override

@@ -12,13 +12,12 @@ public class PunctuationNode implements Sentence {
 
   @Override
   public int getNumberOfWords() {
-    return 0 + this.rest.getNumberOfWords();
+    return this.rest.getNumberOfWords();
   }
 
   @Override
   public String longestWord() {
-    // TODO Auto-generated method stub
-    return null;
+    return this.rest.longestWord();
   }
 
   @Override
