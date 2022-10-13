@@ -9,23 +9,23 @@ public class SentenceTest {
     Sentence s;
     s = new EmptyNode();
     assertEquals(0, s.getNumberOfWords());
-    
+
     s = new PunctuationNode("!", s);
     assertEquals(0, s.getNumberOfWords());
 
-    s = new WordNode("Moring", s);
+    s = new WordNode("Morning", s);
     assertEquals(1, s.getNumberOfWords());
-    
+
     s = new WordNode("Good", s);
     assertEquals(2, s.getNumberOfWords());
 
     s = new PunctuationNode(",", s);
     assertEquals(2, s.getNumberOfWords());
-    
+
     s = new WordNode("Hello", s);
     assertEquals(3, s.getNumberOfWords());
   }
-  
+
   @Test
   public void testLongestWord() {
     Sentence s;
@@ -33,14 +33,14 @@ public class SentenceTest {
     assertEquals("", s.longestWord());
     s = new PunctuationNode("!", s);
     assertEquals("", s.longestWord());
-    s = new WordNode("Moring", s);
-    assertEquals("Moring", s.longestWord());
+    s = new WordNode("Morning", s);
+    assertEquals("Morning", s.longestWord());
     s = new WordNode("Good", s);
-    assertEquals("Moring", s.longestWord());
+    assertEquals("Morning", s.longestWord());
     s = new PunctuationNode(",", s);
-    assertEquals("Moring", s.longestWord());
+    assertEquals("Morning", s.longestWord());
     s = new WordNode("Hello", s);
-    assertEquals("Moring", s.longestWord());
+    assertEquals("Morning", s.longestWord());
 
     s = new EmptyNode();
     s = new WordNode("Day", s);
@@ -59,7 +59,31 @@ public class SentenceTest {
     assertEquals("Day", s.longestWord());
     s = new WordNode("Bad", s);
     assertEquals("Bad", s.longestWord());
+  }
 
+  @Test
+  public void testToString() {
+    Sentence s;
+    s = new EmptyNode();
+    assertEquals("", s.toString());
+    s = new PunctuationNode("!", s);
+    assertEquals("!", s.toString());
+    s = new WordNode("Morning", s);
+    assertEquals("Morning!", s.toString());
+    s = new WordNode("Good", s);
+    assertEquals("Good Morning!", s.toString());
+    s = new PunctuationNode(",", s);
+    assertEquals(", Good Morning!", s.toString());
+    s = new WordNode("Hello", s);
+    assertEquals("Hello, Good Morning!", s.toString());
+
+    s = new EmptyNode();
+    s = new WordNode("Day", s);
+    assertEquals("Day", s.toString());
+    s = new PunctuationNode(",", s);
+    assertEquals(", Day", s.toString());
+    s = new WordNode("Good", s);
+    assertEquals("Good, Day", s.toString());
 
   }
 

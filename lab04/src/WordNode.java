@@ -9,7 +9,7 @@ public class WordNode implements Sentence {
   }
 
   @Override
-  public int getNumberOfWords() { 
+  public int getNumberOfWords() {
     return 1 + this.rest.getNumberOfWords();
   }
 
