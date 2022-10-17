@@ -1,8 +1,8 @@
 
 public class Queen extends AbstractPiece {
 
-  public Queen(ChessPiece.Color color, int row, int col) throws IllegalArgumentException {
-    super(color, row, col);
+  public Queen(int row, int col, Color color) throws IllegalArgumentException {
+    super(row, col, color);
   }
 
   @Override

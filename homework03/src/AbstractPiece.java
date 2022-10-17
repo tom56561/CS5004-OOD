@@ -4,7 +4,7 @@
  */
 public abstract class AbstractPiece implements ChessPiece {
 
-  private final ChessPiece.Color color;
+  private final Color color;
   private int row;
   private int col;
   
@@ -16,7 +16,7 @@ public abstract class AbstractPiece implements ChessPiece {
    * @param col     the current col on the board
    * @throws IllegalArgumentException if x or y below zero
    */
-  public AbstractPiece(ChessPiece.Color color, int row, int col) throws IllegalArgumentException {
+  public AbstractPiece(int row, int col, Color color) throws IllegalArgumentException {
     if (row < 0 || col < 0) {
       throw new IllegalArgumentException("x or y can not below zero");
     }
@@ -36,7 +36,7 @@ public abstract class AbstractPiece implements ChessPiece {
   }
 
   @Override
-  public ChessPiece.Color getColor() {
+  public Color getColor() {
     return this.color;
   }
 
@@ -50,6 +50,10 @@ public abstract class AbstractPiece implements ChessPiece {
   public boolean canKill(ChessPiece piece) {
     // TODO Auto-generated method stub
     return false;
+  }
+  
+  public boolean isOppositeColor(Color color) {
+    return this.color != color;
   }
   
   public boolean isInBoard(int row, int col) {

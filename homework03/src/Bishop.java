@@ -14,8 +14,8 @@ public class Bishop extends AbstractPiece {
    * @param y     the current col on the board
    * @throws IllegalArgumentException if x or y below zero
    */
-  public Bishop(ChessPiece.Color color, int row, int col) throws IllegalArgumentException {
-    super(color, row, col);
+  public Bishop(int row, int col, Color color) throws IllegalArgumentException {
+    super(row, col, color);
   }
 
   @Override
@@ -26,6 +26,8 @@ public class Bishop extends AbstractPiece {
   @Override
   public boolean canKill(ChessPiece piece) {
 
+    
+    
     return this.isDiagonal(piece.getRow(), piece.getColumn());
   }
 

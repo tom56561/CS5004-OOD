@@ -7,12 +7,6 @@
  */
 public interface ChessPiece {
 
-  /**
-   * Colors that can be used
-   */
-  enum Color {
-    BLACK, WHITE
-  }
 
   /**
    * Return its current row on the chess board.
