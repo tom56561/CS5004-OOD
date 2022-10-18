@@ -19,16 +19,27 @@ public class Bishop extends AbstractPiece {
   }
 
   @Override
-  public boolean canMove(int row, int col) {
+  public boolean canMove(int row, int col) throws IllegalArgumentException {
+    if (!this.isInBoard(row, col)) {
+      throw new IllegalArgumentException("The given cell can not out of the board");
+    }
+    if (this.isSamePlace(row, col)) {
+      return false;
+    }
     return this.isDiagonal(row, col);
   }
 
   @Override
-  public boolean canKill(ChessPiece piece) {
-
-    
-    
-    return this.isDiagonal(piece.getRow(), piece.getColumn());
+  public boolean canKill(ChessPiece piece) throws IllegalArgumentException {
+    int row = piece.getRow();
+    int col = piece.getColumn();
+    if (this.isSamePlace(row, col)) {
+      throw new IllegalArgumentException("Can not kill yourself");
+    }
+    if (this.isOppositeColor(piece.getColor())) {
+      return this.isDiagonal(row, col);
+    }
+    return false;
   }
 
 }
