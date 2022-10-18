@@ -8,15 +8,15 @@ import org.junit.Test;
  */
 public class QueenTest {
 
-  private Queen ZeroQueen;
-  private Queen BlackQueen;
-  private Queen WhiteQueen;
+  private Queen zeroQueen;
+  private Queen blackQueen;
+  private Queen whiteQueen;
 
   @Before
   public void setUp() throws Exception {
-    ZeroQueen = new Queen(0, 0, Color.BLACK);
-    BlackQueen = new Queen(5, 1, Color.BLACK);
-    WhiteQueen = new Queen(7, 0, Color.WHITE);
+    zeroQueen = new Queen(0, 0, Color.BLACK);
+    blackQueen = new Queen(5, 1, Color.BLACK);
+    whiteQueen = new Queen(7, 0, Color.WHITE);
   }
 
   /**
@@ -49,9 +49,9 @@ public class QueenTest {
    */
   @Test
   public void testGetRow() {
-    assertEquals(0, ZeroQueen.getRow());
-    assertEquals(5, BlackQueen.getRow());
-    assertEquals(7, WhiteQueen.getRow());
+    assertEquals(0, zeroQueen.getRow());
+    assertEquals(5, blackQueen.getRow());
+    assertEquals(7, whiteQueen.getRow());
   }
 
   /**
@@ -59,9 +59,9 @@ public class QueenTest {
    */
   @Test
   public void testGetColumn() {
-    assertEquals(0, ZeroQueen.getColumn());
-    assertEquals(1, BlackQueen.getColumn());
-    assertEquals(0, WhiteQueen.getColumn());
+    assertEquals(0, zeroQueen.getColumn());
+    assertEquals(1, blackQueen.getColumn());
+    assertEquals(0, whiteQueen.getColumn());
   }
 
   /**
@@ -69,9 +69,9 @@ public class QueenTest {
    */
   @Test
   public void testGetColor() {
-    assertEquals(Color.BLACK, ZeroQueen.getColor());
-    assertEquals(Color.BLACK, BlackQueen.getColor());
-    assertEquals(Color.WHITE, WhiteQueen.getColor());
+    assertEquals(Color.BLACK, zeroQueen.getColor());
+    assertEquals(Color.BLACK, blackQueen.getColor());
+    assertEquals(Color.WHITE, whiteQueen.getColor());
   }
 
   /**
@@ -79,27 +79,27 @@ public class QueenTest {
    */
   @Test
   public void testCanMove() {
-    assertEquals(false, ZeroQueen.canMove(0, 0));
-    assertEquals(true, ZeroQueen.canMove(0, 7));
-    assertEquals(true, ZeroQueen.canMove(7, 0));
-    assertEquals(false, ZeroQueen.canMove(5, 4));
-    assertEquals(false, BlackQueen.canMove(1, 0));
-    assertEquals(true, BlackQueen.canMove(0, 1));
+    assertEquals(false, zeroQueen.canMove(0, 0));
+    assertEquals(true, zeroQueen.canMove(0, 7));
+    assertEquals(true, zeroQueen.canMove(7, 7));
+    assertEquals(false, zeroQueen.canMove(5, 4));
+    assertEquals(false, blackQueen.canMove(1, 0));
+    assertEquals(true, blackQueen.canMove(0, 1));
 
     try {
-      ZeroQueen.canMove(8, 8);
+      zeroQueen.canMove(8, 8);
       fail("Did not throw exception when given cell out of the board");
     } catch (IllegalArgumentException e) {
       // do nothing
     }
     try {
-      ZeroQueen.canMove(-1, 0);
+      zeroQueen.canMove(-1, 0);
       fail("Did not throw exception when given cell out of the board");
     } catch (IllegalArgumentException e) {
       // do nothing
     }
   }
-  
+
   /**
    * Tests if it can kill a provided piece starting from where it currently is.
    */
@@ -108,20 +108,23 @@ public class QueenTest {
     Queen testQueen = new Queen(1, 0, Color.BLACK);
     Queen test2Queen = new Queen(0, 7, Color.WHITE);
     Queen test3Queen = new Queen(1, 1, Color.WHITE);
-    
-    assertEquals(true, ZeroQueen.canKill(WhiteQueen));
-    assertEquals(false, ZeroQueen.canKill(BlackQueen));
-    assertEquals(false, ZeroQueen.canKill(testQueen));
-    assertEquals(true, ZeroQueen.canKill(test2Queen));
-    assertEquals(true, ZeroQueen.canKill(test3Queen));
+    Bishop testBishop = new Bishop(0, 2, Color.BLACK);
+    Rook testRook = new Rook(5, 5, Color.WHITE);
+
+    assertEquals(true, zeroQueen.canKill(whiteQueen));
+    assertEquals(false, zeroQueen.canKill(blackQueen));
+    assertEquals(false, zeroQueen.canKill(testQueen));
+    assertEquals(true, zeroQueen.canKill(test2Queen));
+    assertEquals(true, zeroQueen.canKill(test3Queen));
+    assertEquals(false, zeroQueen.canKill(testBishop));
+    assertEquals(true, zeroQueen.canKill(testRook));
 
     try {
-      ZeroQueen.canKill(ZeroQueen);
+      zeroQueen.canKill(zeroQueen);
       fail("Did not throw exception when provided piece is yourself");
     } catch (IllegalArgumentException e) {
       // do nothing
     }
   }
-  
-  
+
 }

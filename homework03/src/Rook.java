@@ -1,19 +1,19 @@
 /**
- * Queen represents a Queen chess piece.
+ * Rook represents a Rook chess piece.
  * 
  * @author eddie
  *
  */
-public class Queen extends AbstractPiece {
+public class Rook extends AbstractPiece {
   /**
-   * Create a new Queen given an input row, col, and color.
+   * Create a new Rook given an input row, col, and color.
    * 
    * @param color the color of chess piece
    * @param row   the current row on the board
    * @param col   the current col on the board
    * @throws IllegalArgumentException if row or col below zero
    */
-  public Queen(int row, int col, Color color) throws IllegalArgumentException {
+  public Rook(int row, int col, Color color) throws IllegalArgumentException {
     super(row, col, color);
   }
 
@@ -25,7 +25,8 @@ public class Queen extends AbstractPiece {
     if (this.isSamePlace(row, col)) {
       return false;
     }
-    return this.isDiagonal(row, col) || this.isHorizontalOrVertical(row, col);
+
+    return this.isHorizontalOrVertical(row, col);
   }
 
   @Override
@@ -37,7 +38,7 @@ public class Queen extends AbstractPiece {
     }
 
     if (this.isOppositeColor(piece.getColor())) {
-      return this.isDiagonal(row, col) || this.isHorizontalOrVertical(row, col);
+      return this.isHorizontalOrVertical(row, col);
     }
     return false;
   }
