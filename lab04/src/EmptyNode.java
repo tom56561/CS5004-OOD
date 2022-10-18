@@ -14,7 +14,7 @@ public class EmptyNode implements Sentence {
   @Override
   public Sentence clone() {
     // TODO Auto-generated method stub
-    return null;
+    return new EmptyNode();
   }
 
   @Override
@@ -23,4 +23,8 @@ public class EmptyNode implements Sentence {
     return null;
   }
 
+  @Override
+  public String toString() {
+    return "";
+  }
 }

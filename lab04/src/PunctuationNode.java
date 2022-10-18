@@ -22,8 +22,7 @@ public class PunctuationNode implements Sentence {
 
   @Override
   public Sentence clone() {
-    // TODO Auto-generated method stub
-    return null;
+    return new PunctuationNode(this.punctuation, this.rest.clone());
   }
 
   @Override
@@ -32,4 +31,12 @@ public class PunctuationNode implements Sentence {
     return null;
   }
 
+  @Override
+  public String toString() {
+    if (this.rest instanceof PunctuationNode || this.rest instanceof EmptyNode) {
+      return this.punctuation + this.rest.toString();
+    }
+    return this.punctuation + " " + this.rest.toString();
+
+  }
 }

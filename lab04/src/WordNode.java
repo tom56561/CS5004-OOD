@@ -24,8 +24,8 @@ public class WordNode implements Sentence {
 
   @Override
   public Sentence clone() {
-    // TODO Auto-generated method stub
-    return null;
+    return new WordNode(this.word, this.rest.clone());
+
   }
 
   @Override
@@ -34,4 +34,17 @@ public class WordNode implements Sentence {
     return null;
   }
 
+  /**
+   * Return the entire sentence as a String.
+   * There will be a space between two word nodes.
+   * There will not be a space between a word node and the punctiuation that follows it.
+   * There will be a space bewtween a punctuation and the word that follows it.
+   */
+  @Override
+  public String toString() {
+    if (this.rest instanceof WordNode) {
+      return this.word + " " + this.rest.toString();
+    }
+    return this.word + this.rest.toString();
+  }
 }

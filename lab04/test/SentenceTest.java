@@ -87,4 +87,31 @@ public class SentenceTest {
 
   }
 
+  @Test
+  public void testClone() {
+    Sentence s;
+    s = new EmptyNode();
+    assertEquals(s, s);
+    assertNotEquals(s, s.clone());
+    assertEquals(s.toString(), s.clone().toString());
+
+    s = new PunctuationNode("!", s);
+    assertNotEquals(s, s.clone());
+    assertEquals(s.toString(), s.clone().toString());
+
+    s = new WordNode("Day", s);
+    assertNotEquals(s, s.clone());
+    assertEquals(s.toString(), s.clone().toString());
+
+    s = new WordNode("Good", s);
+    assertNotEquals(s, s.clone());
+    assertEquals(s.toString(), s.clone().toString());
+
+  }
+  
+  @Test
+  public void testMerge() {
+    
+  }
+
 }
