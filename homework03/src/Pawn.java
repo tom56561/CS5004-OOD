@@ -25,8 +25,12 @@ public class Pawn extends AbstractPiece {
     if (this.isSamePlace(row, col)) {
       return false;
     }
+    int direction = 1;
+    if (this.getColor() == Color.WHITE) {
+      direction = -1;
+    }
 
-    return this.getColumn() + 1 == col && this.getRow() == row;
+    return this.getColumn() + direction == col && this.getRow() == row;
   }
 
   @Override
@@ -37,8 +41,13 @@ public class Pawn extends AbstractPiece {
       throw new IllegalArgumentException("Can not kill yourself");
     }
 
+    
     if (this.isOppositeColor(piece.getColor())) {
-      return this.getColumn() + 1 == col && (this.getRow() + 1 == row || this.getRow() - 1 == row);
+      int direction = 1;
+      if (this.getColor() == Color.WHITE) {
+        direction = -1;
+      }
+      return this.getColumn() + direction == col && (this.getRow() + 1 == row || this.getRow() - 1 == row);
     }
     return false;
   }

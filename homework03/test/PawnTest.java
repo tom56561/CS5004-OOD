@@ -17,7 +17,7 @@ public class PawnTest {
   public void setUp() throws Exception {
     zeroPawn = new Pawn(0, 0, Color.BLACK);
     blackPawn = new Pawn(5, 1, Color.BLACK);
-    whitePawn = new Pawn(7, 0, Color.WHITE);
+    whitePawn = new Pawn(6, 6, Color.WHITE);
   }
 
   /**
@@ -52,7 +52,7 @@ public class PawnTest {
   public void testGetRow() {
     assertEquals(0, zeroPawn.getRow());
     assertEquals(5, blackPawn.getRow());
-    assertEquals(7, whitePawn.getRow());
+    assertEquals(6, whitePawn.getRow());
   }
 
   /**
@@ -62,7 +62,7 @@ public class PawnTest {
   public void testGetColumn() {
     assertEquals(0, zeroPawn.getColumn());
     assertEquals(1, blackPawn.getColumn());
-    assertEquals(0, whitePawn.getColumn());
+    assertEquals(6, whitePawn.getColumn());
   }
 
   /**
@@ -83,9 +83,10 @@ public class PawnTest {
     assertEquals(false, zeroPawn.canMove(0, 0));
     assertEquals(true, zeroPawn.canMove(0, 1));
     assertEquals(false, zeroPawn.canMove(7, 7));
-    assertEquals(false, whitePawn.canMove(7, 2));
+    assertEquals(false, whitePawn.canMove(6, 7));
     assertEquals(false, blackPawn.canMove(5, 0));
     assertEquals(true, blackPawn.canMove(5, 2));
+    assertEquals(true, whitePawn.canMove(6, 5));
 
     try {
       zeroPawn.canMove(8, 8);
@@ -111,12 +112,18 @@ public class PawnTest {
     Queen testQueen = new Queen(6, 2, Color.WHITE);
     Bishop testBishop = new Bishop(4, 2, Color.BLACK);
     Rook testRook = new Rook(4, 2, Color.WHITE);
+    Pawn test3Pawn = new Pawn(5, 5, Color.BLACK);
+    Pawn test4Pawn = new Pawn(7, 5, Color.BLACK);
+    Pawn test5Pawn = new Pawn(5, 7, Color.BLACK);
 
     assertEquals(false, zeroPawn.canKill(testPawn));
     assertEquals(true, zeroPawn.canKill(test2Pawn));
     assertEquals(true, blackPawn.canKill(testQueen));
     assertEquals(false, blackPawn.canKill(testBishop));
     assertEquals(true, blackPawn.canKill(testRook));
+    assertEquals(true, whitePawn.canKill(test3Pawn));
+    assertEquals(true, whitePawn.canKill(test4Pawn));
+    assertEquals(false, whitePawn.canKill(test5Pawn));
 
     try {
       zeroPawn.canKill(zeroPawn);
