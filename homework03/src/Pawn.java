@@ -26,11 +26,11 @@ public class Pawn extends AbstractPiece {
       return false;
     }
     int direction = 1;
-    if (this.getColor() == Color.WHITE) {
+    if (this.getColor() == Color.BLACK) {
       direction = -1;
     }
 
-    return this.getColumn() + direction == col && this.getRow() == row;
+    return this.getRow() + direction == row && this.getColumn() == col;
   }
 
   @Override
@@ -44,10 +44,10 @@ public class Pawn extends AbstractPiece {
     
     if (this.isOppositeColor(piece.getColor())) {
       int direction = 1;
-      if (this.getColor() == Color.WHITE) {
+      if (this.getColor() == Color.BLACK) {
         direction = -1;
       }
-      return this.getColumn() + direction == col && (this.getRow() + 1 == row || this.getRow() - 1 == row);
+      return this.getRow() + direction == row && (this.getColumn() + 1 == col || this.getColumn() - 1 == col);
     }
     return false;
   }
