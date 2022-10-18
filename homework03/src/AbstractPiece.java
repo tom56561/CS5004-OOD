@@ -54,10 +54,23 @@ public abstract class AbstractPiece implements ChessPiece {
     return false;
   }
 
+  /**
+   * Return true if color is opposite color.
+   * 
+   * @param color the color of chess piece
+   * @return true if color is opposite color
+   */
   public boolean isOppositeColor(Color color) {
     return this.color != color;
   }
 
+  /**
+   * Return true if row and col inside the borad.
+   * 
+   * @param row the given row
+   * @param col the given col
+   * @return true if row and col inside the borad
+   */
   public boolean isInBoard(int row, int col) {
     if (row < 0 || row > 7 || col < 0 || col > 7) {
       return false;
@@ -65,6 +78,13 @@ public abstract class AbstractPiece implements ChessPiece {
     return true;
   }
 
+  /**
+   * Return if given row and col is same as piece itself.
+   * 
+   * @param row the given row
+   * @param col the given col
+   * @return if given row and col is same as piece itself
+   */
   public boolean isSamePlace(int row, int col) {
     if (this.row == row && this.col == col) {
       return true;
@@ -72,6 +92,13 @@ public abstract class AbstractPiece implements ChessPiece {
     return false;
   }
 
+  /**
+   * Return whether a piece can move in a diagonal line by given row and col.
+   * 
+   * @param row the given row
+   * @param col the given col
+   * @return whether a piece can move in a diagonal line by given row and col
+   */
   public boolean isDiagonal(int row, int col) {
     if (this.row == row || this.col == col) {
       return false;
