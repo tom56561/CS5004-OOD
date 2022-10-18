@@ -45,15 +45,9 @@ public abstract class AbstractPiece implements ChessPiece {
     if (!this.isInBoard(row, col)) {
       throw new IllegalArgumentException("The given cell can not out of the board");
     }
-    if (this.isSamePlace(row, col)) {
-      return false;
-    }
-    return false;
+    return !this.isSamePlace(row, col);
   }
 
-  /**
-   * @throws IllegalArgumentException if given piece is itself
-   */
   @Override
   public boolean canKill(ChessPiece piece) throws IllegalArgumentException {
     if (this.isSamePlace(piece.getRow(), piece.getColumn())) {
@@ -80,10 +74,7 @@ public abstract class AbstractPiece implements ChessPiece {
    * @return true if row and col inside the borad
    */
   protected boolean isInBoard(int row, int col) {
-    if (row < 0 || row > 7 || col < 0 || col > 7) {
-      return false;
-    }
-    return true;
+    return !(row < 0 || row > 7 || col < 0 || col > 7);
   }
 
   /**
@@ -94,10 +85,7 @@ public abstract class AbstractPiece implements ChessPiece {
    * @return if given row and col is same as piece itself
    */
   protected boolean isSamePlace(int row, int col) {
-    if (this.row == row && this.col == col) {
-      return true;
-    }
-    return false;
+    return (this.row == row && this.col == col);
   }
 
   /**

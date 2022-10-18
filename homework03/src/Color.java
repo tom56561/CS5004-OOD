@@ -1,5 +1,5 @@
 /**
- * Colors that can be used
+ * Colors that can be used.
  */
 
 public enum Color {
