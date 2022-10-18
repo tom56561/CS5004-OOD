@@ -30,15 +30,14 @@ public class WordNode implements Sentence {
 
   @Override
   public Sentence merger(Sentence other) {
-    // TODO Auto-generated method stub
-    return null;
+    return new WordNode(this.word, this.rest.merger(other));
   }
 
   /**
-   * Return the entire sentence as a String.
-   * There will be a space between two word nodes.
-   * There will not be a space between a word node and the punctiuation that follows it.
-   * There will be a space bewtween a punctuation and the word that follows it.
+   * Return the entire sentence as a String. There will be a space between two
+   * word nodes. There will not be a space between a word node and the
+   * punctiuation that follows it. There will be a space bewtween a punctuation
+   * and the word that follows it.
    */
   @Override
   public String toString() {

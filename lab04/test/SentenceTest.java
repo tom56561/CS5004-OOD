@@ -111,7 +111,25 @@ public class SentenceTest {
   
   @Test
   public void testMerge() {
+    Sentence s = new EmptyNode();
+    s = new PunctuationNode("!", s);
+    s = new WordNode("Day", s);
+    s = new WordNode("Good", s);
+
+    Sentence o = new EmptyNode();
+    o = new PunctuationNode(".", o);
+    o = new WordNode("Tomorrow", o);
+    o = new WordNode("You", o);
+    o = new WordNode("See", o);
     
+    Sentence m;
+    m = s.merger(o);
+    assertEquals("Good Day!", s.toString());
+    assertEquals("See You Tomorrow.", o.toString());
+    assertEquals("Good Day! See You Tomorrow.", m.toString());
+
+
+
   }
 
 }

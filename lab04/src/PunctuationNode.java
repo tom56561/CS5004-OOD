@@ -27,8 +27,8 @@ public class PunctuationNode implements Sentence {
 
   @Override
   public Sentence merger(Sentence other) {
-    // TODO Auto-generated method stub
-    return null;
+    return new PunctuationNode(this.punctuation, this.rest.merger(other));
+
   }
 
   @Override

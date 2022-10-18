@@ -13,14 +13,12 @@ public class EmptyNode implements Sentence {
 
   @Override
   public Sentence clone() {
-    // TODO Auto-generated method stub
     return new EmptyNode();
   }
 
   @Override
   public Sentence merger(Sentence other) {
-    // TODO Auto-generated method stub
-    return null;
+    return other.clone();
   }
 
   @Override
