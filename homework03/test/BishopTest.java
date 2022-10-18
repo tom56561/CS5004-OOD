@@ -10,15 +10,15 @@ import org.junit.Test;
  */
 public class BishopTest {
 
+  private Bishop ZeroBishop;
   private Bishop BlackBishop;
   private Bishop WhiteBishop;
-  private Bishop ZeroBishop;
   
   @Before
   public void setUp() throws Exception {
     ZeroBishop = new Bishop(0, 0, Color.BLACK);
-    WhiteBishop = new Bishop(7, 7, Color.WHITE);
     BlackBishop = new Bishop(1, 1, Color.BLACK);
+    WhiteBishop = new Bishop(7, 7, Color.WHITE);
     
   }
 
@@ -73,8 +73,8 @@ public class BishopTest {
   @Test
   public void testGetColor() {
     assertEquals(Color.BLACK, ZeroBishop.getColor());
-    assertEquals(Color.WHITE, WhiteBishop.getColor());
     assertEquals(Color.BLACK, BlackBishop.getColor());
+    assertEquals(Color.WHITE, WhiteBishop.getColor());
   }
   
   

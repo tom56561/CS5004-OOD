@@ -9,7 +9,7 @@ public abstract class AbstractPiece implements ChessPiece {
   private int col;
 
   /**
-   * Create a new AbstractPiece given an input color, x, and y.
+   * Create a new AbstractPiece given an input row, col, and color.
    * 
    * @param color the color of chess piece
    * @param row   the current row on the board
@@ -41,11 +41,19 @@ public abstract class AbstractPiece implements ChessPiece {
   }
 
   @Override
-  public boolean canMove(int row, int col) {
-    // TODO Auto-generated method stub
+  public boolean canMove(int row, int col) throws IllegalArgumentException {
+    if (!this.isInBoard(row, col)) {
+      throw new IllegalArgumentException("The given cell can not out of the board");
+    }
+    if (this.isSamePlace(row, col)) {
+      return false;
+    }
     return false;
   }
 
+  /**
+   * @throws IllegalArgumentException if given piece is itself
+   */
   @Override
   public boolean canKill(ChessPiece piece) throws IllegalArgumentException {
     if (this.isSamePlace(piece.getRow(), piece.getColumn())) {
@@ -60,7 +68,7 @@ public abstract class AbstractPiece implements ChessPiece {
    * @param color the color of chess piece
    * @return true if color is opposite color
    */
-  public boolean isOppositeColor(Color color) {
+  protected boolean isOppositeColor(Color color) {
     return this.color != color;
   }
 
@@ -71,7 +79,7 @@ public abstract class AbstractPiece implements ChessPiece {
    * @param col the given col
    * @return true if row and col inside the borad
    */
-  public boolean isInBoard(int row, int col) {
+  protected boolean isInBoard(int row, int col) {
     if (row < 0 || row > 7 || col < 0 || col > 7) {
       return false;
     }
@@ -85,7 +93,7 @@ public abstract class AbstractPiece implements ChessPiece {
    * @param col the given col
    * @return if given row and col is same as piece itself
    */
-  public boolean isSamePlace(int row, int col) {
+  protected boolean isSamePlace(int row, int col) {
     if (this.row == row && this.col == col) {
       return true;
     }
@@ -99,12 +107,20 @@ public abstract class AbstractPiece implements ChessPiece {
    * @param col the given col
    * @return whether a piece can move in a diagonal line by given row and col
    */
-  public boolean isDiagonal(int row, int col) {
-    if (this.row == row || this.col == col) {
+  protected boolean isDiagonal(int row, int col) {
+    if (this.row == row && this.col == col) {
       return false;
     }
 
     return Math.abs(this.row - row) == Math.abs(this.col - col);
+  }
+
+  protected boolean isHorizontalOrVertical(int row, int col) {
+    if (this.row == row && this.col == col) {
+      return false;
+    }
+
+    return (this.row == row && this.col != col) || (this.col == col && this.row != row);
   }
 
 }

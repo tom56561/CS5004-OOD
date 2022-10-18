@@ -1,5 +1,5 @@
 /**
- * Bishop represents a chess piece.
+ * Bishop represents a Bishop chess piece.
  * 
  * @author eddie
  *
@@ -7,12 +7,12 @@
 public class Bishop extends AbstractPiece {
 
   /**
-   * Create a new Bishop given an input color, x, and y.
+   * Create a new Bishop given an input row, col, and color.
    * 
    * @param color the color of chess piece
-   * @param x     the current row on the board
-   * @param y     the current col on the board
-   * @throws IllegalArgumentException if x or y below zero
+   * @param row   the current row on the board
+   * @param col   the current col on the board
+   * @throws IllegalArgumentException if row or col below zero
    */
   public Bishop(int row, int col, Color color) throws IllegalArgumentException {
     super(row, col, color);
