@@ -2,6 +2,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+ * Tests for Sentence all method.
+ */
 public class SentenceTest {
 
   @Test
