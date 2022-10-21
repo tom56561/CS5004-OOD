@@ -47,7 +47,8 @@ public class Pawn extends AbstractPiece {
       if (this.getColor() == Color.BLACK) {
         direction = -1;
       }
-      return this.getRow() + direction == row && (this.getColumn() + 1 == col || this.getColumn() - 1 == col);
+      return this.getRow() + direction == row
+          && (this.getColumn() + 1 == col || this.getColumn() - 1 == col);
     }
     return false;
   }
