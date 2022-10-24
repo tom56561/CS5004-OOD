@@ -6,7 +6,10 @@ import org.junit.Test;
  * Tests for Sentence all method.
  */
 public class SentenceTest {
-
+  
+  /**
+   * Tests getNumberOfWords method.
+   */
   @Test
   public void testGetNumberOfWords() {
     Sentence s;
