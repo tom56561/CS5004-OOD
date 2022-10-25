@@ -1,7 +1,6 @@
 
 public interface Sentence {
 
-
   /**
    * Return the number of words in a sentence. The punctuation does not count as a
    * word.
@@ -37,4 +36,25 @@ public interface Sentence {
    * @return the two sentences merged
    */
   Sentence merger(Sentence other);
+
+  /**
+   * Returns the total number of words containing one or more of letter Z. If a
+   * word contains multiole Zs it still only counts as one word.
+   * 
+   * @return the number of words with a Z
+   */
+  int getNumberOfZ();
+
+  /**
+   * Translates the sentence to pig Latin.
+   * 
+   * @return
+   */
+  Sentence tranlateToPigLatin();
+  
+  /**
+   * Add element ot sentence
+   * @param element
+   */
+  void addElement(SentenceElement element);
 }
