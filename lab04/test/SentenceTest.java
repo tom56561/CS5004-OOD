@@ -32,6 +32,9 @@ public class SentenceTest {
     assertEquals(3, s.getNumberOfWords());
   }
 
+  /**
+   * Tests longestWord method.
+   */
   @Test
   public void testLongestWord() {
     Sentence s;
