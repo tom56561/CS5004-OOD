@@ -1,4 +1,9 @@
-
+/**
+ * EmptyNode represents end of the sentence.
+ * 
+ * @author eddie
+ *
+ */
 public class EmptyNode implements Sentence {
 
   @Override

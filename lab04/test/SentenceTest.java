@@ -6,9 +6,9 @@ import org.junit.Test;
  * Tests for Sentence all method.
  */
 public class SentenceTest {
-  
+
   /**
-   * Tests getNumberOfWords method.
+   * Tests if getNumberOfWords properly returns the number of words.
    */
   @Test
   public void testGetNumberOfWords() {
@@ -33,7 +33,7 @@ public class SentenceTest {
   }
 
   /**
-   * Tests longestWord method.
+   * Tests if longestWord properly returns the longest word.
    */
   @Test
   public void testLongestWord() {
@@ -70,6 +70,9 @@ public class SentenceTest {
     assertEquals("Bad", s.longestWord());
   }
 
+  /**
+   * Tests ToString method.
+   */
   @Test
   public void testToString() {
     Sentence s;
@@ -96,6 +99,9 @@ public class SentenceTest {
 
   }
 
+  /**
+   * Tests if clone properly clone a new object.
+   */
   @Test
   public void testClone() {
     Sentence s;
@@ -117,7 +123,10 @@ public class SentenceTest {
     assertEquals(s.toString(), s.clone().toString());
 
   }
-  
+
+  /**
+   * Tests if merge properly merge two object.
+   */
   @Test
   public void testMerge() {
     Sentence s = new EmptyNode();
@@ -130,14 +139,12 @@ public class SentenceTest {
     o = new WordNode("Tomorrow", o);
     o = new WordNode("You", o);
     o = new WordNode("See", o);
-    
+
     Sentence m;
     m = s.merger(o);
     assertEquals("Good Day!", s.toString());
     assertEquals("See You Tomorrow.", o.toString());
     assertEquals("Good Day! See You Tomorrow.", m.toString());
-
-
 
   }
 

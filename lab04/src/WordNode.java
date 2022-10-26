@@ -1,8 +1,18 @@
-
+/**
+ * WordNode represents one word per node with word and rest.
+ * 
+ * @author eddie
+ */
 public class WordNode implements Sentence {
   private String word;
   private Sentence rest;
 
+  /**
+   * Makes a new WordNode object with the give word and rest.
+   * 
+   * @param word the word of node
+   * @param rest the rest of node
+   */
   public WordNode(String word, Sentence rest) {
     this.word = word;
     this.rest = rest;

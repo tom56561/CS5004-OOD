@@ -1,9 +1,20 @@
-
+/**
+ * PunctuationNode represents zero or more punctuation marks.
+ * 
+ * @author eddie
+ *
+ */
 public class PunctuationNode implements Sentence {
 
   private String punctuation;
   private Sentence rest;
 
+  /**
+   * Makes a new PunctuationNode object with the given punctuation and rest.
+   * 
+   * @param punctuation the punctuation of the node
+   * @param rest        the rest of node
+   */
   public PunctuationNode(String punctuation, Sentence rest) {
     this.punctuation = punctuation;
     this.rest = rest;
