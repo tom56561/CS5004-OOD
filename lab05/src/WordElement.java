@@ -19,6 +19,6 @@ public class WordElement implements SentenceElement {
 
   @Override
   public String toString() {
-    return true;
+    return " " + this.Word;
   }
 }

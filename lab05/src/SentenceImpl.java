@@ -16,7 +16,7 @@ public class SentenceImpl implements Sentence {
   public String longestWord() {
 
     return this.sentence.stream().filter(element -> element.isWord())
-        .map(element -> element.toString()).reduce("", (a, b) -> a.length() >= b.length() ? a : b);
+        .map(element -> element.toString().trim()).reduce("", (a, b) -> a.length() >= b.length() ? a : b);
 
 //    int maxLength = this.sentence.stream.filter(element -> element.isWord())
 //        .mapToInt(element -> element.toString().length()).reduce(0, (a, b) -> a > b ? a : b);
@@ -24,6 +24,11 @@ public class SentenceImpl implements Sentence {
 //    return this.sentence.stream()
 //        .filter(element -> element.isWord() && element.toString().lenght() == maxLength).findFirst()
 //        .get().toString();
+  }
+
+  @Override
+  public String toString() {
+    return this.sentence.stream().map(element -> element.toString()).reduce("", (a, s) -> a + s).trim();
   }
 
   @Override
