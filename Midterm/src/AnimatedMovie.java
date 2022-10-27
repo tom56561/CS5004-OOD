@@ -27,7 +27,7 @@
  */
 public class AnimatedMovie implements Movie {
   /* Put your class diagram here:
-
+ 
  
  
  
