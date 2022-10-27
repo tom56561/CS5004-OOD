@@ -12,4 +12,9 @@ public class PunctuationElement implements SentenceElement {
     // TODO Auto-generated method stub
     return false;
   }
+  
+  @Override
+  public String toString() {
+    return this.punctuation;
+  }
 }

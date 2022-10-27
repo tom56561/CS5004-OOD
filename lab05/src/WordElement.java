@@ -12,4 +12,9 @@ public class WordElement implements SentenceElement {
     // TODO Auto-generated method stub
     return true;
   }
+  
+  @Override
+  public String toString() {
+    return " " + this.word;
+  }
 }

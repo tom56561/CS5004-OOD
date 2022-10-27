@@ -33,6 +33,13 @@ public class SentenceImplTest {
      s.addElement(new WordElement("you"));
      s.addElement(new PunctuationElement("?"));
      assertEquals("How", s.longestWord());
+     
+     s = new SentenceImpl();
+     s.addElement(new WordElement("See"));
+     s.addElement(new WordElement("you"));
+     s.addElement(new WordElement("tomorrow"));
+     s.addElement(new PunctuationElement("!"));
+     assertEquals("tomorrow", s.longestWord());
 
   }
   
@@ -40,10 +47,10 @@ public class SentenceImplTest {
   public void testClone() {
     Sentence s = new SentenceImpl();
     s.addElement(new WordElement("Hello"));
-    s.addElement(new PunctuantionElement(","));
+    s.addElement(new PunctuationElement(","));
     s.addElement(new WordElement("Good"));
     s.addElement(new WordElement("Morning"));
-    s.addElement(new PunctuantionElement("!"));
+    s.addElement(new PunctuationElement("!"));
     assertEquals("Morning", s.longestWord());
     
     Sentence c = s.clone();
@@ -56,13 +63,24 @@ public class SentenceImplTest {
   @Test
   public void testToString() {
     Sentence s = new SentenceImpl();
-    s.addElement(new WordElement("Hello"));
-    s.addElement(new PunctuantionElement(","));
-    s.addElement(new WordElement("Good"));
-    s.addElement(new WordElement("Morning"));
-    s.addElement(new PunctuantionElement("!"));
-    assertEquals("Morning", s.toString);
+    s.addElement(new WordElement("See"));
+    s.addElement(new WordElement("you"));
+    s.addElement(new WordElement("tomorrow"));
+    s.addElement(new PunctuationElement("!"));
+    assertEquals("See you tomorrow!", s.toString());
     
+    s = new SentenceImpl();
+    s.addElement(new WordElement("Hello"));
+    s.addElement(new PunctuationElement(","));
+    s.addElement(new WordElement("good"));
+    s.addElement(new WordElement("morning"));
+    s.addElement(new PunctuationElement("!"));
+    assertEquals("Hello, good morning!", s.toString());
+    
+    s = new SentenceImpl();
+    s.addElement(new WordElement("Hello"));
+    s.addElement(new WordElement("world"));
+    assertEquals("Hello world.", s.toString());
 
   }
 

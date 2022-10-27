@@ -12,6 +12,8 @@ public class SentenceImpl implements Sentence {
   @Override
   public int getNumberOfWords() {
 
+    return (int) this.sentence.stream().filter(element -> element.isWord()).count();
+
 //    int total = 0;
 //    for (int item = 0; item < sentence.size(); item++) {
 //      if (sentence.get(item) instanceof WordElement) {
@@ -19,8 +21,7 @@ public class SentenceImpl implements Sentence {
 //      }
 //    }
 //    return total;
-    
-    return (int) this.sentence.stream().filter(element -> element.isWord()).count();
+
   }
 
   @Override
@@ -30,18 +31,24 @@ public class SentenceImpl implements Sentence {
         .map(element -> element.toString().trim())
         .reduce("", (a, b) -> a.length() >= b.length() ? a : b);
 
-//    int maxLength = this.sentence.stream.filter(element -> element.isWord())
+//    int maxLength = this.sentence.stream().filter(element -> element.isWord())
 //        .mapToInt(element -> element.toString().length()).reduce(0, (a, b) -> a > b ? a : b);
-//
+//    
 //    return this.sentence.stream()
-//        .filter(element -> element.isWord() && element.toString().lenght() == maxLength).findFirst()
+//        .filter(element -> element.isWord() && element.toString().length() == maxLength).findFirst()
 //        .get().toString();
+
   }
 
   @Override
   public String toString() {
-    return this.sentence.stream().map(element -> element.toString()).reduce("", (a, s) -> a + s)
-        .trim();
+    String out = this.sentence.stream().map(element -> element.toString())
+        .reduce("", (a, s) -> a + s).trim();
+    
+    if (this.sentence.get(this.sentence.size() - 1).isWord()) {
+      return out += ".";
+    }
+    return out;
   }
 
   @Override
