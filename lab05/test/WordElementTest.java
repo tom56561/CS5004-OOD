@@ -6,7 +6,16 @@ public class WordElementTest {
 
   @Test
   public void test() {
-    fail("Not yet implemented");
+    WordElement w = new WordElement("Hello");
+    assertTrue(w.isWord());
+    
+    w = new WordElement("GoodBye");
+    assertTrue(w.isWord());
+
+    
+    w = new WordElement(".");
+    assertTrue(w.isWord());
+
   }
 
 }

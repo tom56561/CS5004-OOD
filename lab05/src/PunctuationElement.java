@@ -1,10 +1,10 @@
 
 public class PunctuationElement implements SentenceElement {
 
-  String punctuationElement;
+  private String punctuation;
   
-  public PunctuationElement() {
-    // TODO Auto-generated constructor stub
+  public PunctuationElement(String punctuation) {
+    this.punctuation = punctuation;
   }
 
   @Override
@@ -12,11 +12,4 @@ public class PunctuationElement implements SentenceElement {
     // TODO Auto-generated method stub
     return false;
   }
-
-  @Override
-  public SentenceElement duplicate() {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
 }

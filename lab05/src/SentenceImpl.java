@@ -1,14 +1,25 @@
+import java.util.LinkedList;
+import java.util.List;
 
 public class SentenceImpl implements Sentence {
 
   private List<SentenceElement> sentence;
 
   public SentenceImpl() {
-    // TODO Auto-generated constructor stub
+    sentence = new LinkedList<SentenceElement>();
   }
 
   @Override
   public int getNumberOfWords() {
+
+//    int total = 0;
+//    for (int item = 0; item < sentence.size(); item++) {
+//      if (sentence.get(item) instanceof WordElement) {
+//        total++;
+//      }
+//    }
+//    return total;
+    
     return (int) this.sentence.stream().filter(element -> element.isWord()).count();
   }
 
@@ -16,7 +27,8 @@ public class SentenceImpl implements Sentence {
   public String longestWord() {
 
     return this.sentence.stream().filter(element -> element.isWord())
-        .map(element -> element.toString().trim()).reduce("", (a, b) -> a.length() >= b.length() ? a : b);
+        .map(element -> element.toString().trim())
+        .reduce("", (a, b) -> a.length() >= b.length() ? a : b);
 
 //    int maxLength = this.sentence.stream.filter(element -> element.isWord())
 //        .mapToInt(element -> element.toString().length()).reduce(0, (a, b) -> a > b ? a : b);
@@ -28,7 +40,8 @@ public class SentenceImpl implements Sentence {
 
   @Override
   public String toString() {
-    return this.sentence.stream().map(element -> element.toString()).reduce("", (a, s) -> a + s).trim();
+    return this.sentence.stream().map(element -> element.toString()).reduce("", (a, s) -> a + s)
+        .trim();
   }
 
   @Override
@@ -56,8 +69,7 @@ public class SentenceImpl implements Sentence {
 
   @Override
   public void addElement(SentenceElement element) {
-    // TODO Auto-generated method stub
-
+    this.sentence.add(element);
   }
 
 }

@@ -4,28 +4,34 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class SentenceImplTest {
-  Sentence S
+  Sentence s;
 
   @Test
   public void testGetNumberOfWords() {
-    fail("Not yet implemented");
+    Sentence s = new SentenceImpl();
+    s.addElement(new WordElement("Hello"));
+    s.addElement(new WordElement("Word"));
+    s.addElement(new PunctuationElement("!"));
+
+    assertEquals(2, s.getNumberOfWords());
+
   }
   
   @Test
   public void testLongestWord() {
     Sentence s = new SentenceImpl();
     s.addElement(new WordElement("Hello"));
-    s.addElement(new PunctuantionElement(","));
+    s.addElement(new PunctuationElement(","));
     s.addElement(new WordElement("Good"));
     s.addElement(new WordElement("Morning"));
-    s.addElement(new PunctuantionElement("!"));
+    s.addElement(new PunctuationElement("!"));
     assertEquals("Morning", s.longestWord());
     
      s = new SentenceImpl();
      s.addElement(new WordElement("How"));
      s.addElement(new WordElement("are"));
      s.addElement(new WordElement("you"));
-     s.addElement(new PunctuantionElement("?"));
+     s.addElement(new PunctuationElement("?"));
      assertEquals("How", s.longestWord());
 
   }

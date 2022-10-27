@@ -6,7 +6,9 @@ public class PunctuationElementTest {
 
   @Test
   public void test() {
-    fail("Not yet implemented");
+    
+    PunctuationElement p = new PunctuationElement("!");
+    assertTrue()
   }
 
 }

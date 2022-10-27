@@ -51,10 +51,11 @@ public interface Sentence {
    * @return
    */
   Sentence tranlateToPigLatin();
-  
+
   /**
-   * Add element ot sentence
-   * @param element
+   * Add an element to the next spot in the sentence.
+   * 
+   * @param element any SentenceElement
    */
   void addElement(SentenceElement element);
 }
