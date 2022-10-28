@@ -31,8 +31,8 @@ public class sumSequence {
    * A recursive implementation of sumSequence, or summing all the integers
    * between 1 and n. 
    * 
-   * @param n
-   * @return
+   * @param n the highest integer in the sequence
+   * @return the sum of all integers from 1 to n
    */
   public static int sumSequenceRecursive(int n) {
     if (n == 1) {

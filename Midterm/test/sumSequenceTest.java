@@ -2,6 +2,9 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+/*
+ * Test sumSequence method.
+ */
 public class sumSequenceTest {
 
   /**
