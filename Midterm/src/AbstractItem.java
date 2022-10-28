@@ -29,8 +29,13 @@ public abstract class AbstractItem {
    * @param price    the price of the item.
    * @param weight   the weight of the item.
    * @param nInStock the nInStock of the item.
+   * @throws IllegalArgumentException if the price or weight or nInStock below zero
    */
-  public AbstractItem(double price, double weight, int nInStock) {
+  public AbstractItem(double price, double weight, int nInStock) throws IllegalArgumentException {
+    if (price < 0 || weight < 0 || nInStock < 0) {
+      throw new IllegalArgumentException("price or weight or nInStock can not below zero");
+    }
+    
     this.price = price;
     this.weight = weight;
     this.nInStock = nInStock;

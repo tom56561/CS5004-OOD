@@ -28,7 +28,7 @@ public class ClothingItem extends AbstractItem {
    * @return the collection of the item
    */
   public Collection getCollection() {
-    return collection;
+    return this.collection;
   }
 
 }
