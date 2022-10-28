@@ -1,54 +1,59 @@
+/**
+ * BookItem represents the book item in the web stores.
+ * 
+ * @author eddie
+ *
+ */
+public class BookItem extends AbstractItem {
 
-public class BookItem {
-  
   private String title;
   private String author;
-  private double price;
-  private double weight;
   private int length;
-  private int nInStock;
-  
-  public BookItem(String author, String title, int length, double price, int initialStock, double weight) {
+
+  /**
+   * Create a new BookItem given an input author, title, length, price,
+   * initialStock, and weight.
+   * 
+   * @param author       the author of the book
+   * @param title        the title of the book
+   * @param length       the length of the book
+   * @param price        the price of the book
+   * @param initialStock the stock of the book
+   * @param weight       the weight of the book
+   */
+  public BookItem(String author, String title, int length, double price, double weight,
+      int initialStock) {
+    super(price, weight, initialStock);
     this.title = title;
     this.author = author;
-    this.price = price;
-    this.nInStock = initialStock;
-    this.weight = weight;
+    this.length = length;
   }
-  
+
+  /**
+   * Return the title of the book.
+   * 
+   * @return the title of the book
+   */
   public String getTitle() {
     return this.title;
   }
-  
+
+  /**
+   * Return the author of the book.
+   * 
+   * @return the author of the book
+   */
   public String getAuthor() {
     return this.author;
   }
-  
-  public int getLenght() {
+
+  /**
+   * Return the length of the book.
+   * 
+   * @return the length of the book.
+   */
+  public int getLength() {
     return this.length;
   }
-  
-  public double getPrice() {
-    return this.price;
-  }
-  
-  public double getWeight() {
-    return this.weight;
-  }
-  
-  public boolean inStock() {
-    return nInStock>0;
-  }
-  
-  public void sellItem(int nSold) throws IllegalArgumentException {
-    if (nSold > this.nInStock) {
-      throw new IllegalArgumentException("We cannot sell more than are in stock.");
-    }
-    this.nInStock = this.nInStock - nSold;
-  }
-  
-  public double valueOfStock() {
-    return price*nInStock;
-  }
-  
+
 }

@@ -1,38 +1,20 @@
+/**
+ * KitchenItem represents the kitchen item in the web stores.
+ * 
+ * @author eddie
+ *
+ */
+public class KitchenItem extends AbstractItem {
 
-public class KitchenItem {
-  
-  private double price;
-  private double weight;
-  private int nInStock;
-  
-  public KitchenItem(double price, int initialStock, double weight) {
-    this.price = price;
-    this.nInStock = initialStock;
-    this.weight = weight;
+  /**
+   * Create a new KitchenItem given an input price, initialStock, and weight.
+   * 
+   * @param price        the price of the item
+   * @param initialStock the stock of the item
+   * @param weight       the weight of the item
+   */
+  public KitchenItem(double price, double weight, int initialStock) {
+    super(price, weight, initialStock);
   }
-  
-  public double getPrice() {
-    return this.price;
-  }
-  
-  public double getWeight() {
-    return this.weight;
-  }
-  
-  public boolean inStock() {
-    return nInStock>0;
-  }
-  
-  public void sellItem(int nSold) throws IllegalArgumentException {
-    if (nSold > this.nInStock) {
-      throw new IllegalArgumentException("We cannot sell more than are in stock.");
-    }
-    this.nInStock = this.nInStock - nSold;
-  }
-  
-  public double valueOfStock() {
-    return price*nInStock;
-  }
-  
 
 }

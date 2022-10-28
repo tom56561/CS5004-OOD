@@ -1,42 +1,34 @@
+/**
+ * ClothingItem represents the clothing item in the web stores.
+ * 
+ * @author eddie
+ *
+ */
+public class ClothingItem extends AbstractItem {
 
-public class ClothingItem {
-  private double price;
-  private double size;
-  private int numberAvailable;
   private Collection collection;
 
-
-  public ClothingItem(double price, double size, Collection collection, int initialStock) {
-    this.price = price;
-    this.numberAvailable = initialStock;
-    this.size = size;
+  /**
+   * Create a new ClothingItem given an input price, size, collection, and
+   * initialStock.
+   * 
+   * @param price        the price of the item
+   * @param size         the weight of the item
+   * @param collection   the collection of the item
+   * @param initialStock the stock of the item
+   */
+  public ClothingItem(double price, double size, int initialStock, Collection collection) {
+    super(price, size, initialStock);
     this.collection = collection;
   }
 
-  public double getPrice() {
-    return this.price;
-  }
-
-  public double getWeight() {
-    return this.size;
-  }
-
-
-  public boolean inStock() {
-    return numberAvailable>0;
-  }
-
-  public void sellItem(int nSold) throws IllegalArgumentException {
-    if (nSold > this.numberAvailable) {
-      throw new IllegalArgumentException("We cannot sell more than are in stock.");
-    }
-    this.numberAvailable = this.numberAvailable - nSold;
-  }
-
+  /**
+   * Return the collection of the item.
+   * 
+   * @return the collection of the item
+   */
   public Collection getCollection() {
     return collection;
   }
-
-
 
 }
