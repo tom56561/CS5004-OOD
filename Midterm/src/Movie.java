@@ -21,7 +21,7 @@ public interface Movie {
   public String getTitle();
 
   /**
-   * Resets the progress of the movie to the beginning
+   * Resets the progress of the movie to the beginning.
    */
   public void resetProgress();
 

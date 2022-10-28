@@ -2,10 +2,13 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-/*
+/**
  * Test sumSequence method.
+ * 
+ * @author eddie
+ *
  */
-public class sumSequenceTest {
+public class SumSequenceTest {
 
   /**
    * Testing the recursive formulation for sumSequence. This assumes
@@ -16,8 +19,8 @@ public class sumSequenceTest {
   public void testSumSequence() {
 
     for (int input = 1; input < 10000; input++) {
-      int expected = sumSequence.sumSequenceEquation(input);
-      int actual = sumSequence.sumSequenceRecursive(input);
+      int expected = SumSequence.sumSequenceEquation(input);
+      int actual = SumSequence.sumSequenceRecursive(input);
       assertEquals(expected, actual);
       assertEquals(expected, actual);
     }
