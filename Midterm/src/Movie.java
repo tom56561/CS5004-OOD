@@ -35,9 +35,5 @@ public interface Movie {
    * @throws IllegalArgumentException when seconds is larger than 60
    */
   public void jumpToTime(int minute, int seconds) throws IllegalArgumentException;
-  
-  
-  
-  
-  
+   
 }

@@ -38,7 +38,6 @@ public class AnimatedMovie implements Movie {
     | + jumpToTime(int,int): void |
     |                             |
      -----------------------------
-     
                  ^
                  |
                  |
@@ -63,7 +62,6 @@ public class AnimatedMovie implements Movie {
   private int currentMinute;
   private int currentSeconds;
 
-  
   @Override
   public int getPublicationYear() {
     return this.publicationYear;
@@ -85,7 +83,6 @@ public class AnimatedMovie implements Movie {
     this.currentSeconds = 0;
   }
 
-  
   
   //ALL THE METHODS BELOW HERE ARE ASSUMED TO BE PROPERLY IMPLEMENTED
   
