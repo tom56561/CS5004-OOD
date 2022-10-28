@@ -27,33 +27,62 @@
  */
 public class AnimatedMovie implements Movie {
   /* Put your class diagram here:
- 
- 
- 
- 
- 
- 
+   
+     -----------------------------
+    |          Movie              |
+     -----------------------------
+    | + getPublicationYear(): int |
+    | + getTitle(): String        |
+    | + resetProgress(): void     |
+    | + saveProgress(): void      |
+    | + jumpToTime(int,int): void |
+    |                             |
+     -----------------------------
+     
+                 ^
+                 |
+                 |
+                 |  
+      
+     -----------------------------
+    |       AnimatedMovie         |
+     -----------------------------
+    | - publicationYear: int      |
+    | - currentMinute: int        |
+    | - currentSeconds: int       |
+     -----------------------------
+    | + getPublicationYear(): int |
+    | + getTitle(): String        |
+    | + resetProgress(): void     |
+    | + saveProgress(): void      |
+    | + jumpToTime(int,int): void |
+    |                             |
+     -----------------------------
    */
-  
+  private int publicationYear;
+  private int currentMinute;
+  private int currentSeconds;
 
   
   @Override
   public int getPublicationYear() {
-    // TODO Auto-generated method stub
-    return 0;
+    return this.publicationYear;
   }
 
 
   @Override
   public void jumpToTime(int minute, int seconds) throws IllegalArgumentException {
-    // TODO Auto-generated method stub
-
+    if (seconds > 60) {
+      throw new IllegalArgumentException("Seconds can not larger than 60");
+    }
+    this.currentMinute = minute;
+    this.currentSeconds = seconds;
   }
   
   @Override
   public void resetProgress() {
-    // TODO Auto-generated method stub
-
+    this.currentMinute = 0;
+    this.currentSeconds = 0;
   }
 
   
