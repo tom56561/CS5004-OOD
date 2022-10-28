@@ -16,7 +16,7 @@ public class sumSequenceTest {
     for (int input = 1; input<10000; input++) {
       int expected = sumSequence.sumSequenceEquation(input);
       int actual = sumSequence.sumSequenceRecursive(input);
-    
+      assertEquals(expected,actual);
       assertEquals(expected,actual);
     }
   }

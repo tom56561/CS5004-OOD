@@ -35,8 +35,10 @@ public class sumSequence {
    * @return
    */
   public static int sumSequenceRecursive(int n) {
-    //fill code here
-    return 0;
+    if (n == 1) {
+      return 1;
+    }
+    return n + sumSequenceRecursive(n - 1);
   }
  
 }
