@@ -8,6 +8,8 @@ public class Employee {
   private double payRate;
   private double hoursWorked;
 
+  
+  
   /**
    * Makes a new employee object with the give name and pay rate and sets their
    * hours worked so far to 0.
