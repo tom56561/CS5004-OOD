@@ -14,7 +14,23 @@ public class PunctuationElement implements SentenceElement {
   }
   
   @Override
+  public SentenceElement duplicate() {
+    return new PunctuationElement(this.punctuation);
+  }  
+  
+  @Override
   public String toString() {
     return this.punctuation;
   }
+
+  @Override
+  public boolean containsZ() {
+    return false;
+  }
+
+  @Override
+  public SentenceElement tranlateToPigLatin() {
+    return this.duplicate();
+  }
+
 }

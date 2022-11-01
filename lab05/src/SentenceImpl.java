@@ -1,5 +1,7 @@
 import java.util.LinkedList;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class SentenceImpl implements Sentence {
 
@@ -7,6 +9,10 @@ public class SentenceImpl implements Sentence {
 
   public SentenceImpl() {
     sentence = new LinkedList<SentenceElement>();
+  }
+
+  public SentenceImpl(List<SentenceElement> sentence) {
+    sentence = sentence;
   }
 
   @Override
@@ -44,7 +50,7 @@ public class SentenceImpl implements Sentence {
   public String toString() {
     String out = this.sentence.stream().map(element -> element.toString())
         .reduce("", (a, s) -> a + s).trim();
-    
+
     if (this.sentence.get(this.sentence.size() - 1).isWord()) {
       return out += ".";
     }
@@ -53,30 +59,49 @@ public class SentenceImpl implements Sentence {
 
   @Override
   public Sentence clone() {
-    return null;
+//    return new SentenceImpl(this.sentence);
+    
+    return new SentenceImpl(this.sentence.stream().map(element -> element.duplicate())
+        .collect(Collectors.toCollection(LinkedList::new)));
+
   }
 
   @Override
   public Sentence merger(Sentence other) {
-    // TODO Auto-generated method stub
+    Sentence mergedSentence = this.clone();
+    if (other instanceof SentenceImpl) {
+      ((SentenceImpl) other).sentence.stream()
+          .forEach(element -> mergedSentence.addElement(element.duplicate()));
+      return mergedSentence;
+    }
     return null;
+  }
+
+  @Override
+  public int getNumberOfPunctuation() {
+    return (int) this.sentence.stream().filter(element -> !(element.isWord())).count();
+
   }
 
   @Override
   public int getNumberOfZ() {
-    // TODO Auto-generated method stub
-    return 0;
+    return (int) this.sentence.stream().filter(element -> element.containsZ()).count();
   }
 
   @Override
   public Sentence tranlateToPigLatin() {
-    // TODO Auto-generated method stub
-    return null;
+    return new SentenceImpl(this.sentence.stream().map(element -> element.tranlateToPigLatin())
+        .collect(Collectors.toCollection(LinkedList::new)));
   }
 
   @Override
   public void addElement(SentenceElement element) {
     this.sentence.add(element);
+  }
+
+  @Override
+  public int genericGetNumberOf(Predicate<SentenceElement> p) {
+    return (int) this.sentence.stream().filter(p).count();
   }
 
 }

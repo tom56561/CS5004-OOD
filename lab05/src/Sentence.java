@@ -1,3 +1,4 @@
+import java.util.function.Predicate;
 
 public interface Sentence {
 
@@ -37,6 +38,8 @@ public interface Sentence {
    */
   Sentence merger(Sentence other);
 
+  int getNumberOfPunctuation();
+  
   /**
    * Returns the total number of words containing one or more of letter Z. If a
    * word contains multiole Zs it still only counts as one word.
@@ -45,6 +48,13 @@ public interface Sentence {
    */
   int getNumberOfZ();
 
+  /**
+   * Check each part of the sentence and count the number of parts
+   * for which this perdicate is true.
+   * @param p
+   * @return the number of element for 
+   */
+  int genericGetNumberOf(Predicate<SentenceElement> p);
   /**
    * Translates the sentence to pig Latin.
    * 

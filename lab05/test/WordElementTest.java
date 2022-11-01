@@ -17,5 +17,12 @@ public class WordElementTest {
     assertTrue(w.isWord());
 
   }
+  
+  @Test
+  public void testDuplicate() {
+    SentenceElement s = new WordElement("Hello");
+    assertNotEquals(s, s.duplicate());
+    assertEquals(s.toString(), s.duplicate().toString());
+  }
 
 }
