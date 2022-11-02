@@ -25,7 +25,6 @@ public class PolynomialImpl implements Polynomial {
     String[] arr = polyno.split(" ");
     for (String s : arr) {
       if (s.contains("x")) {
-//        String[] term = s.split(Pattern.quote("x^"));
         String coefS = s.substring(0, s.indexOf('x'));
         String powS = s.substring(s.indexOf('^') + 1);
         int coef = Integer.parseInt(coefS);
@@ -125,11 +124,11 @@ public class PolynomialImpl implements Polynomial {
   }
 
   @Override
-  public PolynomialImpl add(PolynomialImpl other) throws IllegalArgumentException {
-    if (!(other instanceof PolynomialImpl)) {
+  public Polynomial add(PolynomialImpl other) throws IllegalArgumentException {
+    if (!(other instanceof Polynomial)) {
       throw new IllegalArgumentException("Other it is a different object");
     }
-    PolynomialImpl sum = new PolynomialImpl();
+    Polynomial sum = new PolynomialImpl();
     Term cur = this.head;
     Term oCur = other.head;
 

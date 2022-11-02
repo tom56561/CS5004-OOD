@@ -1,9 +1,20 @@
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
+/**
+ * Test PolynomialImpl is work well
+ * 
+ * @author eddie
+ *
+ */
 public class PolynomialImplTest {
 
+  /**
+   * Test PolynomialImpl constructor.
+   */
   @Test
   public void testPolynomialImpl() {
     PolynomialImpl p = new PolynomialImpl("5");
@@ -31,6 +42,9 @@ public class PolynomialImplTest {
     }
   }
 
+  /**
+   * Test addterm method work well.
+   */
   @Test
   public void testAddTerm() {
     PolynomialImpl p = new PolynomialImpl();
@@ -74,6 +88,9 @@ public class PolynomialImplTest {
     }
   }
 
+  /**
+   * Test if removeTerm work.
+   */
   @Test
   public void testRemoveTerm() {
     PolynomialImpl p = new PolynomialImpl();
@@ -105,6 +122,9 @@ public class PolynomialImplTest {
 
   }
 
+  /**
+   * Test if getDegree work.
+   */
   @Test
   public void testGetDegree() {
     PolynomialImpl p = new PolynomialImpl("-3x^4 -2x^5 -5 +11x^1");
@@ -117,6 +137,9 @@ public class PolynomialImplTest {
     assertEquals(0, s.getDegree());
   }
 
+  /**
+   * Test getCofficient work well.
+   */
   @Test
   public void testGetCoefficient() {
     PolynomialImpl p = new PolynomialImpl("-3x^4 -2x^5 -5 +11x^1");
@@ -134,6 +157,9 @@ public class PolynomialImplTest {
     }
   }
 
+  /**
+   * Test if evaluate work.
+   */
   @Test
   public void testEvaluate() {
     PolynomialImpl p = new PolynomialImpl("2x^2");
@@ -150,26 +176,36 @@ public class PolynomialImplTest {
 
   }
 
+  /**
+   * Test add method work well.
+   */
   @Test
   public void testAdd() {
     PolynomialImpl p = new PolynomialImpl("2x^2");
     PolynomialImpl o = new PolynomialImpl("3x^3");
-    assertEquals("3x^3 +2x^2", p.add(o).toString());
+    Polynomial c = p.add(o);
+    assertEquals("3x^3 +2x^2", c.toString());
     o = new PolynomialImpl("2x^2");
-    assertEquals("4x^2", p.add(o).toString());
+    c = p.add(o);
+    assertEquals("4x^2", c.toString());
     o = new PolynomialImpl("-2x^2");
-    assertEquals("0", p.add(o).toString());
+    c = p.add(o);
+    assertEquals("0", c.toString());
     p = new PolynomialImpl("-2x^5 -3x^4 +11x^1 -5");
     o = new PolynomialImpl("-3x^4 +6x^3 +5x^2 -2x^1 +1");
-    assertEquals("-2x^5 -6x^4 +6x^3 +5x^2 +9x^1 -4", p.add(o).toString());
+    c = p.add(o);
+    assertEquals("-2x^5 -6x^4 +6x^3 +5x^2 +9x^1 -4", c.toString());
     p = new PolynomialImpl();
     o = new PolynomialImpl();
-    assertEquals("0", p.add(o).toString());
+    c = p.add(o);
+    assertEquals("0", c.toString());
     o = new PolynomialImpl("-2");
-    assertEquals("-2", p.add(o).toString());
+    c = p.add(o);
+    assertEquals("-2", c.toString());
     p = new PolynomialImpl("6");
     o = new PolynomialImpl("9");
-    assertEquals("15", p.add(o).toString());
+    c = p.add(o);
+    assertEquals("15", c.toString());
 
   }
 

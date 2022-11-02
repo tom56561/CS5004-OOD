@@ -62,6 +62,6 @@ public interface Polynomial {
    * @throws IllegalArgumentException if given Polynomial is different class
    */
 
-  PolynomialImpl add(PolynomialImpl other) throws IllegalArgumentException;
+  Polynomial add(PolynomialImpl other) throws IllegalArgumentException;
 
 }
