@@ -1,11 +1,12 @@
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
 /**
- * Test PolynomialImpl is work well
+ * Test PolynomialImpl is work well.
  * 
  * @author eddie
  *
@@ -17,7 +18,7 @@ public class PolynomialImplTest {
    */
   @Test
   public void testPolynomialImpl() {
-    PolynomialImpl p = new PolynomialImpl("5");
+    Polynomial p = new PolynomialImpl("5");
     assertEquals("5", p.toString());
     p = new PolynomialImpl("3x^1");
     assertEquals("3x^1", p.toString());
@@ -34,12 +35,6 @@ public class PolynomialImplTest {
     } catch (IllegalArgumentException e) {
       // do nothing
     }
-    try {
-      p = new PolynomialImpl("-3x^4 0x^5 -5 +11x^1");
-      fail("Did not throw exception on coef equal 0");
-    } catch (IllegalArgumentException e) {
-      // do nothing
-    }
   }
 
   /**
@@ -47,7 +42,7 @@ public class PolynomialImplTest {
    */
   @Test
   public void testAddTerm() {
-    PolynomialImpl p = new PolynomialImpl();
+    Polynomial p = new PolynomialImpl();
     p.addTerm(5, 2);
     p.addTerm(3, 1);
     p.addTerm(6, 3);
@@ -67,13 +62,12 @@ public class PolynomialImplTest {
     assertEquals("-1059x^504 -5x^6 -3x^4 +6x^3 +5x^2 -2x^1 -4", p.toString());
     p.addTerm(1000, 504);
     assertEquals("-59x^504 -5x^6 -3x^4 +6x^3 +5x^2 -2x^1 -4", p.toString());
+    Polynomial c = new PolynomialImpl();
+    c.addTerm(2, 1);
+    assertEquals("2x^1", c.toString());
+    c.addTerm(-2, 1);
+    assertEquals("0", c.toString());
 
-    try {
-      p.addTerm(0, 1);
-      fail("Did not throw exception on coef equal 0");
-    } catch (IllegalArgumentException e) {
-      // do nothing
-    }
     try {
       p.addTerm(1, -2);
       fail("Did not throw exception on power below than 0");
@@ -82,7 +76,7 @@ public class PolynomialImplTest {
     }
     try {
       p.addTerm(0, -2);
-      fail("Did not throw exception on power below than 0 and coef equal 0");
+      fail("Did not throw exception on power below than 0");
     } catch (IllegalArgumentException e) {
       // do nothing
     }
@@ -93,7 +87,7 @@ public class PolynomialImplTest {
    */
   @Test
   public void testRemoveTerm() {
-    PolynomialImpl p = new PolynomialImpl();
+    Polynomial p = new PolynomialImpl();
     p.addTerm(-5, 2);
     p.addTerm(3, 1);
     p.addTerm(6, 3);
@@ -113,13 +107,6 @@ public class PolynomialImplTest {
     p.removeTerm(501);
     assertEquals("-5x^6 +6x^3 +3x^1", p.toString());
 
-    try {
-      p.removeTerm(-2);
-      fail("Did not throw exception on power below than 0");
-    } catch (IllegalArgumentException e) {
-      // do nothing
-    }
-
   }
 
   /**
@@ -127,11 +114,11 @@ public class PolynomialImplTest {
    */
   @Test
   public void testGetDegree() {
-    PolynomialImpl p = new PolynomialImpl("-3x^4 -2x^5 -5 +11x^1");
+    Polynomial p = new PolynomialImpl("-3x^4 -2x^5 -5 +11x^1");
     assertEquals(5, p.getDegree());
     p.addTerm(5656416, 99);
     assertEquals(99, p.getDegree());
-    PolynomialImpl s = new PolynomialImpl("5");
+    Polynomial s = new PolynomialImpl("5");
     assertEquals(0, s.getDegree());
     s = new PolynomialImpl();
     assertEquals(0, s.getDegree());
@@ -142,19 +129,13 @@ public class PolynomialImplTest {
    */
   @Test
   public void testGetCoefficient() {
-    PolynomialImpl p = new PolynomialImpl("-3x^4 -2x^5 -5 +11x^1");
+    Polynomial p = new PolynomialImpl("-3x^4 -2x^5 -5 +11x^1");
     assertEquals(-2, p.getCoefficient(5));
     assertEquals(-3, p.getCoefficient(4));
     assertEquals(0, p.getCoefficient(3));
     assertEquals(11, p.getCoefficient(1));
     assertEquals(-5, p.getCoefficient(0));
 
-    try {
-      p.getCoefficient(-2);
-      fail("Did not throw exception on power below than 0");
-    } catch (IllegalArgumentException e) {
-      // do nothing
-    }
   }
 
   /**
@@ -162,7 +143,7 @@ public class PolynomialImplTest {
    */
   @Test
   public void testEvaluate() {
-    PolynomialImpl p = new PolynomialImpl("2x^2");
+    Polynomial p = new PolynomialImpl("2x^2");
     assertEquals(8, p.evaluate(2), 0.09);
     p = new PolynomialImpl("5");
     assertEquals(5, p.evaluate(2), 0.09);
@@ -181,12 +162,14 @@ public class PolynomialImplTest {
    */
   @Test
   public void testAdd() {
-    PolynomialImpl p = new PolynomialImpl("2x^2");
-    PolynomialImpl o = new PolynomialImpl("3x^3");
+    Polynomial p = new PolynomialImpl("2x^2");
+    Polynomial o = new PolynomialImpl("3x^3");
     Polynomial c = p.add(o);
     assertEquals("3x^3 +2x^2", c.toString());
     o = new PolynomialImpl("2x^2");
     c = p.add(o);
+    assertEquals(p, p);
+    assertNotEquals(c, p.add(o));
     assertEquals("4x^2", c.toString());
     o = new PolynomialImpl("-2x^2");
     c = p.add(o);

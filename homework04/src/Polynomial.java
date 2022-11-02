@@ -8,13 +8,19 @@
 public interface Polynomial {
 
   /**
+   * Get head term of the Polynomial.
+   * 
+   * @return the head of the Polynomial
+   */
+  Term getHead();
+
+  /**
    * Takes a coefficient and a power (both integer numbers) and adds the resulting
    * term to the polynomial.
    * 
    * @param coef the coefficient
    * @param pow  the power
-   * @throws IllegalArgumentException if a negative power is passed to it or coef
-   *                                  is zero
+   * @throws IllegalArgumentException if a negative power is passed to it
    */
   void addTerm(int coef, int pow) throws IllegalArgumentException;
 
@@ -23,10 +29,9 @@ public interface Polynomial {
    * power.
    * 
    * @param pow the power
-   * @throws IllegalArgumentException if a negative power is passed to it
    * 
    */
-  void removeTerm(int pow) throws IllegalArgumentException;
+  void removeTerm(int pow);
 
   /**
    * Returns the degree of this polynomial.
@@ -40,9 +45,8 @@ public interface Polynomial {
    * 
    * @param pow the power
    * @return the coefficient for the term with that power
-   * @throws IllegalArgumentException if a negative power is passed to it
    */
-  int getCoefficient(int pow) throws IllegalArgumentException;
+  int getCoefficient(int pow);
 
   /**
    * Takes a double-precision decimal number and returns a double-precision
@@ -62,6 +66,6 @@ public interface Polynomial {
    * @throws IllegalArgumentException if given Polynomial is different class
    */
 
-  Polynomial add(PolynomialImpl other) throws IllegalArgumentException;
+  Polynomial add(Polynomial other) throws IllegalArgumentException;
 
 }

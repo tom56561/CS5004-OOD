@@ -29,16 +29,13 @@ public class PolynomialImpl implements Polynomial {
         String powS = s.substring(s.indexOf('^') + 1);
         int coef = Integer.parseInt(coefS);
         int pow = Integer.parseInt(powS);
-        if (pow < 0 || coef == 0) {
+        if (pow < 0) {
           throw new IllegalArgumentException(
-              "Power can not be a negative number or coefficients can not be zero");
+              "Power can not be a negative number");
         }
         this.addTerm(coef, pow);
       } else {
         int coef = Integer.parseInt(s);
-        if (coef == 0) {
-          throw new IllegalArgumentException("Coefficients can not be zero");
-        }
         this.addTerm(coef, 0);
       }
     }
@@ -47,9 +44,8 @@ public class PolynomialImpl implements Polynomial {
 
   @Override
   public void addTerm(int coef, int pow) throws IllegalArgumentException {
-    if (pow < 0 || coef == 0) {
-      throw new IllegalArgumentException(
-          "Power can not be a negative number or coefficients can not be zero");
+    if (pow < 0) {
+      throw new IllegalArgumentException("Power can not be a negative number");
     }
     Term cur = head;
     Term node;
@@ -61,7 +57,13 @@ public class PolynomialImpl implements Polynomial {
       node = new Term(coef, pow, this.head);
       this.head = node;
     } else if (pow <= cur.pow) {
+      if (cur.pow == pow && (cur.coef + coef) == 0) {
+        head = null;
+      }
       while (cur.next != null && cur.next.pow >= pow) {
+        if (cur.next.pow == pow && (cur.next.coef + coef) == 0) {
+          cur.next = cur.next.next;
+        }
         cur = cur.next;
       }
       if (cur.pow == pow) {
@@ -74,10 +76,7 @@ public class PolynomialImpl implements Polynomial {
   }
 
   @Override
-  public void removeTerm(int pow) throws IllegalArgumentException {
-    if (pow < 0) {
-      throw new IllegalArgumentException("Power can not be a negative number");
-    }
+  public void removeTerm(int pow) {
     if (this.head.pow == pow) {
       this.head = this.head.next;
     }
@@ -99,10 +98,7 @@ public class PolynomialImpl implements Polynomial {
   }
 
   @Override
-  public int getCoefficient(int pow) throws IllegalArgumentException {
-    if (pow < 0) {
-      throw new IllegalArgumentException("Power can not be a negative number");
-    }
+  public int getCoefficient(int pow) {
     Term cur = this.head;
     while (cur != null && cur.pow != pow && cur.pow > pow) {
       cur = cur.next;
@@ -124,13 +120,18 @@ public class PolynomialImpl implements Polynomial {
   }
 
   @Override
-  public Polynomial add(PolynomialImpl other) throws IllegalArgumentException {
+  public Term getHead() {
+    return this.head;
+  }
+
+  @Override
+  public Polynomial add(Polynomial other) throws IllegalArgumentException {
     if (!(other instanceof Polynomial)) {
       throw new IllegalArgumentException("Other it is a different object");
     }
     Polynomial sum = new PolynomialImpl();
     Term cur = this.head;
-    Term oCur = other.head;
+    Term oCur = other.getHead();
 
     while (cur != null || oCur != null) {
       if (oCur == null || (cur != null && cur.pow > oCur.pow)) {
