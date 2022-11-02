@@ -50,7 +50,7 @@ public class PolynomialImpl implements Polynomial {
     } else if (pow > this.head.pow) {
       node = new Term(coef, pow, this.head);
       this.head = node;
-    } else if (pow < cur.pow) {
+    } else if (pow <= cur.pow) {
       while (cur.next != null && cur.next.pow >= pow) {
         cur = cur.next;
       }
@@ -121,15 +121,23 @@ public class PolynomialImpl implements Polynomial {
     PolynomialImpl sum = new PolynomialImpl();
     Term cur = this.head;
     Term oCur = other.head;
-    
-    while(cur != null) {
-      sum.addTerm(cur.coef, cur.pow);
-      cur = cur.next;
+
+    while (cur != null || oCur != null) {
+      if (oCur == null || (cur != null && cur.pow > oCur.pow)) {
+        sum.addTerm(cur.coef, cur.pow);
+        cur = cur.next;
+      } else if (cur == null || (oCur != null && oCur.pow > cur.pow)) {
+        sum.addTerm(oCur.coef, oCur.pow);
+        oCur = oCur.next;
+      } else {
+        if (cur.coef + oCur.coef != 0) {
+          sum.addTerm(cur.coef + oCur.coef, cur.pow);
+        }
+        cur = cur.next;
+        oCur = oCur.next;
+      }
     }
-    while(oCur != null) {
-      sum.addTerm(oCur.coef, oCur.pow);
-      oCur = oCur.next;
-    }
+
     return sum;
   }
 
