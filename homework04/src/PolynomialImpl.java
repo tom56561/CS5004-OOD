@@ -1,4 +1,8 @@
-
+/**
+ * PolynomialImpl represents Polynomial implement with linked list term.
+ * 
+ * @author eddie
+ */
 public class PolynomialImpl implements Polynomial {
 
   private Term head;
@@ -10,6 +14,13 @@ public class PolynomialImpl implements Polynomial {
     this.head = null;
   }
 
+  /**
+   * Makes a new PolynomialImpl object with the given polynomial as a string.
+   * 
+   * @param polyno the polynomial as a string
+   * @throws IllegalArgumentException if powder is a negative number or
+   *                                  coefficients is zero
+   */
   public PolynomialImpl(String polyno) throws IllegalArgumentException {
     String[] arr = polyno.split(" ");
     for (String s : arr) {

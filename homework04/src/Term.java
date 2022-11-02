@@ -1,10 +1,23 @@
-
+/**
+ * Term represents a linked list node with coefficient, power, and next.
+ *
+ * @author eddie
+ *
+ */
 public class Term implements TermInterface {
 
   int coef;
   int pow;
   Term next;
 
+  /**
+   * Make a new Term object wiht given coef, pow, and next.
+   * 
+   * @param coef the coefficient of the term
+   * @param pow  the powed of the term
+   * @param next the next link of the term
+   * @throws IllegalArgumentException if power is negative number
+   */
   public Term(int coef, int pow, Term next) throws IllegalArgumentException {
     if (pow < 0) {
       throw new IllegalArgumentException("Power can not be a negative number");
