@@ -30,8 +30,7 @@ public class PolynomialImpl implements Polynomial {
         int coef = Integer.parseInt(coefS);
         int pow = Integer.parseInt(powS);
         if (pow < 0) {
-          throw new IllegalArgumentException(
-              "Power can not be a negative number");
+          throw new IllegalArgumentException("Power can not be a negative number");
         }
         this.addTerm(coef, pow);
       } else {
@@ -126,12 +125,15 @@ public class PolynomialImpl implements Polynomial {
 
   @Override
   public Polynomial add(Polynomial other) throws IllegalArgumentException {
-    if (!(other instanceof Polynomial)) {
+    if (!(other instanceof PolynomialImpl)) {
       throw new IllegalArgumentException("Other it is a different object");
     }
     Polynomial sum = new PolynomialImpl();
-    Term cur = this.head;
+
+//    PolynomialImpl other2 = (PolynomialImpl) other;
+//    Term oCur = other2.head;
     Term oCur = other.getHead();
+    Term cur = this.head;
 
     while (cur != null || oCur != null) {
       if (oCur == null || (cur != null && cur.pow > oCur.pow)) {
@@ -149,6 +151,7 @@ public class PolynomialImpl implements Polynomial {
       }
     }
 
+//    return new  PolynomialImpl(this.toString() + " -+" + other.toString());
     return sum;
   }
 
