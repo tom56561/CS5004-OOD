@@ -82,7 +82,7 @@ public class SentenceImplTest {
     assertNotEquals(s, c);
     assertEquals(s.toString(), c.toString());
 
-    c.addElement(new PunctuationElement("?"));
+    s.addElement(new WordElement("Extra"));
     assertEquals(str, c.toString());
 
 //    SentenceImpl original = (SentenceImpl) s;
@@ -118,12 +118,15 @@ public class SentenceImplTest {
     assertEquals(sString, s.toString());
     assertEquals(oString, o.toString());
 
+    s.addElement(new WordElement("Extra"));
+    assertEquals(mString, m.toString());
+    
     o.addElement(new WordElement("Oops"));
     assertEquals(mString, m.toString());
-
-    m.addElement(new WordElement("adding"));
-    assertEquals(sString, s.toString());
-    assertEquals(oString + "Oops.", o.toString());
+    
+    m.addElement(new WordElement("new"));
+    assertEquals(sString + " Extra.", s.toString());
+    assertEquals(oString + " Oops.", o.toString());
 
   }
 
@@ -195,11 +198,11 @@ public class SentenceImplTest {
     Sentence s = new SentenceImpl();
     s.addElement(new WordElement("Hello"));
     s.addElement(new PunctuationElement(","));
-    s.addElement(new WordElement("good"));
-    s.addElement(new WordElement("morning"));
+    s.addElement(new WordElement("Good"));
+    s.addElement(new WordElement("Morning"));
     s.addElement(new PunctuationElement("!"));
     String expected = "elloHay, oodGay orningMay!";
-    assertEquals(expected, s.tranlateToPigLatin());
+    assertEquals(expected, s.tranlateToPigLatin().toString());
     
     s = new SentenceImpl();
     s.addElement(new WordElement("How"));
@@ -207,8 +210,8 @@ public class SentenceImplTest {
     s.addElement(new WordElement("you"));
     s.addElement(new WordElement("Alexis"));
     s.addElement(new PunctuationElement("?"));
-    expected = "owHay areway youway Alexisway";
-    assertEquals(expected, s.tranlateToPigLatin());
+    expected = "owHay areway youway Alexisway?";
+    assertEquals(expected, s.tranlateToPigLatin().toString());
   }
 
 

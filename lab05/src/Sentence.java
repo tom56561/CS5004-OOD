@@ -38,6 +38,10 @@ public interface Sentence {
    */
   Sentence merger(Sentence other);
 
+  /**
+   * 
+   * @return
+   */
   int getNumberOfPunctuation();
   
   /**

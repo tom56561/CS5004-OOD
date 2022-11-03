@@ -30,10 +30,14 @@ public class WordElement implements SentenceElement {
 
   @Override
   public SentenceElement tranlateToPigLatin() {
+    String newWord;
     if ((this.word.charAt(0) + "").toLowerCase().matches("[aeiouy]")) {
-      return new WordElement(this.word + "way");
+      newWord = this.word + "way";
+    } else {
+      newWord = this.word.substring(1) + this.word.charAt(0) + "ay";
     }
-    return new WordElement(this.word.substring(1) + this.word.charAt(0) + "ay");
+   
+    return new WordElement(newWord);
   }
 
 }

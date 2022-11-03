@@ -8,11 +8,11 @@ public class SentenceImpl implements Sentence {
   private List<SentenceElement> sentence;
 
   public SentenceImpl() {
-    sentence = new LinkedList<SentenceElement>();
+    this.sentence = new LinkedList<SentenceElement>();
   }
 
   public SentenceImpl(List<SentenceElement> sentence) {
-    sentence = sentence;
+    this.sentence = sentence;
   }
 
   @Override
@@ -60,7 +60,7 @@ public class SentenceImpl implements Sentence {
   @Override
   public Sentence clone() {
 //    return new SentenceImpl(this.sentence);
-    
+
     return new SentenceImpl(this.sentence.stream().map(element -> element.duplicate())
         .collect(Collectors.toCollection(LinkedList::new)));
 
