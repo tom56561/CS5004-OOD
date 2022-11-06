@@ -11,7 +11,7 @@ public interface SentenceElement {
   SentenceElement duplicate();
 
   /**
-   * Check if this element
+   * Check if this is a word element and contains the letter Z.
    * 
    * @return
    */

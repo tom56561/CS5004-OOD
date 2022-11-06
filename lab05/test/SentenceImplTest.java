@@ -167,6 +167,14 @@ public class SentenceImplTest {
     expected = 2;
     actual = s.getNumberOfZ();
     assertEquals(expected, actual);
+    
+    s = new SentenceImpl();
+    s.addElement(new WordElement("Hello"));
+    s.addElement(new WordElement("Zellez"));
+    s.addElement(new PunctuationElement("!"));
+    expected = 1;
+    actual = s.getNumberOfZ();
+    assertEquals(expected, actual);
   }
 
   @Test
