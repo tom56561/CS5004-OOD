@@ -3,14 +3,28 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+/**
+ * SentenceImpl represents Sentence implement with linked list.
+ * 
+ * @author eddie
+ *
+ */
 public class SentenceImpl implements Sentence {
 
   private List<SentenceElement> sentence;
 
+  /**
+   * A SentenceImpl object with new terms.
+   */
   public SentenceImpl() {
     this.sentence = new LinkedList<SentenceElement>();
   }
 
+  /**
+   * Make a new SentenceImpl with given sentence.
+   * 
+   * @param sentence the sentence as a SentenceElement
+   */
   public SentenceImpl(List<SentenceElement> sentence) {
     this.sentence = sentence;
   }

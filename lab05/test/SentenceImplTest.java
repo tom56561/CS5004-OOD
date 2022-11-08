@@ -1,11 +1,22 @@
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Test all method of SentenceImp.
+ * 
+ * @author eddie
+ *
+ */
 public class SentenceImplTest {
   Sentence s;
 
+  /**
+   * Test genericGetNumberOf method work well.
+   */
   @Test
   public void testGenericGetNumberOf() {
     Sentence s;
@@ -30,6 +41,9 @@ public class SentenceImplTest {
 
   }
 
+  /**
+   * Test if getNumberOfWords method return correct.
+   */
   @Test
   public void testGetNumberOfWords() {
     Sentence s = new SentenceImpl();
@@ -41,6 +55,9 @@ public class SentenceImplTest {
 
   }
 
+  /**
+   * Test if longestWord method return correct.
+   */
   @Test
   public void testLongestWord() {
     Sentence s = new SentenceImpl();
@@ -67,6 +84,9 @@ public class SentenceImplTest {
 
   }
 
+  /**
+   * Test clone method work well.
+   */
   @Test
   public void testClone() {
     Sentence s = new SentenceImpl();
@@ -93,6 +113,9 @@ public class SentenceImplTest {
 
   }
 
+  /**
+   * Test merge method work well.
+   */
   @Test
   public void testMerge() {
     Sentence s = new SentenceImpl();
@@ -120,16 +143,19 @@ public class SentenceImplTest {
 
     s.addElement(new WordElement("Extra"));
     assertEquals(mString, m.toString());
-    
+
     o.addElement(new WordElement("Oops"));
     assertEquals(mString, m.toString());
-    
+
     m.addElement(new WordElement("new"));
     assertEquals(sString + " Extra.", s.toString());
     assertEquals(oString + " Oops.", o.toString());
 
   }
 
+  /**
+   * Test if getNumberOfPunctuation method return correct.
+   */
   @Test
   public void testGetNumberOfPunctuation() {
     Sentence s = new SentenceImpl();
@@ -143,6 +169,9 @@ public class SentenceImplTest {
 
   }
 
+  /**
+   * Test if getNumberOfZ method return correct.
+   */
   @Test
   public void testGetNumberOfZ() {
 
@@ -167,7 +196,7 @@ public class SentenceImplTest {
     expected = 2;
     actual = s.getNumberOfZ();
     assertEquals(expected, actual);
-    
+
     s = new SentenceImpl();
     s.addElement(new WordElement("Hello"));
     s.addElement(new WordElement("Zellez"));
@@ -177,6 +206,9 @@ public class SentenceImplTest {
     assertEquals(expected, actual);
   }
 
+  /**
+   * Test toString method work well.
+   */
   @Test
   public void testToString() {
     Sentence s = new SentenceImpl();
@@ -200,7 +232,10 @@ public class SentenceImplTest {
     assertEquals("Hello world.", s.toString());
 
   }
-  
+
+  /**
+   * Test tranlateToPigLatin method work well.
+   */
   @Test
   public void testTranlateToPigLatin() {
     Sentence s = new SentenceImpl();
@@ -211,7 +246,7 @@ public class SentenceImplTest {
     s.addElement(new PunctuationElement("!"));
     String expected = "elloHay, oodGay orningMay!";
     assertEquals(expected, s.tranlateToPigLatin().toString());
-    
+
     s = new SentenceImpl();
     s.addElement(new WordElement("How"));
     s.addElement(new WordElement("are"));
@@ -221,6 +256,5 @@ public class SentenceImplTest {
     expected = "owHay areway youway Alexisway?";
     assertEquals(expected, s.tranlateToPigLatin().toString());
   }
-
 
 }
