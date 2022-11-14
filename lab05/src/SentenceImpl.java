@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 /**
  * SentenceImpl represents Sentence implement with linked list.
  * 
- * @author eddie
+ * @author ed die
  *
  */
 public class SentenceImpl implements Sentence {
