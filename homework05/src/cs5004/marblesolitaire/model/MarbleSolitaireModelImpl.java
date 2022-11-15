@@ -13,8 +13,8 @@ public class MarbleSolitaireModelImpl implements MarbleSolitaireModel {
   private int sCol;
   private GameState[][] board;
 
-  /*
-   * The first constructor take no parameters
+  /**
+   * First constructor take no parameters.
    */
   public MarbleSolitaireModelImpl() {
     this.armThickness = 3;

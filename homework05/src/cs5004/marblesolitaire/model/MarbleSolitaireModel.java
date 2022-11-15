@@ -15,16 +15,16 @@ public interface MarbleSolitaireModel {
    * 
    * @param fromRow    the row position to be moved from
    * @param fromColumn the column position to be moved from
-   * @param toRowthe   row position to be moved to
+   * @param toRow      row position to be moved to
    * @param toColumn   the column position to be moved to
-   * @throws IllegalArgumentException
+   * @throws IllegalArgumentException if the move is invalid
    */
   void move(int fromRow, int fromColumn, int toRow, int toColumn) throws IllegalArgumentException;
 
   /**
-   * Returns the current state of the game as a String
+   * Returns the current state of the game as a String.
    * 
-   * @return the current state of the game as a String.
+   * @return the current state of the game as a String
    */
   String getGameState();
 

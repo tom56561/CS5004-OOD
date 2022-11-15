@@ -1,10 +1,19 @@
-import static org.junit.Assert.*;
+
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import cs5004.marblesolitaire.model.MarbleSolitaireModelImpl;
 
+/**
+ * Test the methods in MarbleSolitaireModelImpl are work well.
+ * 
+ * @author eddie
+ *
+ */
 public class MarbleSolitaireModelImplTest {
 
   private MarbleSolitaireModelImpl gameNull;
@@ -18,11 +27,14 @@ public class MarbleSolitaireModelImplTest {
   @Before
   public void setUp() {
     gameNull = new MarbleSolitaireModelImpl();
-    game_a = new MarbleSolitaireModelImpl(3);
+    game_a = new MarbleSolitaireModelImpl(5);
     game_r_c = new MarbleSolitaireModelImpl(2, 3);
     game_a_r_c = new MarbleSolitaireModelImpl(5, 4, 3);
   }
   
+  /**
+   * Test Construct passed by invalid value.
+   */
   @Test
   public void testInvalidConstruct() {
     try {
@@ -46,6 +58,9 @@ public class MarbleSolitaireModelImplTest {
 
   }
   
+  /**
+   * Test getGameState is return correct state.
+   */
   @Test
   public void testGetGameState() {
     assertEquals("    O O O\n" +
@@ -74,7 +89,7 @@ public class MarbleSolitaireModelImplTest {
         + "        O O O O O\n"
         + "        O O O O O\n"
         + "        O O O O O\n"
-        + "        O O O O O", new MarbleSolitaireModelImpl(5).getGameState());
+        + "        O O O O O", game_a.getGameState());
     assertEquals("        O O O O O\n"
         + "        O O O O O\n"
         + "        O O O O O\n"
@@ -91,6 +106,9 @@ public class MarbleSolitaireModelImplTest {
     
   }
   
+  /**
+   * Test move method is work well.
+   */
   @Test
   public void testMove() {
     assertEquals("    O O O\n" +
@@ -152,6 +170,9 @@ public class MarbleSolitaireModelImplTest {
     }
   }
   
+  /**
+   * Test isGameOver return correctly boolean.
+   */
   @Test
   public void testIsGameOver() {
     assertEquals(false, gameNull.isGameOver());
@@ -181,8 +202,11 @@ public class MarbleSolitaireModelImplTest {
         "    O _ O", gameNull.getGameState());
   }
   
+  /**
+   * Test getScore is work well.
+   */
   @Test
-  public void testetScore() {
+  public void testgetScore() {
     assertEquals(32, gameNull.getScore());
     gameNull.move(1, 3, 3, 3);
     assertEquals(31, gameNull.getScore());
