@@ -1,5 +1,11 @@
 package cs5004.marblesolitaire.model;
 
+/**
+ * MarbleSolitaireModelImpl represents a marble solitaire mode implement.
+ * 
+ * @author eddie
+ *
+ */
 public class MarbleSolitaireModelImpl implements MarbleSolitaireModel {
 
   private int armThickness;
@@ -8,7 +14,7 @@ public class MarbleSolitaireModelImpl implements MarbleSolitaireModel {
   private GameState[][] board;
 
   /*
-   * The first constructor should take no parameters
+   * The first constructor take no parameters
    */
   public MarbleSolitaireModelImpl() {
     this.armThickness = 3;
@@ -18,10 +24,11 @@ public class MarbleSolitaireModelImpl implements MarbleSolitaireModel {
   }
 
   /**
+   * Second constructor take two parameters: sRow and sCol.
    * 
    * @param sRow the row of the center postion
    * @param sCol the col of the center postion
-   * @throws IllegalArgumentException
+   * @throws IllegalArgumentException If this specified position is invalid
    */
   public MarbleSolitaireModelImpl(int sRow, int sCol) throws IllegalArgumentException {
     if ((sRow < 2 || sRow > 4) && (sCol < 2 || sCol > 4)) {
@@ -34,6 +41,13 @@ public class MarbleSolitaireModelImpl implements MarbleSolitaireModel {
     this.initializeBoard();
   }
 
+  /**
+   * Third constructor take the arm thickness.
+   * 
+   * @param armThickness the armThickness of the board
+   * @throws IllegalArgumentException if the arm thickness is not a positive odd
+   *                                  number that is at least 3
+   */
   public MarbleSolitaireModelImpl(int armThickness) throws IllegalArgumentException {
     if (armThickness % 2 == 0 || armThickness < 3) {
       throw new IllegalArgumentException("armThickness argument is invalid");
@@ -44,6 +58,17 @@ public class MarbleSolitaireModelImpl implements MarbleSolitaireModel {
     this.initializeBoard();
   }
 
+  /**
+   * Fourth constructor should take the arm thickness, row and column of the empty
+   * slot in that order.
+   * 
+   * @param armThickness the armThickness of the board
+   * @param sRow         the row of the center postion
+   * @param sCol         the col of the center postion
+   * @throws IllegalArgumentException if the arm thickness is not a positive odd
+   *                                  number of at least 3, or the empty cell
+   *                                  position is invalid
+   */
   public MarbleSolitaireModelImpl(int armThickness, int sRow, int sCol)
       throws IllegalArgumentException {
     if (sRow < armThickness - 1 && sCol < armThickness - 1
@@ -63,6 +88,9 @@ public class MarbleSolitaireModelImpl implements MarbleSolitaireModel {
     this.initializeBoard();
   }
 
+  /**
+   * Initialize Board based on armThickness, sRow, sCol.
+   */
   protected void initializeBoard() {
     int length = this.armThickness * 3 - 2;
     this.board = new GameState[length][length];
@@ -82,6 +110,15 @@ public class MarbleSolitaireModelImpl implements MarbleSolitaireModel {
     }
   }
 
+  /**
+   * Return True if the move is valid, otherwise.
+   * 
+   * @param fromRow    the row position to be moved from
+   * @param fromColumn the column position to be moved from
+   * @param toRowthe   row position to be moved to
+   * @param toColumn   the column position to be moved to
+   * @return True if the move is valid, otherwise
+   */
   protected boolean isValidMove(int fromRow, int fromColumn, int toRow, int toColumn) {
     int length = this.armThickness * 3 - 2;
     if (fromRow >= 0 && toRow >= 0 && fromColumn >= 0 && toColumn >= 0 && fromRow < length
@@ -96,6 +133,13 @@ public class MarbleSolitaireModelImpl implements MarbleSolitaireModel {
     return false;
   }
 
+  /**
+   * Return True if game if not over, otherwise.
+   * 
+   * @param row the row of the center postion
+   * @param col the col of the center postion
+   * @return true if game if not over, otherwise
+   */
   protected boolean notGameOver(int row, int col) {
     int length = this.armThickness * 3 - 2;
     return row < (length - 1) && this.isValidMove(row, col, row + 2, col)
