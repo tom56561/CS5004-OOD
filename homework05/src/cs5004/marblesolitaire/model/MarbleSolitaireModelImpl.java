@@ -1,6 +1,5 @@
 package cs5004.marblesolitaire.model;
 
-
 public class MarbleSolitaireModelImpl implements MarbleSolitaireModel {
 
   private int armThickness;
@@ -47,8 +46,10 @@ public class MarbleSolitaireModelImpl implements MarbleSolitaireModel {
 
   public MarbleSolitaireModelImpl(int armThickness, int sRow, int sCol)
       throws IllegalArgumentException {
-    if ((sRow < armThickness - 1 || sRow > armThickness + 1)
-        && (sCol < armThickness - 1 || sCol > armThickness + 1)) {
+    if (sRow < armThickness - 1 && sCol < armThickness - 1
+        || sRow < armThickness - 1 && sCol > (armThickness * 2) - 2
+        || sRow > (armThickness * 2) - 2 && sCol < armThickness - 1
+        || sRow > (armThickness * 2) - 2 && sCol > (armThickness * 2) - 2) {
       throw new IllegalArgumentException(
           String.format("Invalid empty cell position ($d, $d)", sRow, sCol));
     }
@@ -88,13 +89,11 @@ public class MarbleSolitaireModelImpl implements MarbleSolitaireModel {
       GameState fromSpot = board[fromRow][fromColumn];
       GameState toSpot = board[toRow][toColumn];
       GameState midSpot = board[(fromRow + toRow) / 2][(fromColumn + toColumn) / 2];
-      return (fromRow >= 0 && toRow >= 0 && fromColumn >= 0 && toColumn >= 0
-          && fromSpot == GameState.O && midSpot == GameState.O && toSpot == GameState.Empty
+      return (fromSpot == GameState.O && midSpot == GameState.O && toSpot == GameState.Empty)
           && ((Math.abs(fromRow - toRow) == 2 && fromColumn - toColumn == 0)
-              || (Math.abs(fromColumn - toColumn) == 2 && fromRow - toRow == 0)));
+              || (Math.abs(fromColumn - toColumn) == 2 && fromRow - toRow == 0));
     }
     return false;
-
   }
 
   protected boolean notGameOver(int row, int col) {
