@@ -105,7 +105,7 @@ public class TicTacToeModelTest {
     }
   }
 
-  @Test(expected = IllegalStateException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void testMoveAttemptAfterGameOver() {
     diagonalWinHelper();
     ttt1.move(2, 2); // 2,2 is an empty position

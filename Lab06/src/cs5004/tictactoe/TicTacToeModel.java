@@ -6,9 +6,11 @@ import java.util.stream.Collectors;
 public class TicTacToeModel implements TicTacToe {
 
   private Player[][] board;
+  private Player winner;
 
   public TicTacToeModel() {
     this.board = new Player[3][3];
+    this.winner = null;
   }
 
   @Override
@@ -42,6 +44,15 @@ public class TicTacToeModel implements TicTacToe {
       throw new IllegalArgumentException("Cannot move to a spot that is already occupied.");
     }
     this.board[r][c] = this.getTurn();
+
+    if ((this.board[r][0] == this.board[r][1] && this.board[r][1] == this.board[r][2])
+        || (this.board[0][c] == this.board[1][c] && this.board[1][c] == this.board[2][c])
+        || (this.board[0][0] == this.board[1][1] && this.board[1][1] == this.board[2][2]
+            && this.board[1][1] != null)
+        || (this.board[0][2] == this.board[1][1] && this.board[1][1] == this.board[2][0]
+            && this.board[1][1] != null)) {
+      this.winner = this.board[r][c];
+    }
   }
 
   @Override
@@ -67,29 +78,29 @@ public class TicTacToeModel implements TicTacToe {
 
   @Override
   public boolean isGameOver() {
-    // TODO Auto-generated method stub
-    return false;
+    int spaceFilled = Arrays.stream(this.board)
+        .map(row -> Arrays.stream(row).map(p -> p == null ? 0 : 1).reduce(0, (a, b) -> a + b))
+        .reduce(0, (a, b) -> a + b);
+    return (spaceFilled >= 9) || this.getWinner() != null;
   }
 
   @Override
   public Player getWinner() {
-    // TODO Auto-generated method stub
-    return null;
+    return this.winner;
   }
 
   @Override
   public Player[][] getBoard() {
 
-    return Arrays.stream(this.board).map(row -> row.clone()).toArray(b -> board.clone());
-    
-        
-//    Player[][] bd = new Player[3][3];
-//    for (int row = 0; row < 3; row++) {
-//      for (int col = 0; col < 3; col++) {
-//        bd[row][col] = this.board[row][col];
-//      }
-//    }
-//    return bd;
+//    return Arrays.stream(this.board).map(row -> row.clone()).toArray(b -> board.clone());
+
+    Player[][] bd = new Player[3][3];
+    for (int row = 0; row < 3; row++) {
+      for (int col = 0; col < 3; col++) {
+        bd[row][col] = this.board[row][col];
+      }
+    }
+    return bd;
   }
 
   @Override
