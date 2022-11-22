@@ -3,11 +3,20 @@ package cs5004.tictactoe;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+/**
+ * TicTacToeModel represents a TicTacToe implement.
+ * 
+ * @author eddie
+ *
+ */
 public class TicTacToeModel implements TicTacToe {
 
   private Player[][] board;
   private Player winner;
 
+  /**
+   * Constructor take no parameters.
+   */
   public TicTacToeModel() {
     this.board = new Player[3][3];
     this.winner = null;
