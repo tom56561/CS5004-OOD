@@ -18,6 +18,9 @@ public class TicTacToeModelTest {
 
   private TicTacToe ttt1 = new TicTacToeModel();
 
+  /**
+   * Test to String method.
+   */
   @Test
   public void testToString() {
     TicTacToe myTTT = new TicTacToeModel();
@@ -29,6 +32,9 @@ public class TicTacToeModelTest {
     assertEquals(expected, myTTT.toString());
   }
   
+  /**
+   * Test move method is work well.
+   */
   @Test
   public void testMove() {
     ttt1.move(0, 0);
@@ -42,6 +48,9 @@ public class TicTacToeModelTest {
     //test more
   }
 
+  /**
+   * Test HorizontalWin case is work well.
+   */
   @Test
   public void testHorizontalWin() {
     ttt1.move(0, 0); // X takes upper left
@@ -60,6 +69,9 @@ public class TicTacToeModelTest {
                           + " O |   |  ", ttt1.toString());
   }
 
+  /**
+   * Test DiagonalWin case is work well.
+   */
   @Test
   public void testDiagonalWin() {
     diagonalWinHelper();
@@ -84,6 +96,9 @@ public class TicTacToeModelTest {
     ttt1.move(0, 2); // O takes upper right
   }
 
+  /**
+   * Test InvalidMove case will throw IllegalArgumentException.
+   */
   @Test
   public void testInvalidMove() {
     ttt1.move(0, 0);
@@ -105,12 +120,18 @@ public class TicTacToeModelTest {
     }
   }
 
+  /**
+   * Test MoveAttemptAfterGameOver will throw IllegalArgument.
+   */
   @Test(expected = IllegalArgumentException.class)
   public void testMoveAttemptAfterGameOver() {
     diagonalWinHelper();
     ttt1.move(2, 2); // 2,2 is an empty position
   }
 
+  /**
+   * Test CatsGame case is work well.
+   */
   @Test
   public void testCatsGame() {
     ttt1.move(0, 0);
@@ -133,16 +154,25 @@ public class TicTacToeModelTest {
             + " X | X | O", ttt1.toString());
   }
 
+  /**
+   * Test InvalidGetMarkAtRow will throw IllegalArgumentException.
+   */
   @Test(expected = IllegalArgumentException.class)
   public void testInvalidGetMarkAtRow() {
     ttt1.getMarkAt(-12, 0);
   }
 
+  /**
+   * Test InvalidGetMarkAtCol will throw IllegalArgumentException.
+   */
   @Test(expected = IllegalArgumentException.class)
   public void testInvalidGetMarkAtCol() {
     ttt1.getMarkAt(0, -30);
   }
 
+  /**
+   * Test getBoard is work well.
+   */
   @Test
   public void testGetBoard() {
     diagonalWinHelper();
