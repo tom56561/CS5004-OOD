@@ -19,8 +19,8 @@ public class Oval extends AbstractShape {
    * @throws IllegalArgumentException if the width and height is negative number
    *                                  or position is null
    */
-  public Oval(String name, ShapeType shapetype, Point2D position, Color color, int width,
-      int height, int appearT, int disappearT) throws IllegalArgumentException {
+  public Oval(String name, ShapeType shapetype, Point2D position, Color color, double width,
+      double height, int appearT, int disappearT) throws IllegalArgumentException {
     super(name, shapetype, position, color, width, height, appearT, disappearT);
   }
 

@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Map;
+
 public class AbstractAnimation implements InterfaceAnimation {
 
   protected int startTime;
@@ -7,14 +9,17 @@ public class AbstractAnimation implements InterfaceAnimation {
   protected String name;
   protected AnimationType aniType;
   protected InterfaceShape shape;
+  protected Map shapeMap;
 
-
-  public AbstractAnimation(AnimationType aniType, String name, int startTime, int endTime, InterfaceShape s) {
+  public AbstractAnimation(Map shapeMap, AnimationType aniType, String name, int startTime,
+      int endTime) {
+    this.shapeMap = shapeMap;
     this.aniType = aniType;
     this.name = name;
     this.startTime = startTime;
     this.endTime = endTime;
-    this.shape = s;
+    this.shape = (InterfaceShape) this.shapeMap.get(this.name);
+;
   }
 
   @Override
@@ -37,6 +42,4 @@ public class AbstractAnimation implements InterfaceAnimation {
     return this.endTime;
   }
 
-  
-  
 }

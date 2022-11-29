@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.geom.Point2D;
+import java.util.Map;
 
 public class Move extends AbstractAnimation {
 
@@ -9,9 +10,9 @@ public class Move extends AbstractAnimation {
   private double starty;
   private double endy;
 
-  public Move(AnimationType aniType, String name, int startTime, int endTime, InterfaceShape s,
+  public Move(Map shapeMap, AnimationType aniType, String name, int startTime, int endTime,
       double startx, double endx, double starty, double endy) {
-    super(aniType, name, startTime, endTime, s);
+    super(shapeMap, aniType, name, startTime, endTime);
 
     this.startx = startx;
     this.starty = starty;
