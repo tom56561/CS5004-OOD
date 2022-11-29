@@ -41,7 +41,7 @@ public class AbstractShape implements InterfaceShape {
 
   @Override
   public Color getColor() {
-    return this.color;
+    return new Color (this.color.getRed());
   }
 
   @Override
@@ -81,11 +81,17 @@ public class AbstractShape implements InterfaceShape {
 
   @Override
   public void setWidth(int w) {
+    if (w < 0) {
+      throw new IllegalArgumentException("Can not pass a negative width");
+    }
     this.width = w;
   }
 
   @Override
   public void setHeight(int h) {
+    if (h < 0) {
+      throw new IllegalArgumentException("Can not pass a negative height");
+    }
     this.height = h;
   }
 
