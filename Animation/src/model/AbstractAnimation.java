@@ -34,4 +34,6 @@ public class AbstractAnimation implements InterfaceAnimation {
     return this.endTime;
   }
 
+  
+  
 }
