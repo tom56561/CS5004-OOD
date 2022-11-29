@@ -16,8 +16,8 @@ public class AbstractShape implements InterfaceShape {
   protected ShapeType shapetype;
   protected Point2D position;
   protected Color color;
-  protected int width;
-  protected int height;
+  protected double width;
+  protected double height;
   protected int appearT;
   protected int disappearT;
 
@@ -36,7 +36,7 @@ public class AbstractShape implements InterfaceShape {
    *                                  or position is null
    */
   protected AbstractShape(String name, ShapeType shapetype, Point2D position, Color color,
-      int width, int height, int appearT, int disappearT) throws IllegalArgumentException {
+      double width, double height, int appearT, int disappearT) throws IllegalArgumentException {
     if (position == null || width < 0 || height < 0) {
       throw new IllegalArgumentException("Input data is invalid, cannot build a shape");
     }
@@ -73,12 +73,12 @@ public class AbstractShape implements InterfaceShape {
   }
 
   @Override
-  public int getWidth() {
+  public double getWidth() {
     return this.width;
   }
 
   @Override
-  public int getHeight() {
+  public double getHeight() {
     return this.height;
   }
 
@@ -108,7 +108,7 @@ public class AbstractShape implements InterfaceShape {
   }
 
   @Override
-  public void setWidth(int w) {
+  public void setWidth(double w) {
     if (w < 0) {
       throw new IllegalArgumentException("Can not pass a negative width");
     }
@@ -116,7 +116,7 @@ public class AbstractShape implements InterfaceShape {
   }
 
   @Override
-  public void setHeight(int h) {
+  public void setHeight(double h) {
     if (h < 0) {
       throw new IllegalArgumentException("Can not pass a negative height");
     }

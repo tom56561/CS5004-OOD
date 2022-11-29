@@ -6,12 +6,15 @@ public class AbstractAnimation implements InterfaceAnimation {
   protected int endTime;
   protected String name;
   protected AnimationType aniType;
+  protected InterfaceShape shape;
 
-  public AbstractAnimation(AnimationType aniType, String name, int startTime, int endTime) {
+
+  public AbstractAnimation(AnimationType aniType, String name, int startTime, int endTime, InterfaceShape s) {
     this.aniType = aniType;
     this.name = name;
     this.startTime = startTime;
     this.endTime = endTime;
+    this.shape = s;
   }
 
   @Override

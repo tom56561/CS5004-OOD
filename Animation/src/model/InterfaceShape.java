@@ -37,14 +37,14 @@ public interface InterfaceShape {
    * 
    * @return the width of the shape
    */
-  int getWidth();
+  double getWidth();
 
   /**
    * Get height of the shape.
    * 
    * @return height of the shape
    */
-  int getHeight();
+  double getHeight();
 
   /**
    * Get the position of the shape.
@@ -86,13 +86,13 @@ public interface InterfaceShape {
    * 
    * @param w the width that the shape should be changed to
    */
-  void setWidth(int w);
+  void setWidth(double w);
 
   /**
    * Set the height of the shape by given height
    * 
    * @param h the height that the shape should be changed to
    */
-  void setHeight(int h);
+  void setHeight(double h);
 
 }
