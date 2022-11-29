@@ -3,7 +3,7 @@ package model;
 import java.awt.Color;
 import java.awt.geom.Point2D;
 
-public class Rectangle extends AbstractShape {
+public class Oval extends AbstractShape {
 
   /**
    * Initialize a rectangle by given arguments.
@@ -19,7 +19,7 @@ public class Rectangle extends AbstractShape {
    * @throws IllegalArgumentException if the width and height is negative number
    *                                  or position is null
    */
-  public Rectangle(String name, ShapeType shapetype, Point2D position, Color color, int width,
+  public Oval(String name, ShapeType shapetype, Point2D position, Color color, int width,
       int height, int appearT, int disappearT) throws IllegalArgumentException {
     super(name, shapetype, position, color, width, height, appearT, disappearT);
   }
@@ -27,7 +27,7 @@ public class Rectangle extends AbstractShape {
   /**
    * Initialize a rectangle without argument.
    */
-  public Rectangle() {
+  public Oval() {
     super();
   }
 

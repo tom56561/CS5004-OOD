@@ -54,7 +54,7 @@ public class AbstractShape implements InterfaceShape {
    * Construct that initialize the field without argument passed in.
    */
   protected AbstractShape() {
-    this("default", ShapeType.rectangle, new Point2D.Double(0, 0), new Color(0), 0, 0, 0, 0);
+    this("default", ShapeType.RECTANGLE, new Point2D.Double(0, 0), new Color(0), 0, 0, 0, 0);
   }
 
   @Override
