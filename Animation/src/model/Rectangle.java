@@ -5,7 +5,6 @@ import java.awt.geom.Point2D;
 
 public class Rectangle extends AbstractShape {
 
-  private 
   /**
    * Initialize a rectangle by given arguments.
    * 
