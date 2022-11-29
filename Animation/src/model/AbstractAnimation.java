@@ -7,8 +7,6 @@ public class AbstractAnimation implements InterfaceAnimation {
   protected String name;
   protected AnimationType aniType;
 
-  
-  
   public AbstractAnimation(AnimationType aniType, String name, int startTime, int endTime) {
     this.aniType = aniType;
     this.name = name;
