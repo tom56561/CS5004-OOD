@@ -1,19 +1,22 @@
 package model;
 
+import java.awt.Color;
+
 public class ChangeColor extends AbstractAnimation {
 
-  private double startW;
-  private double startH;
-  private double endW;
-  private double endH;
+  private Color oldColor;
+  private Color newColor;
 
   public ChangeColor(AnimationType aniType, String name, int startTime, int endTime,
-      InterfaceShape s, double startW, double startH, double endW, double endH) {
+      InterfaceShape s, int r1, int g1, int b1, int r2, int g2, int b2) {
     super(aniType, name, startTime, endTime, s);
-    this.startW = startW;
-    this.startH = startH;
-    this.endW = endW;
-    this.endH = endH;
+    this.oldColor = new Color(r1, g1, b1);
+    this.newColor = new Color(r2, g2, b2);
+
+  }
+  
+  public void setColor() {
+    this.shape.setColor(newColor);
   }
 
 }
