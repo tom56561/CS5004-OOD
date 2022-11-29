@@ -10,6 +10,14 @@ import java.awt.geom.Point2D;
  *
  */
 public interface InterfaceShape {
+
+  /**
+   * Return the name.
+   * 
+   * @return name
+   */
+  String getName();
+
   /**
    * Return the shape type.
    * 
