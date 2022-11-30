@@ -64,8 +64,13 @@ public class ModelImplTest {
   @Test
   public void testMove() {
     model.move("A", 10, 20, 5, 5, 10, 10);
-    model.move("B", 20, 40, 10, 10, 10, 34);
-
+    model.move("B", 20, 40, 10, 10, 10, 21);
+    assertEquals(
+        "[Shape A moves from (5.0,10.0) to (5.0,10.0)]",
+        model.getAnimation("A").toString());
+    assertEquals(
+        "[Shape B moves from (10.0,10.0) to (10.0,21.0)]",
+        model.getAnimation("B").toString());
   }
 
 }
