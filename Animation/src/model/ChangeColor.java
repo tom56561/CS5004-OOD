@@ -7,18 +7,25 @@ public class ChangeColor extends AbstractAnimation implements InterfaceAnimation
 
   private Color oldColor;
   private Color newColor;
- 
 
   public ChangeColor(Map shapeMap, AnimationType aniType, String name, int startTime, int endTime,
       int r1, int g1, int b1, int r2, int g2, int b2) {
     super(shapeMap, aniType, name, startTime, endTime);
-    
+
     this.oldColor = new Color(r1, g1, b1);
     this.newColor = new Color(r2, g2, b2);
   }
-  
+
   public void setColor() {
     this.shape.setColor(newColor);
   }
 
+  @Override
+  public String toString() {
+
+    return "Shape " + this.name + " changes color from (" + this.oldColor.getRed() + ","
+        + this.oldColor.getGreen() + "," + this.oldColor.getBlue() + ") to ("
+        + this.newColor.getRed() + "," + this.newColor.getGreen() + "," + this.newColor.getBlue()
+        + ")";
+  }
 }

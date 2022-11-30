@@ -23,4 +23,11 @@ public class Scale extends AbstractAnimation {
     this.shape.setWidth(this.endW);
   }
 
+  @Override
+  public String toString() {
+   
+    return "Shape " + this.name + " scales from Width: " + this.startW  + ", Height: "
+            + this.startH + " to Width: " + this.endW + ", Height: "
+            + this.endH;
+  }
 }

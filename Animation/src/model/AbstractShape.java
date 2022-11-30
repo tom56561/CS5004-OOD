@@ -127,7 +127,8 @@ public class AbstractShape implements InterfaceShape {
   public String toString() {
     return "Name: " + this.getName() + "\nType: " + this.getType().toString() + "\nMin corner: ("
         + this.position.getX() + "," + this.position.getY() + "), Width: " + this.getWidth()
-        + ", Height: " + this.getHeight() + ", Color: (" + this.getColor() + ")\n";
+        + ", Height: " + this.getHeight() + ", Color: (" + this.getColor().getRed() + ", "
+        + this.getColor().getGreen() + ", " + this.getColor().getBlue() + ")\n";
   }
 
 }
