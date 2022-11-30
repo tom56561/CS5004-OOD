@@ -35,7 +35,6 @@ public class AbstractAnimation implements InterfaceAnimation {
     this.startTime = startTime;
     this.endTime = endTime;
     this.shape = (InterfaceShape) this.shapeMap.get(this.name);
-    ;
   }
 
   @Override
