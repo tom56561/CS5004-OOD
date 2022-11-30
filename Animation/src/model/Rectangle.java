@@ -3,6 +3,12 @@ package model;
 import java.awt.Color;
 import java.awt.geom.Point2D;
 
+/**
+ * The Rectangle shape.
+ * 
+ * @author eddie
+ *
+ */
 public class Rectangle extends AbstractShape {
 
   /**
@@ -28,7 +34,7 @@ public class Rectangle extends AbstractShape {
    * Initialize a rectangle without argument.
    */
   public Rectangle() {
-    
+
     super();
   }
 

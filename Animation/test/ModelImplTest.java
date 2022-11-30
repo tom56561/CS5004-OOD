@@ -1,5 +1,5 @@
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.awt.Color;
 
@@ -10,6 +10,12 @@ import model.InterfaceModel;
 import model.ModelImpl;
 import model.ShapeType;
 
+/**
+ * Test the ModelImpl.
+ * 
+ * @author eddie
+ *
+ */
 public class ModelImplTest {
   private InterfaceModel model;
 
@@ -21,6 +27,9 @@ public class ModelImplTest {
     model.addShape("B", ShapeType.OVAL, 0, 0, 1, 1, 1, 10, 20, 0, 100);
   }
 
+  /**
+   * Test getShape method is work well.
+   */
   @Test
   public void testGetShape() {
     assertEquals(
@@ -33,6 +42,9 @@ public class ModelImplTest {
         model.getShape("B").toString());
   }
 
+  /**
+   * Test changeColor method is work well.
+   */
   @Test
   public void testChangeColor() {
     model.changeColor("A", 10, 20, 1, 1, 1, 20, 20, 20);
@@ -47,6 +59,9 @@ public class ModelImplTest {
         model.getShape("B").toString());
   }
 
+  /**
+   * Test changeScale is work well.
+   */
   @Test
   public void testChangeScale() {
     model.changeScale("A", 40, 50, 10, 20, 12, 22);
@@ -61,15 +76,16 @@ public class ModelImplTest {
         model.getShape("B").toString());
   }
 
+  /**
+   * Test move method is work well.
+   */
   @Test
   public void testMove() {
     model.move("A", 10, 20, 5, 5, 10, 10);
     model.move("B", 20, 40, 10, 10, 10, 21);
-    assertEquals(
-        "[Shape A moves from (5.0,10.0) to (5.0,10.0)]",
+    assertEquals("[Shape A moves from (5.0,10.0) to (5.0,10.0)]",
         model.getAnimation("A").toString());
-    assertEquals(
-        "[Shape B moves from (10.0,10.0) to (10.0,21.0)]",
+    assertEquals("[Shape B moves from (10.0,10.0) to (10.0,21.0)]",
         model.getAnimation("B").toString());
   }
 

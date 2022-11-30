@@ -3,6 +3,12 @@ package model;
 import java.awt.Color;
 import java.awt.geom.Point2D;
 
+/**
+ * The oval shape.
+ * 
+ * @author eddie
+ *
+ */
 public class Oval extends AbstractShape {
 
   /**

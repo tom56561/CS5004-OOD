@@ -82,14 +82,14 @@ public interface InterfaceShape {
   void setColor(Color color);
 
   /**
-   * Set the width of the shape by given width
+   * Set the width of the shape by given width.
    * 
    * @param w the width that the shape should be changed to
    */
   void setWidth(double w);
 
   /**
-   * Set the height of the shape by given height
+   * Set the height of the shape by given height.
    * 
    * @param h the height that the shape should be changed to
    */
