@@ -15,24 +15,162 @@ import org.junit.Test;
  */
 public class TicTacToeControllerTest {
 
-  // ADDITIONAL TEST CASES TO IMPLEMENT:
-  // Play game to completion, where there is a winner
-  // Input where the q comes instead of an integer for the row
-  // Input where the q comes instead of an integer for the column
-  // Input where non-integer garbage comes instead of an integer for the row
-  // Input where non-integer garbage comes instead of an integer for the column
-  // Input where the move is integers, but outside the bounds of the board
-  // Input where the move is integers, but invalid because the cell is occupied
-  // Multiple invalid moves in a row of various kinds
-  // Input including valid moves interspersed with invalid moves, game is played to completion
-  // What happens when the input ends "abruptly" -- no more input, but not quit, and game not over
-  // THIS IS NOT AN EXHAUSTIVE LIST
+  @Test
+  public void testMoveCellIsOccupied() {
+    TicTacToe m = new TicTacToeModel();
+    StringBuilder gameLog = new StringBuilder();
+    TicTacToeController c = new TicTacToeConsoleController(new StringReader("2 2 2 2 q"), gameLog);
+    c.playGame(m);
+    assertEquals("   |   |  \n"
+        + "-----------\n"
+        + "   |   |  \n"
+        + "-----------\n"
+        + "   |   |  \n"
+        + "Enter a move for X:\n"
+        + "   |   |  \n"
+        + "-----------\n"
+        + "   | X |  \n"
+        + "-----------\n"
+        + "   |   |  \n"
+        + "Enter a move for O:\n"
+        + "That position is already occupied.\n"
+        + "Game quit! Ending game state:\n"
+        + "   |   |  \n"
+        + "-----------\n"
+        + "   | X |  \n"
+        + "-----------\n"
+        + "   |   |  \n", gameLog.toString());
+  }
+  
+  @Test
+  public void testMoveOutside() {
+    TicTacToe m = new TicTacToeModel();
+    StringBuilder gameLog = new StringBuilder();
+    TicTacToeController c = new TicTacToeConsoleController(new StringReader("4 3 q"), gameLog);
+    c.playGame(m);
+    assertEquals("   |   |  \n"
+        + "-----------\n"
+        + "   |   |  \n"
+        + "-----------\n"
+        + "   |   |  \n"
+        + "Enter a move for X:\n"
+        + "Input must consist of two integers between 1 and 3 ro q.\n"
+        + "Game quit! Ending game state:\n"
+        + "   |   |  \n"
+        + "-----------\n"
+        + "   |   |  \n"
+        + "-----------\n"
+        + "   |   |  \n", gameLog.toString());
+  }
+  
+  @Test
+  public void testInputNonIntergerInRowAndCol() {
+    TicTacToe m = new TicTacToeModel();
+    StringBuilder gameLog = new StringBuilder();
+    TicTacToeController c = new TicTacToeConsoleController(new StringReader("c a q"), gameLog);
+    c.playGame(m);
+    assertEquals("   |   |  \n"
+        + "-----------\n"
+        + "   |   |  \n"
+        + "-----------\n"
+        + "   |   |  \n"
+        + "Enter a move for X:\n"
+        + "Input must consist of two integers between 1 and 3 ro q.\n"
+        + "Game quit! Ending game state:\n"
+        + "   |   |  \n"
+        + "-----------\n"
+        + "   |   |  \n"
+        + "-----------\n"
+        + "   |   |  \n", gameLog.toString());
+  }
+  
+  @Test
+  public void testInputQinRowAndCol() {
+    TicTacToe m = new TicTacToeModel();
+    StringBuilder gameLog = new StringBuilder();
+    TicTacToeController c = new TicTacToeConsoleController(new StringReader("2 q"), gameLog);
+    c.playGame(m);
+    assertEquals("   |   |  \n"
+        + "-----------\n"
+        + "   |   |  \n"
+        + "-----------\n"
+        + "   |   |  \n"
+        + "Enter a move for X:\n"
+        + "Game quit! Ending game state:\n"
+        + "   |   |  \n"
+        + "-----------\n"
+        + "   |   |  \n"
+        + "-----------\n"
+        + "   |   |  \n", gameLog.toString());
+    gameLog = new StringBuilder();
+    c = new TicTacToeConsoleController(new StringReader("q 2"), gameLog);
+    c.playGame(m);
+    assertEquals("   |   |  \n"
+        + "-----------\n"
+        + "   |   |  \n"
+        + "-----------\n"
+        + "   |   |  \n"
+        + "Enter a move for X:\n"
+        + "Game quit! Ending game state:\n"
+        + "   |   |  \n"
+        + "-----------\n"
+        + "   |   |  \n"
+        + "-----------\n"
+        + "   |   |  \n", gameLog.toString());
+    
+  }
+  
+  @Test
+  public void testTheWinner() {
+    TicTacToe m = new TicTacToeModel();
+    StringBuilder gameLog = new StringBuilder();
+    TicTacToeController c = new TicTacToeConsoleController(new StringReader("2 2 3 2 1 3 3 3 3 1"), gameLog);
+    c.playGame(m);
+    assertEquals("   |   |  \n"
+        + "-----------\n"
+        + "   |   |  \n"
+        + "-----------\n"
+        + "   |   |  \n"
+        + "Enter a move for X:\n"
+        + "   |   |  \n"
+        + "-----------\n"
+        + "   | X |  \n"
+        + "-----------\n"
+        + "   |   |  \n"
+        + "Enter a move for O:\n"
+        + "   |   |  \n"
+        + "-----------\n"
+        + "   | X |  \n"
+        + "-----------\n"
+        + "   | O |  \n"
+        + "Enter a move for X:\n"
+        + "   |   | X\n"
+        + "-----------\n"
+        + "   | X |  \n"
+        + "-----------\n"
+        + "   | O |  \n"
+        + "Enter a move for O:\n"
+        + "   |   | X\n"
+        + "-----------\n"
+        + "   | X |  \n"
+        + "-----------\n"
+        + "   | O | O\n"
+        + "Enter a move for X:\n"
+        + "   |   | X\n"
+        + "-----------\n"
+        + "   | X |  \n"
+        + "-----------\n"
+        + " X | O | O\n"
+        + "Game is over! X Wins.", gameLog.toString());
+  }
 
   @Test
   public void testHangingInput() {
     TicTacToe m = new TicTacToeModel();
     StringBuilder gameLog = new StringBuilder();
     TicTacToeController c = new TicTacToeConsoleController(new StringReader("2 2"), gameLog);
+    
+    
     
     Thread thread = new Thread() {
       @Override
