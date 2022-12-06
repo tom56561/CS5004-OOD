@@ -3,11 +3,23 @@ package cs5004.tictactoe;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * TicTacToeConsoleController is a handle process of the game.
+ * 
+ * @author eddie
+ *
+ */
 public class TicTacToeConsoleController implements TicTacToeController {
 
   private Readable in;
   private Appendable out;
 
+  /**
+   * Initailize the in and out.
+   * 
+   * @param r the Readable
+   * @param a the Appendable
+   */
   public TicTacToeConsoleController(Readable r, Appendable a) {
     this.in = r;
     this.out = a;
@@ -38,11 +50,11 @@ public class TicTacToeConsoleController implements TicTacToeController {
       badInput = false;
       String firstInput = "";
       while (!s.hasNext()) {
-        //do nothing
-      } 
+        // do nothing
+      }
       firstInput = s.next();
-      
-      if (firstInput.toLowerCase().equals("q")) {
+
+      if (firstInput.equalsIgnoreCase("q")) {
         gameQuit = true;
         break;
       }
@@ -52,8 +64,8 @@ public class TicTacToeConsoleController implements TicTacToeController {
         // do nothing
       }
       secondInput = s.next();
-      
-      if (secondInput.toLowerCase().equals("q")) {
+
+      if (secondInput.equalsIgnoreCase("q")) {
         gameQuit = true;
         break;
       }

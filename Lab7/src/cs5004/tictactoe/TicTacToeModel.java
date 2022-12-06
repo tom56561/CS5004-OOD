@@ -3,11 +3,20 @@ package cs5004.tictactoe;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+/**
+ * TicTacToe model represent all behaver that user will do.
+ * 
+ * @author eddie
+ *
+ */
 public class TicTacToeModel implements TicTacToe {
 
   private Player[][] board;
   private Player winner;
 
+  /**
+   * Initialize the board and winner.
+   */
   public TicTacToeModel() {
     this.board = new Player[3][3];
     this.winner = null;
