@@ -14,7 +14,23 @@ import org.junit.Test;
  * Test cases for the tic tac toe controller, using mocks for readable and appendable.
  */
 public class TicTacToeControllerTest {
+  
+  // ADDITIONAL TEST CASES TO IMPLEMENT:
+  // Play game to completion, where there is a winner
+  // Input where the q comes instead of an integer for the row
+  // Input where the q comes instead of an integer for the column
+  // Input where non-integer garbage comes instead of an integer for the row
+  // Input where non-integer garbage comes instead of an integer for the column
+  // Input where the move is integers, but outside the bounds of the board
+  // Input where the move is integers, but invalid because the cell is occupied
+  // Multiple invalid moves in a row of various kinds
+  // Input including valid moves interspersed with invalid moves, game is played to completion
+  // What happens when the input ends "abruptly" -- no more input, but not quit, and game not over
+  // THIS IS NOT AN EXHAUSTIVE LIST
 
+  /**
+   * 
+   */
   @Test
   public void testMoveCellIsOccupied() {
     TicTacToe m = new TicTacToeModel();
