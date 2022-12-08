@@ -35,6 +35,15 @@ public class ModelImpl implements InterfaceModel {
   public ArrayList<InterfaceAnimation> getAnimation(String name) {
     return animationMap.get(name);
   }
+  
+  @Override
+  public Map getShapeList() {
+    Map<String, InterfaceShape> newShapeMap = new LinkedHashMap<>();
+    for (String name: this.shapeMap.keySet()) {
+      newShapeMap.put(name, shapeMap.get(name));
+    }
+    return newShapeMap;
+  }
 
   @Override
   public void addShape(String name, ShapeType shapetype, double x, double y, int r1, int g1, int b1,

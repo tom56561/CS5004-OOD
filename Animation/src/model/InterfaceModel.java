@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Shape Interface defines all the supported operations for model.
@@ -17,6 +18,8 @@ public interface InterfaceModel {
    * @return the mapping shape
    */
   InterfaceShape getShape(String name);
+  
+  Map getShapeList();
 
   /**
    * Get animation from the hashmap bu passing name.
