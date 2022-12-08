@@ -2,13 +2,13 @@ package view;
 
 import model.InterfaceShape;
 
-public interface InterfaceView {
+public interface InterfaceAnimation {
 
-  void render();
+  void play();
   
   void drawShape(InterfaceShape shape);
   
-  String getViewType();
+  ViewType getViewType();
   
   void refresh();
   

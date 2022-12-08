@@ -2,54 +2,55 @@ package view;
 
 import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
+import java.util.Timer;
 
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 
 import model.InterfaceShape;
 
-public class AnimationView extends JFrame implements InterfaceView {
+public class AnimationView extends JFrame implements InterfaceAnimation {
 
-  public AnimationView() throws HeadlessException {
-    // TODO Auto-generated constructor stub
-  }
+  private Panel panel;
+  private ViewType viewType;
+  private Timer timer;
+  private int tempo;
 
-  public AnimationView(GraphicsConfiguration gc) {
-    super(gc);
-    // TODO Auto-generated constructor stub
-  }
 
-  public AnimationView(String title) throws HeadlessException {
-    super(title);
-    // TODO Auto-generated constructor stub
-  }
+  public AnimationView(int w, int h) {
+    super();
+    this.viewType = ViewType.ANIMATION;
+    panel = new Panel(w, h);
+    add(panel);
+    setSize(w, h);
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
+    JScrollPane scrollPane = new JScrollPane(panel);
+    scrollPane.setVisible(true);
+    this.timer = new Timer();
 
-  public AnimationView(String title, GraphicsConfiguration gc) {
-    super(title, gc);
-    // TODO Auto-generated constructor stub
+    
   }
 
   @Override
-  public void render() {
-    // TODO Auto-generated method stub
+  public void play() {
+    this.setVisible(true);
 
   }
 
   @Override
   public void drawShape(InterfaceShape shape) {
-    // TODO Auto-generated method stub
-
+    panel.drawShapes(shape);
+    
   }
 
   @Override
-  public String getViewType() {
-    // TODO Auto-generated method stub
-    return null;
+  public ViewType getViewType() {
+    return this.viewType;
   }
 
   @Override
   public void refresh() {
-    // TODO Auto-generated method stub
-
+    panel.repaint();
   }
 
 }
