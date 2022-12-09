@@ -27,20 +27,14 @@ public class AnimationView extends JFrame implements InterfaceAnimation {
     JScrollPane scrollPane = new JScrollPane(panel);
     scrollPane.setVisible(true);
     this.timer = new Timer();
-
-    
-  }
-
-  @Override
-  public void play() {
     this.setVisible(true);
 
+    
   }
 
   @Override
   public void drawShape(InterfaceShape shape) {
     panel.drawShapes(shape);
-    
   }
 
   @Override
