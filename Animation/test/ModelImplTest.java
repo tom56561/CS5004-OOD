@@ -4,9 +4,9 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import model.InterfaceModel;
-import model.ModelImpl;
-import model.ShapeType;
+import cs5004.animator.model.InterfaceModel;
+import cs5004.animator.model.ModelImpl;
+import cs5004.animator.model.ShapeType;
 
 /**
  * Test the ModelImpl.
