@@ -12,6 +12,7 @@ public class AnimationController implements InterfaceController {
   
   private Timer timer;
 
+
   public AnimationController(InterfaceModel model, InterfaceAnimation animationView, int speed) {
     this.timer = new Timer(1000 / speed, new ActionListener() {
       int currentFrame = 0;
