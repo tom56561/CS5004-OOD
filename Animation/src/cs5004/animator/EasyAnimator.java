@@ -6,7 +6,9 @@ import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import cs5004.animator.controller.AnimationController;
 import cs5004.animator.controller.InterfaceController;
+import cs5004.animator.controller.TextController;
 import cs5004.animator.model.AnimationBuilder;
 import cs5004.animator.model.AnimationReader;
 import cs5004.animator.model.Builder;
@@ -27,31 +29,31 @@ public class EasyAnimator {
     String fileName = "buildings.txt";
     String viewType = "visual";
     String out = "out.txt";
-    String speed = "50";
+    String speed = "20";
 
-//    for (int i = 0; i < args.length; i++) {
-//      if (args[i].equalsIgnoreCase("-in")) {
-//        fileName = args[i + 1];
-//      } else if (args[i].equalsIgnoreCase("-view")) {
-//        viewType = args[i + 1];
-//      } else if (args[i].equalsIgnoreCase("-out")) {
-//        out = args[i + 1];
-//      } else if (args[i].equalsIgnoreCase("-speed")) {
-//        speed = args[i + 1];
-//      }
-//    }
+    for (int i = 0; i < args.length; i++) {
+      if (args[i].equalsIgnoreCase("-in")) {
+        fileName = args[i + 1];
+      } else if (args[i].equalsIgnoreCase("-view")) {
+        viewType = args[i + 1];
+      } else if (args[i].equalsIgnoreCase("-out")) {
+        out = args[i + 1];
+      } else if (args[i].equalsIgnoreCase("-speed")) {
+        speed = args[i + 1];
+      }
+    }
 
     AnimationBuilder<InterfaceModel> myAnimationBuilder = new Builder(model);
     try {
       model = AnimationReader.parseFile(new FileReader(fileName), myAnimationBuilder);
     } catch (IOException e) {
-      JOptionPane.showMessageDialog(null, "Cannot read the file");
+      JOptionPane.showMessageDialog(null, e);
       System.exit(0);
 
     }
 
-    InterfaceAnimation view;
-    InterfaceText view2;
+    InterfaceAnimation view = null;
+    InterfaceText view2 = null;
     if (viewType.equalsIgnoreCase("text")) {
       view2 = new TextView(model);
     } else if (viewType.equalsIgnoreCase("visual")) {
@@ -66,7 +68,7 @@ public class EasyAnimator {
       controller = new TextController(view2, model, Integer.parseInt(speed));
     }
 
-    controller.animate();
+    controller.start();
 
   }
 
