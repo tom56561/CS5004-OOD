@@ -39,8 +39,9 @@ public class Builder implements AnimationBuilder<InterfaceModel> {
     InterfaceShape shape = model.getShape(name);
 
     if (shape.getAppear() == 0 && shape.getDisappear() == 0) {
-      Color color = new Color(r1, g1, b1);
-      shape.setColor(color);
+      shape.setRed(r1);
+      shape.setGreen(g1);
+      shape.setBlue(b1);
       shape.setHeight(h1);
       shape.setWidth(w1);
       Point2D position = new Point2D.Double(x1, y1);

@@ -15,7 +15,6 @@ public class AbstractShape implements InterfaceShape {
   protected String name;
   protected ShapeType shapetype;
   protected Point2D position;
-  protected Color color;
   protected double width;
   protected double height;
   protected int appearT;
@@ -38,7 +37,7 @@ public class AbstractShape implements InterfaceShape {
    * @throws IllegalArgumentException if the width and height is negative number
    *                                  or position is null
    */
-  protected AbstractShape(String name, ShapeType shapetype, Point2D position, Color color,
+  protected AbstractShape(String name, ShapeType shapetype, Point2D position, double red, double green, double blue,
       double width, double height, int appearT, int disappearT) throws IllegalArgumentException {
     if (position == null || width < 0 || height < 0) {
       throw new IllegalArgumentException("Input data is invalid, cannot build a shape");
@@ -46,10 +45,9 @@ public class AbstractShape implements InterfaceShape {
     this.name = name;
     this.shapetype = shapetype;
     this.position = position;
-    this.color = color;
-    this.green = color.getGreen();
-    this.red = color.getRed();
-    this.blue = color.getBlue();
+    this.green = green;
+    this.red = red;
+    this.blue = blue;
     this.width = width;
     this.height = height;
     this.appearT = appearT;
@@ -60,7 +58,7 @@ public class AbstractShape implements InterfaceShape {
    * Construct that initialize the field without argument passed in.
    */
   protected AbstractShape() {
-    this("default", ShapeType.RECTANGLE, new Point2D.Double(0, 0), new Color(0), 0, 0, 0, 0);
+    this("default", ShapeType.RECTANGLE, new Point2D.Double(0, 0), 0, 0, 0, 0, 0, 0, 0);
   }
 
   @Override
@@ -73,10 +71,6 @@ public class AbstractShape implements InterfaceShape {
     return this.shapetype;
   }
 
-  @Override
-  public Color getColor() {
-    return new Color(this.color.getRGB());
-  }
 
   @Override
   public double getWidth() {
@@ -106,11 +100,6 @@ public class AbstractShape implements InterfaceShape {
   @Override
   public void setPosition(Point2D point) {
     this.position = point;
-  }
-
-  @Override
-  public void setColor(Color color) {
-    this.color = color;
   }
   
   @Override
@@ -148,8 +137,8 @@ public class AbstractShape implements InterfaceShape {
   public String toString() {
     return "Name: " + this.getName() + "\nType: " + this.getType().toString() + "\nMin corner: ("
         + this.position.getX() + "," + this.position.getY() + "), Width: " + this.getWidth()
-        + ", Height: " + this.getHeight() + ", Color: (" + this.getColor().getRed() + ", "
-        + this.getColor().getGreen() + ", " + this.getColor().getBlue() + ")\n";
+        + ", Height: " + this.getHeight() + ", Color: (" + this.red + ", "
+        + this.green + ", " + this.blue + ")\n";
   }
 
   @Override
@@ -160,6 +149,23 @@ public class AbstractShape implements InterfaceShape {
   @Override
   public void setDisappear(int t) {
     this.disappearT = t;
+  }
+
+  @Override
+  public double getGreen() {
+    return this.green;
+  }
+
+  @Override
+  public double getRed() {
+    // TODO Auto-generated method stub
+    return this.red;
+  }
+
+  @Override
+  public double getBlue() {
+    // TODO Auto-generated method stub
+    return this.blue;
   }
 
 }

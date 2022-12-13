@@ -26,13 +26,6 @@ public interface InterfaceShape {
   ShapeType getType();
 
   /**
-   * Get the color of shape.
-   * 
-   * @return the color of shape
-   */
-  Color getColor();
-
-  /**
    * Get the width of the shape.
    * 
    * @return the width of the shape
@@ -74,12 +67,6 @@ public interface InterfaceShape {
    */
   void setPosition(Point2D point);
 
-  /**
-   * Set the color of the shape by given color.
-   * 
-   * @param color is RGB color
-   */
-  void setColor(Color color);
 
   /**
    * Set the width of the shape by given width.
@@ -98,6 +85,13 @@ public interface InterfaceShape {
   void setAppear(int t);
   
   void setDisappear(int t);
+  
+  double getGreen();
+  
+  double getRed();
+
+  double getBlue();
+
   
   void setRed(double newRed);
 

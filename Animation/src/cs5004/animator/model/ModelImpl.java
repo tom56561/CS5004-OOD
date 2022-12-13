@@ -54,13 +54,12 @@ public class ModelImpl implements InterfaceModel {
   public void addShape(String name, ShapeType shapetype, double x, double y, int r1, int g1, int b1,
       double width, double height, int appearT, int disappearT) {
 
-    Color color = new Color(r1, g1, b1);
     InterfaceShape shape = null;
     Point2D position = new Point2D.Double(x, y);
     if (shapetype == ShapeType.RECTANGLE) {
-      shape = new Rectangle(name, shapetype, position, color, width, height, appearT, disappearT);
+      shape = new Rectangle(name, shapetype, position, r1, g1, b1, width, height, appearT, disappearT);
     } else if (shapetype == ShapeType.OVAL) {
-      shape = new Oval(name, shapetype, position, color, width, height, appearT, disappearT);
+      shape = new Oval(name, shapetype, position, r1, g1, b1, width, height, appearT, disappearT);
     }
     if (shape != null) {
       this.shapeMap.put(name, shape);
@@ -74,7 +73,7 @@ public class ModelImpl implements InterfaceModel {
       int g2, int b2) {
     ChangeColor newColor = new ChangeColor(this.shapeMap, AnimationType.COLOR, name, startTime,
         endTime, r1, g1, b1, r2, g2, b2);
-    newColor.setColor();
+    animationMap.get(name).add(newColor);
 
   }
 
@@ -83,7 +82,8 @@ public class ModelImpl implements InterfaceModel {
       double endW, double endH) {
     Scale newScale = new Scale(this.shapeMap, AnimationType.SCALE, name, startTime, endTime, startW,
         startH, endW, endH);
-    newScale.setScale();
+    animationMap.get(name).add(newScale);
+
   }
 
   @Override
@@ -91,7 +91,6 @@ public class ModelImpl implements InterfaceModel {
       double startY, double endY) {
     Move newMove = new Move(this.shapeMap, AnimationType.SCALE, name, startTime, endTime, startX,
         startY, endX, endY);
-    newMove.setMove();
     animationMap.get(name).add(newMove);
 
   }

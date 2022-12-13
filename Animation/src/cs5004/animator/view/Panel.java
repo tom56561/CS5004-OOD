@@ -51,7 +51,8 @@ public class Panel extends JPanel {
     
     if (!this.shapes.isEmpty()) {
       for (InterfaceShape shape : this.shapes) {
-        Color color = shape.getColor();
+        Color color = new Color((int)shape.getRed(),
+            (int)shape.getGreen() , (int)shape.getBlue());
         
         ShapeType shapeType = shape.getType();
         
