@@ -22,7 +22,7 @@ public class AnimationController implements InterfaceController {
           timer.stop();
           return;
         }
-        for (InterfaceShape renderShape : model.getAllShapesAtFrame(currentFrame++)) {
+        for (InterfaceShape renderShape : model.getAllShapes(currentFrame++)) {
           animationView.drawShape(renderShape);
         }
         animationView.refresh();
