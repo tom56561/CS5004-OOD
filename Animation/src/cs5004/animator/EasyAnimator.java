@@ -55,17 +55,17 @@ public class EasyAnimator {
     InterfaceAnimation view = null;
     InterfaceText view2 = null;
     if (viewType.equalsIgnoreCase("text")) {
-      view2 = new TextView(model);
+      view2 = new TextView(model, Integer.parseInt(speed));
     } else if (viewType.equalsIgnoreCase("visual")) {
       view = new AnimationView(model.getBoundW(),
           model.getBoundH());
     }
 
     InterfaceController controller;
-    if (view.getViewType() == ViewType.ANIMATION) {
+    if (view != null && view.getViewType() == ViewType.ANIMATION) {
       controller = new AnimationController(model, view, Integer.parseInt(speed));
     } else {
-      controller = new TextController(view2, model, Integer.parseInt(speed));
+      controller = new TextController(view2, model, Integer.parseInt(speed), new StringBuilder());
     }
 
     controller.start();
