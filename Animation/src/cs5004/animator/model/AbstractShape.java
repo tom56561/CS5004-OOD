@@ -158,13 +158,11 @@ public class AbstractShape implements InterfaceShape {
 
   @Override
   public double getRed() {
-    // TODO Auto-generated method stub
     return this.red;
   }
 
   @Override
   public double getBlue() {
-    // TODO Auto-generated method stub
     return this.blue;
   }
 

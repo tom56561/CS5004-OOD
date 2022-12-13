@@ -101,6 +101,9 @@ public interface InterfaceModel {
   
   ArrayList<InterfaceShape> getAllShapes(int frame);
   
+  Map getAllAnimationMap();
+
+  
   
   
 
