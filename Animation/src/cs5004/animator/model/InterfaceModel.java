@@ -100,7 +100,8 @@ public interface InterfaceModel {
   int getMaxEndingTime();
   
   ArrayList<InterfaceShape> getAllShapes(int frame);
-    
+  
+  
   
 
 }

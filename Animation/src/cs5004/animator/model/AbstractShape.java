@@ -20,6 +20,9 @@ public class AbstractShape implements InterfaceShape {
   protected double height;
   protected int appearT;
   protected int disappearT;
+  protected double green;
+  protected double red;
+  protected double blue;
 
   /**
    * Construct that initialize the field by given arguments.
@@ -44,6 +47,9 @@ public class AbstractShape implements InterfaceShape {
     this.shapetype = shapetype;
     this.position = position;
     this.color = color;
+    this.green = color.getGreen();
+    this.red = color.getRed();
+    this.blue = color.getBlue();
     this.width = width;
     this.height = height;
     this.appearT = appearT;
@@ -106,7 +112,22 @@ public class AbstractShape implements InterfaceShape {
   public void setColor(Color color) {
     this.color = color;
   }
+  
+  @Override
+  public void setRed(double newRed) {
+    this.red = newRed;
+  }
 
+  @Override
+  public void setGreen(double newGreen) {
+    this.green = newGreen;
+  }
+
+  @Override
+  public void setBlue(double newBlue) {
+    this.blue = newBlue;
+  }
+  
   @Override
   public void setWidth(double w) {
     if (w < 0) {

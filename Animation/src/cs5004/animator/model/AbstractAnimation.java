@@ -67,5 +67,5 @@ public class AbstractAnimation implements InterfaceAnimation {
     return changeFrom * ((endTime - t) / (endTime - startTime))
         + changeTo * ((t - startTime) / (this.endTime - startTime));
   }
-
+  
 }

@@ -98,5 +98,13 @@ public interface InterfaceShape {
   void setAppear(int t);
   
   void setDisappear(int t);
+  
+  void setRed(double newRed);
+
+
+  void setGreen(double newGreen);
+
+ 
+  void setBlue(double newBlue);
 
 }

@@ -48,8 +48,12 @@ public class ChangeColor extends AbstractAnimation implements InterfaceAnimation
   public void performAction(int frame) {
 
     InterfaceShape shape = (InterfaceShape) this.shapeMap.get(this.name);
-    shape.setColor(tweening(this.oldColor, this.newColor, this.startTime, this.endTime, frame));
-    
+    shape.setGreen(tweening(this.oldColor.getGreen(), this.newColor.getGreen(), this.startTime,
+        this.endTime, frame));
+    shape.setBlue(tweening(this.oldColor.getBlue(), this.newColor.getBlue(), this.startTime,
+        this.endTime, frame));
+    shape.setRed(tweening(this.oldColor.getRed(), this.newColor.getRed(), this.startTime,
+        this.endTime, frame));
 
   }
 

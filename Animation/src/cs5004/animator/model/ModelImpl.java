@@ -17,6 +17,7 @@ public class ModelImpl implements InterfaceModel {
 
   private Map<String, InterfaceShape> shapeMap;
   private Map<String, ArrayList<InterfaceAnimation>> animationMap;
+  private ArrayList<InterfaceAnimation> sortedAnimationList;
 
   private int w;
   private int h;
@@ -27,6 +28,7 @@ public class ModelImpl implements InterfaceModel {
   public ModelImpl() {
     this.shapeMap = new LinkedHashMap<>();
     this.animationMap = new HashMap<>();
+    this.sortedAnimationList = new ArrayList<>();
   }
 
   @Override
@@ -123,11 +125,29 @@ public class ModelImpl implements InterfaceModel {
     return maxDisappears;
   }
 
+//  public void swithMapToSortedList() {
+//    for(ArrayList<InterfaceAnimation> animation: animationMap.values()) {
+//      for 
+//    }
+//  }
+
   @Override
   public ArrayList<InterfaceShape> getAllShapes(int frame) {
-    performAnimation(frame);
-    return null;
+    for (ArrayList<InterfaceAnimation> animationList : animationMap.values()) {
+      for (InterfaceAnimation animation : animationList) {
+        if (frame >= animation.getStartTime() && frame <= animation.getEndTime()) {
+          animation.performAction(frame);
+        }
+      }
+    }
+    ArrayList<InterfaceShape> shapesAtFrame = new ArrayList<>();
+    for (String shapeName : shapeMap.keySet()) {
+      if (frame >= shapeMap.get(shapeName).getAppear()
+          && frame <= shapeMap.get(shapeName).getDisappear()) {
+        shapesAtFrame.add(shapeMap.get(shapeName));
+      }
+    }
+    return shapesAtFrame;
   }
-
 
 }
