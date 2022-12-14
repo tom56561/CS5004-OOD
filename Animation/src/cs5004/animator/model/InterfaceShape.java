@@ -1,6 +1,5 @@
 package cs5004.animator.model;
 
-import java.awt.Color;
 import java.awt.geom.Point2D;
 
 /**
@@ -67,7 +66,6 @@ public interface InterfaceShape {
    */
   void setPosition(Point2D point);
 
-
   /**
    * Set the width of the shape by given width.
    * 
@@ -81,24 +79,61 @@ public interface InterfaceShape {
    * @param h the height that the shape should be changed to
    */
   void setHeight(double h);
-  
+
+  /**
+   * Set the appear time of the shape by given time.
+   * 
+   * @param t the time that the shape should be appear.
+   */
   void setAppear(int t);
-  
+
+  /**
+   * Set the disappear time of the shape by given time.
+   * 
+   * @param t the time that the shape should be disappear.
+   */
   void setDisappear(int t);
-  
+
+  /**
+   * Get the green of shape.
+   * 
+   * @return the green of shape
+   */
   double getGreen();
-  
+
+  /**
+   * Get the red of shape.
+   * 
+   * @return the red of shape
+   */
   double getRed();
 
+  /**
+   * Get the blue of shape.
+   * 
+   * @return the blue of shape
+   */
   double getBlue();
 
-  
+  /**
+   * Set the red value of the shape.
+   * 
+   * @param newRed the red value that shape should be change
+   */
   void setRed(double newRed);
 
-
+  /**
+   * Set the green value of the shape.
+   * 
+   * @param newRed the green value that shape should be change
+   */
   void setGreen(double newGreen);
 
- 
+  /**
+   * Set the blue value of the shape.
+   * 
+   * @param newRed the blue value that shape should be change
+   */
   void setBlue(double newBlue);
 
 }

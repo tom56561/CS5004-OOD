@@ -18,8 +18,20 @@ public interface InterfaceModel {
    * @return the mapping shape
    */
   InterfaceShape getShape(String name);
-  
+
+  /**
+   * Get the shapeMap.
+   * 
+   * @return the new shapeMap
+   */
   Map getShapeList();
+
+  /**
+   * Get the animationMap.
+   * 
+   * @return the new animationMap
+   */
+  Map getAllAnimationMap();
 
   /**
    * Get animation from the hashmap bu passing name.
@@ -90,21 +102,42 @@ public interface InterfaceModel {
    */
   void move(String name, int startTime, int endTime, double startx, double endx, double starty,
       double endy);
-  
-  void setBoundWandH(int w, int h);
-  
-  int getBoundW();
-  
-  int getBoundH();
-  
-  int getMaxEndingTime();
-  
-  ArrayList<InterfaceShape> getAllShapes(int frame);
-  
-  Map getAllAnimationMap();
 
-  
-  
-  
+  /**
+   * Set the bound width and Height.
+   * 
+   * @param w the width
+   * @param h the Height
+   */
+  void setBoundWandH(int w, int h);
+
+  /**
+   * Get the width of bound.
+   * 
+   * @return the width of bound
+   */
+  int getBoundW();
+
+  /**
+   * Get the Height of bound.
+   * 
+   * @return the Height of bound
+   */
+  int getBoundH();
+
+  /**
+   * Get the last disappear time.
+   * 
+   * @return the last disappear time
+   */
+  int getMaxEndingTime();
+
+  /**
+   * Get the all shapes of animation.
+   * 
+   * @param frame the frame we want to animate
+   * @return the shapesAtFrame
+   */
+  ArrayList<InterfaceShape> getAllShapes(int frame);
 
 }

@@ -1,6 +1,5 @@
 package cs5004.animator.model;
 
-import java.awt.Color;
 import java.awt.geom.Point2D;
 
 /**
@@ -37,8 +36,9 @@ public class AbstractShape implements InterfaceShape {
    * @throws IllegalArgumentException if the width and height is negative number
    *                                  or position is null
    */
-  protected AbstractShape(String name, ShapeType shapetype, Point2D position, double red, double green, double blue,
-      double width, double height, int appearT, int disappearT) throws IllegalArgumentException {
+  protected AbstractShape(String name, ShapeType shapetype, Point2D position, double red,
+      double green, double blue, double width, double height, int appearT, int disappearT)
+      throws IllegalArgumentException {
     if (position == null || width < 0 || height < 0) {
       throw new IllegalArgumentException("Input data is invalid, cannot build a shape");
     }
@@ -71,7 +71,6 @@ public class AbstractShape implements InterfaceShape {
     return this.shapetype;
   }
 
-
   @Override
   public double getWidth() {
     return this.width;
@@ -101,7 +100,7 @@ public class AbstractShape implements InterfaceShape {
   public void setPosition(Point2D point) {
     this.position = point;
   }
-  
+
   @Override
   public void setRed(double newRed) {
     this.red = newRed;
@@ -116,7 +115,7 @@ public class AbstractShape implements InterfaceShape {
   public void setBlue(double newBlue) {
     this.blue = newBlue;
   }
-  
+
   @Override
   public void setWidth(double w) {
     if (w < 0) {
@@ -137,8 +136,8 @@ public class AbstractShape implements InterfaceShape {
   public String toString() {
     return "Name: " + this.getName() + "\nType: " + this.getType().toString() + "\nMin corner: ("
         + this.position.getX() + "," + this.position.getY() + "), Width: " + this.getWidth()
-        + ", Height: " + this.getHeight() + ", Color: (" + this.red + ", "
-        + this.green + ", " + this.blue + ")\n";
+        + ", Height: " + this.getHeight() + ", Color: (" + this.red + ", " + this.green + ", "
+        + this.blue + ")\n";
   }
 
   @Override

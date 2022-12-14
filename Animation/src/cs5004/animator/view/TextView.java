@@ -1,22 +1,30 @@
 package cs5004.animator.view;
 
-import java.io.StringWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 import cs5004.animator.model.InterfaceModel;
 import cs5004.animator.model.InterfaceShape;
 import cs5004.animator.model.InterfaceAnimation;
 
+/**
+ * The view to show the text.
+ * 
+ * @author eddie
+ *
+ */
 public class TextView implements InterfaceText {
-  private Appendable out;
   private ViewType viewType;
   private InterfaceModel model;
   private int speed;
 
+  /**
+   * Initialize the the model, speed, and view type.
+   * 
+   * @param model the model of shape and animation
+   * @param speed the speed
+   */
   public TextView(InterfaceModel model, int speed) {
-    this.out = new StringWriter();
     this.model = model;
     this.viewType = ViewType.TEXT;
     this.speed = speed;

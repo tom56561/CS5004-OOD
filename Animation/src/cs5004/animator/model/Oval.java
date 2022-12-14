@@ -1,6 +1,5 @@
 package cs5004.animator.model;
 
-import java.awt.Color;
 import java.awt.geom.Point2D;
 
 /**
@@ -17,7 +16,6 @@ public class Oval extends AbstractShape {
    * @param name       the name of this shape
    * @param shapetype  the type of the shape
    * @param position   the position of the shape
-   * @param color      the color of the shape
    * @param width      the width of the shape
    * @param height     the height of the shape
    * @param appearT    the appearT of the shape

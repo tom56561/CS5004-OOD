@@ -1,12 +1,22 @@
 package cs5004.animator.model;
 
-import java.awt.Color;
 import java.awt.geom.Point2D;
 
+/**
+ * The builder to handle different behavior.
+ * 
+ * @author eddie
+ *
+ */
 public class Builder implements AnimationBuilder<InterfaceModel> {
 
   private final InterfaceModel model;
 
+  /**
+   * Initialize the model by model implement class.
+   * 
+   * @param model the model implement
+   */
   public Builder(InterfaceModel model) {
     this.model = model;
   }

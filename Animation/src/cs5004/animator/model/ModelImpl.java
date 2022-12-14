@@ -1,6 +1,5 @@
 package cs5004.animator.model;
 
-import java.awt.Color;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,7 +46,7 @@ public class ModelImpl implements InterfaceModel {
     }
     return newShapeMap;
   }
-  
+
   @Override
   public Map getAllAnimationMap() {
     Map<String, ArrayList<InterfaceAnimation>> newAnimationMap = new HashMap<>();
@@ -65,7 +64,8 @@ public class ModelImpl implements InterfaceModel {
     InterfaceShape shape = null;
     Point2D position = new Point2D.Double(x, y);
     if (shapetype == ShapeType.RECTANGLE) {
-      shape = new Rectangle(name, shapetype, position, r1, g1, b1, width, height, appearT, disappearT);
+      shape = new Rectangle(name, shapetype, position, r1, g1, b1, width, height, appearT,
+          disappearT);
     } else if (shapetype == ShapeType.OVAL) {
       shape = new Oval(name, shapetype, position, r1, g1, b1, width, height, appearT, disappearT);
     }
@@ -131,7 +131,6 @@ public class ModelImpl implements InterfaceModel {
 
     return maxDisappears;
   }
-
 
   @Override
   public ArrayList<InterfaceShape> getAllShapes(int frame) {

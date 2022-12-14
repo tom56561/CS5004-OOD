@@ -1,5 +1,11 @@
 package cs5004.animator.model;
 
+/**
+ * Interface AnimationBuilder
+ * @author eddie
+ *
+ * @param <Doc> the Doc
+ */
 public interface AnimationBuilder<Doc> {
   /**
    * Constructs a final document.

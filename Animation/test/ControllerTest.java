@@ -1,4 +1,5 @@
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -14,32 +15,46 @@ import cs5004.animator.view.InterfaceText;
 import cs5004.animator.view.TextView;
 import cs5004.animator.controller.InterfaceController;
 
+/**
+ * Test the controller.
+ * 
+ * @author eddie
+ *
+ */
 public class ControllerTest {
 
-  private InterfaceController animationcontroller;
   private InterfaceController textcontroller;
   private InterfaceModel model;
-  private InterfaceAnimation view;
-  private InterfaceText view2;
   private StringBuilder textLog;
 
+  /**
+   * Set up and instance variable.
+   * 
+   * @throws Exception
+   */
   @Before
   public void setUp() throws Exception {
     textLog = new StringBuilder();
     model = new ModelImpl();
-    view = new AnimationView(model.getBoundW(), model.getBoundH());
-    view2 = new TextView(model, 10);
-    animationcontroller = new AnimationController(model, view, 10);
-    textcontroller = new TextController(view2, model, 10, textLog);
+    InterfaceAnimation view = new AnimationView(model.getBoundW(), model.getBoundH());
+    InterfaceText view2 = new TextView(model, 10);
+    InterfaceController animationcontroller = new AnimationController(model, view, 10);
+    textcontroller = new TextController(view2, model, textLog);
 
   }
 
+  /**
+   * Test text controller.
+   */
   @Test
   public void testTextControllerStart() {
     textcontroller.start();
     assertEquals("Shape: \n", textLog.toString());
   }
 
+  /**
+   * Test text controller after add shape.
+   */
   @Test
   public void testTextControllerStart2() {
     model.addShape("A", ShapeType.RECTANGLE, 0, 0, 1, 1, 1, 10, 20, 0, 100);
@@ -49,6 +64,9 @@ public class ControllerTest {
         + "Appears at time t=0 and disappears at time t=10\n", textLog.toString());
   }
 
+  /**
+   * Test text controller after add shape and move.
+   */
   @Test
   public void testTextControllerStart3() {
     model.addShape("A", ShapeType.RECTANGLE, 0, 0, 1, 1, 1, 10, 20, 0, 100);

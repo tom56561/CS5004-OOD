@@ -1,5 +1,4 @@
 
-
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
@@ -11,10 +10,21 @@ import cs5004.animator.model.ShapeType;
 import cs5004.animator.view.InterfaceText;
 import cs5004.animator.view.TextView;
 
+/**
+ * Test text view.
+ * 
+ * @author eddie
+ *
+ */
 public class TextViewTest {
   private InterfaceText view;
   private InterfaceModel model;
 
+  /**
+   * Set up and instance variable.
+   * 
+   * @throws Exception
+   */
   @Before
   public void setUp() throws Exception {
     model = new ModelImpl();
@@ -23,6 +33,9 @@ public class TextViewTest {
     view = new TextView(model, speed);
   }
 
+  /**
+   * Test render method.
+   */
   @Test
   public void testRender() {
     assertEquals("Shape: \n" + "Name: R\n" + "Type: RECTANGLE\n"
@@ -30,6 +43,9 @@ public class TextViewTest {
         + "Appears at time t=10 and disappears at time t=10\n", view.render());
   }
 
+  /**
+   * Test render method with certain speed.
+   */
   @Test
   public void testRenderSpeed() {
     view = new TextView(model, 50);
@@ -38,6 +54,9 @@ public class TextViewTest {
         + "Appears at time t=2 and disappears at time t=2\n", view.render());
   }
 
+  /**
+   * Test render method with animation.
+   */
   @Test
   public void testRenderAnimation() {
     model.move("R", 3, 10, 0, 0, 200, 200);

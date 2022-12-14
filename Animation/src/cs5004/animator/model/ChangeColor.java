@@ -1,7 +1,6 @@
 package cs5004.animator.model;
 
 import java.awt.Color;
-import java.awt.geom.Point2D;
 import java.util.Map;
 
 /**
@@ -38,13 +37,16 @@ public class ChangeColor extends AbstractAnimation implements InterfaceAnimation
     this.newColor = new Color(r2, g2, b2);
   }
 
+  /**
+   * Set the color by manual.
+   */
   public void setColor() {
     this.shape.setRed(this.newColor.getRed());
     this.shape.setBlue(this.newColor.getBlue());
     this.shape.setGreen(this.newColor.getGreen());
 
   }
-  
+
   @Override
   public void performAction(int frame) {
 

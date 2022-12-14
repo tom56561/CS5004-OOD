@@ -17,6 +17,11 @@ import cs5004.animator.model.ShapeType;
 public class ModelImplTest {
   private InterfaceModel model;
 
+  /**
+   * Set up and instance variable.
+   * 
+   * @throws Exception
+   */
   @Before
   public void setUp() {
 

@@ -1,7 +1,5 @@
 package cs5004.animator.view;
 
-import java.awt.GraphicsConfiguration;
-import java.awt.HeadlessException;
 import java.util.Timer;
 
 import javax.swing.JFrame;
@@ -10,6 +8,12 @@ import javax.swing.WindowConstants;
 
 import cs5004.animator.model.InterfaceShape;
 
+/**
+ * The view to show the animation by using java.swing.
+ * 
+ * @author eddie
+ *
+ */
 public class AnimationView extends JFrame implements InterfaceAnimation {
 
   private Panel panel;
@@ -17,7 +21,12 @@ public class AnimationView extends JFrame implements InterfaceAnimation {
   private Timer timer;
   private int tempo;
 
-
+  /**
+   * Initialize the animation view setting by width and height.
+   * 
+   * @param w the width of panel
+   * @param h the height of panel
+   */
   public AnimationView(int w, int h) {
     super();
     this.viewType = ViewType.ANIMATION;
@@ -31,7 +40,6 @@ public class AnimationView extends JFrame implements InterfaceAnimation {
     setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     this.setVisible(true);
 
-    
   }
 
   @Override
