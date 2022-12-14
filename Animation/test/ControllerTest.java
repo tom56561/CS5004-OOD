@@ -30,10 +30,9 @@ public class ControllerTest {
   /**
    * Set up and instance variable.
    * 
-   * @throws Exception
    */
   @Before
-  public void setUp() throws Exception {
+  public void setUp() {
     textLog = new StringBuilder();
     model = new ModelImpl();
     InterfaceAnimation view = new AnimationView(model.getBoundW(), model.getBoundH());

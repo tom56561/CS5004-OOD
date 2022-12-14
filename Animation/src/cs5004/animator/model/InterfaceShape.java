@@ -125,14 +125,14 @@ public interface InterfaceShape {
   /**
    * Set the green value of the shape.
    * 
-   * @param newRed the green value that shape should be change
+   * @param newGreen the green value that shape should be change
    */
   void setGreen(double newGreen);
 
   /**
    * Set the blue value of the shape.
    * 
-   * @param newRed the blue value that shape should be change
+   * @param newBlue the blue value that shape should be change
    */
   void setBlue(double newBlue);
 

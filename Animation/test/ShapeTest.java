@@ -24,10 +24,9 @@ public class ShapeTest {
   /**
    * Set up and instance variable.
    * 
-   * @throws Exception
    */
   @Before
-  public void setUp() throws Exception {
+  public void setUp() {
     rectangle = new Rectangle("A", ShapeType.RECTANGLE, new Point2D.Double(200, 200), 50, 100, 1.0,
         6.0, 6.0, 10, 50);
     oval = new Oval("B", ShapeType.OVAL, new Point2D.Double(500, 100), 60, 30, 0.0, 5.0, 5.0, 0,

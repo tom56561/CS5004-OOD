@@ -1,7 +1,8 @@
 package cs5004.animator.model;
 
 /**
- * Interface AnimationBuilder
+ * Interface AnimationBuilder.
+ * 
  * @author eddie
  *
  * @param <Doc> the Doc
@@ -9,16 +10,17 @@ package cs5004.animator.model;
 public interface AnimationBuilder<Doc> {
   /**
    * Constructs a final document.
+   * 
    * @return the newly constructed document
    */
   Doc build();
 
-
   /**
    * Specify the bounding box to be used for the animation.
-   * @param x The leftmost x value
-   * @param y The topmost y value
-   * @param width The width of the bounding box
+   * 
+   * @param x      The leftmost x value
+   * @param y      The topmost y value
+   * @param width  The width of the bounding box
    * @param height The height of the bounding box
    * @return This {@link AnimationBuilder}
    */
@@ -27,11 +29,11 @@ public interface AnimationBuilder<Doc> {
   /**
    * Adds a new shape to the growing document.
    *
-   * @param name The unique name of the shape to be added.  
-   *             No shape with this name should already exist.
-   * @param type The type of shape (e.g. "ellipse", "rectangle") to be added.  
-   *             The set of supported shapes is unspecified, but should 
-   *             include "ellipse" and "rectangle" as a minimum.
+   * @param name The unique name of the shape to be added. No shape with this name
+   *             should already exist.
+   * @param type The type of shape (e.g. "ellipse", "rectangle") to be added. The
+   *             set of supported shapes is unspecified, but should include
+   *             "ellipse" and "rectangle" as a minimum.
    * @return This {@link AnimationBuilder}
    */
   AnimationBuilder<Doc> declareShape(String name, String type);
@@ -39,7 +41,8 @@ public interface AnimationBuilder<Doc> {
   /**
    * Adds a transformation to the growing document.
    * 
-   * @param name The name of the shape (added with {@link AnimationBuilder#declareShape})
+   * @param name The name of the shape (added with
+   *             {@link AnimationBuilder#declareShape})
    * @param t1   The start time of this transformation
    * @param x1   The initial x-position of the shape
    * @param y1   The initial y-position of the shape
@@ -58,7 +61,6 @@ public interface AnimationBuilder<Doc> {
    * @param b2   The final blue color-value of the shape
    * @return This {@link AnimationBuilder}
    */
-  AnimationBuilder<Doc> addMotion(String name,
-                                  int t1, int x1, int y1, int w1, int h1, int r1, int g1, int b1,
-                                  int t2, int x2, int y2, int w2, int h2, int r2, int g2, int b2);
+  AnimationBuilder<Doc> addMotion(String name, int t1, int x1, int y1, int w1, int h1, int r1,
+      int g1, int b1, int t2, int x2, int y2, int w2, int h2, int r2, int g2, int b2);
 }

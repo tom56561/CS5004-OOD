@@ -44,7 +44,7 @@ public interface InterfaceAnimation {
   void performAction(int frame);
 
   /**
-   * Compute the intermediate state of R at any time 𝑡𝑎≤𝑡≤𝑡𝑏
+   * Compute the intermediate state of R at any time 𝑡𝑎≤𝑡≤𝑡𝑏.
    * 
    * @param changeFrom the original value
    * @param changeTo   the changing value

@@ -20,7 +20,6 @@ public class ModelImplTest {
   /**
    * Set up and instance variable.
    * 
-   * @throws Exception
    */
   @Before
   public void setUp() {
@@ -44,38 +43,32 @@ public class ModelImplTest {
             + "Min corner: (0.0,0.0), Width: 10.0, Height: 20.0, Color: (1.0, 1.0, 1.0)\n",
         model.getShape("B").toString());
   }
-  
+
   /**
    * Test getAnimation method is work well.
    */
   @Test
   public void testGetAnimation() {
-    assertEquals(
-        "[]",
-        model.getAnimation("A").toString());
-    assertEquals(
-        "[]",
-        model.getAnimation("B").toString());
+    assertEquals("[]", model.getAnimation("A").toString());
+    assertEquals("[]", model.getAnimation("B").toString());
     model.changeColor("A", 10, 20, 1, 1, 1, 20, 20, 20);
-    assertEquals(
-        "[Shape A changes color from (1,1,1) to (20,20,20)]",
+    assertEquals("[Shape A changes color from (1,1,1) to (20,20,20)]",
         model.getAnimation("A").toString());
   }
-  
+
   /**
    * Test getShapeList method is work well.
    */
   @Test
   public void testGetShapeList() {
-    assertEquals("{A=Name: A\n"
-        + "Type: RECTANGLE\n"
-        + "Min corner: (0.0,0.0), Width: 10.0, Height: 20.0, Color: (1.0, 1.0, 1.0)\n"
-        + ", B=Name: B\n"
-        + "Type: OVAL\n"
-        + "Min corner: (0.0,0.0), Width: 10.0, Height: 20.0, Color: (1.0, 1.0, 1.0)\n"
-        + "}", model.getShapeList().toString());
+    assertEquals(
+        "{A=Name: A\n" + "Type: RECTANGLE\n"
+            + "Min corner: (0.0,0.0), Width: 10.0, Height: 20.0, Color: (1.0, 1.0, 1.0)\n"
+            + ", B=Name: B\n" + "Type: OVAL\n"
+            + "Min corner: (0.0,0.0), Width: 10.0, Height: 20.0, Color: (1.0, 1.0, 1.0)\n" + "}",
+        model.getShapeList().toString());
   }
-  
+
   /**
    * Test changeColor method is work well.
    */
@@ -83,11 +76,9 @@ public class ModelImplTest {
   public void testChangeColor() {
     model.changeColor("A", 10, 20, 1, 1, 1, 20, 20, 20);
     model.changeColor("B", 10, 20, 1, 1, 1, 15, 35, 65);
-    assertEquals(
-        "[Shape A changes color from (1,1,1) to (20,20,20)]",
+    assertEquals("[Shape A changes color from (1,1,1) to (20,20,20)]",
         model.getAnimation("A").toString());
-    assertEquals(
-        "[Shape B changes color from (1,1,1) to (15,35,65)]",
+    assertEquals("[Shape B changes color from (1,1,1) to (15,35,65)]",
         model.getAnimation("B").toString());
   }
 
@@ -98,11 +89,9 @@ public class ModelImplTest {
   public void testChangeScale() {
     model.changeScale("A", 40, 50, 10, 20, 12, 22);
     model.changeScale("B", 40, 50, 10, 20, 50, 60);
-    assertEquals(
-        "[Shape A scales from Width: 10.0, Height: 20.0 to Width: 12.0, Height: 22.0]",
+    assertEquals("[Shape A scales from Width: 10.0, Height: 20.0 to Width: 12.0, Height: 22.0]",
         model.getAnimation("A").toString());
-    assertEquals(
-        "[Shape B scales from Width: 10.0, Height: 20.0 to Width: 50.0, Height: 60.0]",
+    assertEquals("[Shape B scales from Width: 10.0, Height: 20.0 to Width: 50.0, Height: 60.0]",
         model.getAnimation("B").toString());
   }
 

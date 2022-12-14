@@ -23,10 +23,9 @@ public class TextViewTest {
   /**
    * Set up and instance variable.
    * 
-   * @throws Exception
    */
   @Before
-  public void setUp() throws Exception {
+  public void setUp() {
     model = new ModelImpl();
     model.addShape("R", ShapeType.RECTANGLE, 0, 0, 100, 100, 20, 20, 0, 100, 100);
     int speed = 10;
