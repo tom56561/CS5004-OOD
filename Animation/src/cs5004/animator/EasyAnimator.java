@@ -39,10 +39,10 @@ public class EasyAnimator {
 
     InterfaceModel model = new ModelImpl();
 
-    String fileName = "buildings.txt";
-    String viewType = "visual";
-    String out = "out.txt";
-    String speed = "20";
+    String fileName = "";
+    String viewType = "";
+    String out = "";
+    String speed = "1";
 
     for (int i = 0; i < args.length; i++) {
       if (args[i].equalsIgnoreCase("-in")) {
@@ -62,7 +62,6 @@ public class EasyAnimator {
     } catch (IOException e) {
       JOptionPane.showMessageDialog(null, e);
       System.exit(0);
-
     }
 
     InterfaceAnimation view = null;
